@@ -2,3 +2,5 @@
 *.mat
 *.xlsx
 *.RData
+*.pdf
+*.png
