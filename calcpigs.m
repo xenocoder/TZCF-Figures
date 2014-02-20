@@ -12,6 +12,10 @@ hexprym19 = (P/(P-C)) .* (hex19 - (but19 .* C));
 butpel19 = (P/(P-C)) .* (but19 - (hex19 .* (1/P)));
 
 pigs = {};
+pigs.stations = in.stations;
+pigs.pressure = in.pressure;
+pigs.latitude = in.latitude;
+pigs.longitude = in.longitude;
 pigs.chlatotal = in.totalchla;
 pigs.chlapro = in.dva; %straight dv-chla relationship
 pigs.chlaprym = 1.3 .* hexprym19;
