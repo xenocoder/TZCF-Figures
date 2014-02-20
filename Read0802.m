@@ -74,8 +74,8 @@ SE0802.NUTS = NUTS;
 %HPLC
 HPLC = {};
 a=load('/Volumes/EOD/Megan/TZCF Cruises/SE-09-02/HPLC/HPLC-SE0902-formatlab-EAH.txt');
-hsta = 17;
-hdep = 9;
+hsta = 41;
+hdep = 10;
 HPLC.pressure = reshape(a(:,3),hdep,hsta);
 HPLC.stations = reshape(a(:,2),hdep,hsta);
 HPLC.latitude = reshape(a(:,1),hdep,hsta);
