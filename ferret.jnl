@@ -1,0 +1,46 @@
+ ! NOAA/PMEL TMAP
+ ! FERRET v6.3  
+ ! Darwin 9.8.0 (ifort) - 11/30/09
+ !  3-Dec-13 13:32     
+
+use "http://thredds.jpl.nasa.gov/thredds/dodsC/ocean_winds/1998_CCMP_MEASURES_ATLAS_L4_OW_L3_5A_MONTHLY_WIND_VECTORS_FLK_v11l35flk.nc"
+use "http://thredds.jpl.nasa.gov/thredds/dodsC/ocean_winds/1999_CCMP_MEASURES_ATLAS_L4_OW_L3_5A_MONTHLY_WIND_VECTORS_FLK_v11l35flk.nc"
+use "http://thredds.jpl.nasa.gov/thredds/dodsC/ocean_winds/2009_CCMP_MEASURES_ATLAS_L4_OW_L3_5A_MONTHLY_WIND_VECTORS_FLK_v11l35flk.nc"
+use "http://www.ncdc.noaa.gov/thredds/dodsC/oceanwindsMonStrs"
+use "http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/seawifs/monthly"
+use "http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/pfgac/monthly"
+use "http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/aqua/monthly"
+shade/levels=(0,0.75,0.05) TAU[d=4,X=180:220@MED,Y=25:45@MED,T="15-JAN-1998":"15-MAR-1998"@AVE]
+vector/over TAUX[d=4,X=180:220,Y=25:45,T="15-JAN-1998":"15-MAR-1998"@AVE],TAUY[d=4,X=180:220@MED,Y=25:45@MED,T="15-JAN-1998":"15-MAR-1998"@AVE]
+contour/over/levels=(17,17,1) SST[d=6,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-1998"]
+contour/over/levels=(0.2,0.2,1) CHLA[d=5,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-1998"]
+shade/levels=(0,0.75,0.05) TAU[d=4,X=180:220@MED,Y=25:45@MED,T="15-JAN-2009":"15-MAR-2009"@AVE]
+vector/over TAUX[d=4,X=180:220,Y=25:45,T="15-JAN-2009":"15-MAR-2009"@AVE],TAUY[d=4,X=180:220@MED,Y=25:45@MED,T="15-JAN-2009":"15-MAR-2009"@AVE]
+contour/over/levels=(17,17,1) SST[d=6,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2009"]
+contour/over/levels=(0.2,0.2,1) CHLA[d=5,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2009"]
+contour/over/levels=(0.2,0.2,1) CHLA[d=7,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2009"]
+use "http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/altim_merged/monthly"
+show data
+plot SSH[d=8, X=180:210@AVE, Y=30:40@AVE, T="15-JAN-1998":"15-DEC-2011"]
+plot SSH[d=8, X=180:210@AVE, Y=32:34@AVE, T="15-JAN-1998":"15-DEC-2011"]
+plot SSH[d=8, X=180:210@AVE, Y=32:34@AVE, T="15-JAN-1998":"15-DEC-2011"] - SSH[d=8, X=180:210@AVE, Y=32:34@AVE, T="15-JAN-1998":"15-DEC-2011"@AVE]
+let ssh1 = SSH[d=8, X=140:225, Y=32:34, T="15-JAN-1998":"15-DEC-2011"]
+let ssh1anom = SSH[d=8, X=140:225, Y=32:34, T="15-JAN-1998":"15-DEC-2011"] - SSH[d=8, X=140:225, Y=32:34, T="15-JAN-1998":"15-DEC-2011"@AVE]
+shade/Y=@AVE ssh1anom
+shade ssh1anom[Y=@AVE]
+shade ssh1[Y=@AVE]
+use "http://opendap.aviso.oceanobs.com/dodsC/merged/h/msla_oer_merged_h"
+plot SSH[d=8, X=180:210@AVE, Y=32:34@AVE, T="15-JAN-1998":"15-DEC-2011"] - SSH[d=8, X=180:210@AVE, Y=32:34@AVE, T="15-JAN-1998":"15-DEC-2011"@AVE]
+show data
+plot/overlay TAU[d=4, X=180:210@AVE, Y=32:34@AVE,T="15-JAN-1998":"15-DEC-2011"@AVE]
+plot TAU[d=4, X=180:210@AVE, Y=32:34@AVE,T="15-JAN-1998":"15-DEC-2011"@AVE]
+plot TAU[d=4, X=180:210@AVE, Y=32:34@AVE,T="15-JAN-1998":"15-DEC-2011"]
+plot TAU[d=4, X=180:210@AVE, Y=32:34@AVE,T="15-JAN-1998":"15-DEC-2011"]-TAU[d=4, X=180:210@AVE, Y=32:34@AVE,T="15-JAN-1998":"15-DEC-2011"@AVE]
+plot SSH[d=8, X=180:210@AVE, Y=32:34@AVE, T="15-JAN-1998":"15-DEC-2011"] - SSH[d=8, X=180:210@AVE, Y=32:34@AVE, T="15-JAN-1998":"15-DEC-2011"@AVE]
+plot/overlay TAU[d=4, X=180:210@AVE, Y=32:34@AVE,T="15-JAN-1998":"15-DEC-2011"]-TAU[d=4, X=180:210@AVE, Y=32:34@AVE,T="15-JAN-1998":"15-DEC-2011"@AVE]
+plot/overlay TAU[d=4, X=180:210@AVE, Y=32:34@AVE,T="15-JAN-1998":"15-DEC-2011"]-TAU[d=4, X=180:210@AVE, Y=32:34@AVE,T="15-JAN-1998":"15-DEC-2011"@AVE]*10
+list SST[d=6, X=200:205@AVE,Y=20:50@LOC:18,T="15-MAR-1998":"15-MAR-2012":12]
+list SST[d=6, X=200:205@AVE,Y=20:50@LOC:18,T="15-MAR-1998":"15-MAR-2012"]
+list SST[d=6, X=200:205@AVE,Y=20:50@LOC:17,T="15-MAR-1998":"15-MAR-2012"]
+list/file=temp.csv SST[d=6, X=200:205@AVE,Y=20:50@LOC:17,T="15-MAR-1998":"15-MAR-2012"]
+exit

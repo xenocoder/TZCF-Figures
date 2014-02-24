@@ -1,0 +1,8 @@
+pscoast -Rg -JA180/25/3.5i -B30/15 -Dc -A1000 -Gblack -P -K > map.ps
+psxy -Rg -JA -Wthin,black  -O -A <<END>> map.ps
+130 25
+230 25
+230 50
+130 50
+130 25
+END
