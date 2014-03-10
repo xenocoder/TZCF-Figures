@@ -1,0 +1,12 @@
+ ! NOAA/PMEL TMAP
+ ! FERRET v6.3  
+ ! Darwin 9.8.0 (ifort) - 11/30/09
+ !  9-Mar-14 19:49     
+
+use ncep-npi-slp-monmean.nc
+show data
+shade/levels=(-0.4,0.4,0.04) SSHD[d=1,Y=32N:34N@AVE,L=1:180]
+shade SLP[d=1,Y=32N:34N@AVE,L=1:180]
+shade SLP[d=2,Y=32N:34N@AVE,L=1:180]
+shade SLP[Y=32N:34N@AVE,L=1:180]
+shade SLPNCEP[d=1,Y=32N:34N@AVE,L=1:180]

@@ -1,0 +1,23 @@
+ ! NOAA/PMEL TMAP
+ ! FERRET v6.3  
+ ! Darwin 9.8.0 (ifort) - 11/30/09
+ ! 23-Feb-14 10:20     
+
+use NCEP-Clim-SLP.nc
+show data
+shade SLP
+shade SLP[X=130:240,Y=25:60]
+shade SLP[X=130:240:0.1,Y=25:60:0.1]
+shade SLP[X=130:240:0.05,Y=25:60:0.05]
+use "ds010.1.19970100.20111231"
+use "ds010.1.19970100.20111231"
+show data
+shade SLP[d=2,L=1]
+plot SLP[d=2,X=160,Y=35]
+shade SLP[d=2,L=1:180:12@AVE]
+shade SLP[d=2,L=1:180@AVE]
+plot SLP[d=2,X=160,Y=35,L=1:180:12]
+list SLP[d=2,X=160,Y=35,L=1:180:12]
+list SLP[d=2,X=160,Y=35,L=1:180:12@AVE]
+list SLP[d=2,X=160,Y=35,L=1:180@AVE:12]
+list SLP[d=2,X=160,Y=35,L=11:180:12]

@@ -1,0 +1,49 @@
+ ! NOAA/PMEL TMAP
+ ! FERRET v6.3  
+ ! Darwin 9.8.0 (ifort) - 11/30/09
+ !  3-Mar-14 21:28     
+
+use ncep-npi-slp-monmean.nc
+use ncep-npi-uwnd-monmean.nc
+use ncep-npi-vwnd-monmean.nc
+show data
+use climatological_axes
+list SLP[d=1,i=1,j=1,l=1]
+list SLPNCEP[d=1,i=1,j=1,l=1]
+shade SLPNCEP[L=1]
+shade SLPNCEP[d=1,L=1]
+let slp_monclim = SLPNCEP[d=1,GT=month_360_day@MOD]
+shade slp_monclim[l=1]
+let slp_monclim = SLPNCEP[d=1,GT=monthreg@AVE]
+shade slp_monclim[l=1]
+let slp_monclim = SLPNCEP[d=1,GT=month_reg@MOD]
+shade slp_monclim[l=1]
+shade slp_monclim[l=2]
+list slp_monclim[i=1,j=1]
+list slp_monclim[i=1,j=1,l=1]
+list slpncep[d=1,i=1,j=1,l=1:180:12]
+list slpncep[d=1,i=1,j=1,l=1:180:12@AVE]
+show data
+let uwnd_monclim = UWNDNCEP[d=2,GT=month_reg@MOD]
+let uwnd_monclim = VWNDNCEP[d=3,GT=month_reg@MOD]
+list slp_monclim[i=1,j=1,l=11:3]
+list slp_monclim[i=1,j=1,l=11:12]
+list slp_monclim[i=1,j=1,l=1:3]
+let slp_monclim_novdec = slp_monclim[L=11:12@AVE]
+let slp_monclim_janmar = slp_monclim[L=1:3@AVE]
+let slp_monclim_novmar = (slp_monclim_novdec + let slp_monclim_janmar) / 2
+let d = 1+2
+d
+list d
+let slp_monclim_novmar = slp_monclim_novdec + let slp_monclim_janmar
+define axis/t="16-FEB-0001:00":"16-OCT-0001":3\
+/units=months/calendar=NOLEAP/T0="30-DEC-0000:00"\
+/MODULO noleapseas
+define axis/t="16-FEB-0001:00":"15-NOV-0001:00":"15-MAR-0001:5"/units=months/T0=15-NOV-0000:00/MODULO test
+define axis/t="15-NOV-0001:00":"15-MAR-0001:5"/units=months/T0=15-NOV-0000:00/MODULO test
+define axis/t="15-NOV-0001:00":"15-MAR-0001":5/units=months/T0=15-NOV-0000:00/MODULO test
+show data
+show var
+let tempclim = SLPNCEP[d=1, GT=test@MOD]
+list tempclim[i=1,j=1]
+exit

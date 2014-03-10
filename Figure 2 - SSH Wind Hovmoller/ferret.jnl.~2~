@@ -1,0 +1,13 @@
+ ! NOAA/PMEL TMAP
+ ! FERRET v6.3  
+ ! Darwin 9.8.0 (ifort) - 11/30/09
+ !  9-Mar-14 19:44     
+
+use erdTAsshmday_9c16_c340_62c0.nc
+shade/levels=(-0.4,0.4,0.04) SSHD[d=1,I=1:321@SBX:10,J=1:9@AVE,L=1:208@SBX:12]
+contour/over/levels=(-0.4,0.4,0.04) SSHD[d=1,I=1:321@SBX:10,J=1:9@AVE,L=1:208@SBX:12]
+set mode metafile
+shade/levels=(-0.4,0.4,0.04) SSHD[d=1,I=1:321@SBX:10,J=1:9@AVE,L=1:208@SBX:12]
+contour/over/levels=(-0.4,0.4,0.04) SSHD[d=1,I=1:321@SBX:10,J=1:9@AVE,L=1:208@SBX:12]
+cancel mode metafile
+exit
