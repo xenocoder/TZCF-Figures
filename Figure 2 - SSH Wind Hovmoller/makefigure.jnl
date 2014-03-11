@@ -1,8 +1,20 @@
-use erdTAsshmday_9c16_c340_62c0.nc
-shade/levels=(-0.4,0.4,0.04) SSHD[d=1,I=1:321@SBX:10,J=1:9@AVE,L=1:208@SBX:12]
-contour/over/levels=(-0.4,0.4,0.04) SSHD[d=1,I=1:321@SBX:10,J=1:9@AVE,L=1:208@SBX:12]
+!use "http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/altim_merged/monthly"
+!let sshnpac = SSH[d=2,X=160E:140W,Y=32N:34N,T="15-JAN-1997":"15-DEC-2011"]
+!let sshnpacanom = sshnpac - sshnpac[T=@AVE]
+use tzcf-aviso-ssh-hov.nc
+
+shade/levels=(-25,25,2.5) sshnpacanom[X=@SBX:10,Y=@AVE,T=@SBX:12]
+contour/over/levels=(-25,25,2.5) sshnpacanom[X=@SBX:10,Y=@AVE,T=@SBX:12]
+list/format=cdf/file=tzcf-aviso-ssh-hov.nc sshnpacanom
+
+! IF USING ERD COASTWATCH!!!
+!use erdTAsshmday_9c16_c340_62c0.nc
+!shade/levels=(-0.4,0.4,0.04) SSHD[d=1,I=1:321@SBX:10,J=1:9@AVE,L=1:208@SBX:12]
+!contour/over/levels=(-0.4,0.4,0.04) SSHD[d=1,I=1:321@SBX:10,J=1:9@AVE,L=1:208@SBX:12]
 
 !SET MODE METAFILE
 !shade/levels=(-0.4,0.4,0.04) SSHD[d=1,I=1:321@SBX:10,J=1:9@AVE,L=1:208@SBX:12]
 !contour/over/levels=(-0.4,0.4,0.04) SSHD[d=1,I=1:321@SBX:10,J=1:9@AVE,L=1:208@SBX:12]
 !CANCEL MODE METAFILE
+
+
