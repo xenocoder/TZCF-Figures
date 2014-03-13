@@ -1,5 +1,8 @@
 %Make a barplot of the available HPLC for 2-degree bins. Just do total, prokaryotes, and eukaryotes
 
+%make sure statistics package is loaded
+%pkg load statistics
+
 function out = bin2d (in)
 
 out = 1;
