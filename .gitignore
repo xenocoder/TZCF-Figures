@@ -1,6 +1,4 @@
-*.csv
 *.mat
-*.xlsx
 *.RData
 *.pdf
 *.png
