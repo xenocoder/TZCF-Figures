@@ -1,29 +1,8 @@
  ! NOAA/PMEL TMAP
  ! FERRET v6.3  
  ! Darwin 9.8.0 (ifort) - 11/30/09
- ! 10-Mar-14 22:13     
+ ! 24-Mar-14 21:02     
 
-use tzcf-ncdc-mon-wstress.nc
-show data
-shade TAU[d=1, X=160E:140W@SBX:4,Y=32N:34N@AVE,T="15-JAN-1997":"15-DEC-2011"@SBX:12]
-shade TAU[d=1, X=160W:156W@AVE,Y=25N:45N,T="15-JAN-1997":"15-DEC-2011"]
-shade/levels=(0,1,0.1) TAU[d=1, X=160W:156W@AVE,Y=25N:45N,T="15-JAN-1997":"15-DEC-2011"]
-shade/levels=(0,0.5,0.05) TAU[d=1, X=160W:156W@AVE,Y=25N:45N,T="15-JAN-1997":"15-DEC-2011"]
-shade/levels=(0,0.5,0.05) TAU[d=1, X=160W:156W@AVE,Y=25N:45N,T="15-JAN-1997":"15-DEC-2011"@SBX:12]
-shade/levels=(0,0.5,0.05) TAU[d=1, X=160W:156W@AVE,Y=25N:45N@SBX:4,T="15-JAN-1997":"15-DEC-2011"]
-shade/levels=(0,0.5,0.01) TAU[d=1, X=160W:156W@AVE,Y=25N:45N@SBX:4,T="15-JAN-1997":"15-DEC-2011"]
-shade/levels=(0,0.8,0.02) TAU[d=1, X=160W:156W@AVE,Y=25N:45N@SBX:4,T="15-JAN-1997":"15-DEC-2011"]
 use tzcf-aviso-ssh-hov.nc
-shade SSH[d=2, X=160W:156W@AVE,Y=25N:45N@SBX:10,T="15-JAN-1997":"15-DEC-2011"]
-show data
-shade SSHNPACANOM[d=2, X=160W:156W@AVE,Y=25N:45N@SBX:10,T="15-JAN-1997":"15-DEC-2011"]
-cancel data 2
-use "http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/altim_merged/monthly"
-show data
-shade SSH[d=2, X=160W:156W@AVE,Y=25N:45N@SBX:10,T="15-JAN-1997":"15-DEC-2011"]
-contour/over/levels=(50,60,5) SSH[d=2, X=160W:156W@AVE,Y=25N:45N@SBX:10,T="15-JAN-1997":"15-DEC-2011"]
-shade SSH[d=2, X=160W:156W@AVE,Y=25N:45N@SBX:10,T="15-JAN-1997":"15-DEC-2011"]
-contour/over/levels=(55,65,5) SSH[d=2, X=160W:156W@AVE,Y=25N:45N@SBX:10,T="15-JAN-1997":"15-DEC-2011"]
-shade SSH[d=2, X=160W:156W@AVE,Y=25N:45N@SBX:10,T="15-JAN-1997":"15-DEC-2011"]
-contour/over/levels=(55,55,5) SSH[d=2, X=160W:156W@AVE,Y=25N:45N@SBX:10,T="15-JAN-1997":"15-DEC-2011"]
-exit
+shade/levels=(-25,25,2.5) sshnpacanom[X=@SBX:10,Y=@AVE,T=@SBX:12]
+contour/over/levels=(-25,25,2.5) sshnpacanom[X=@SBX:10,Y=@AVE,T=@SBX:12]
