@@ -1,8 +1,13 @@
  ! NOAA/PMEL TMAP
- ! FERRET v6.3  
- ! Darwin 9.8.0 (ifort) - 11/30/09
- ! 24-Mar-14 21:02     
+ ! FERRET v6.82  
+ ! Darwin 9.8.0 - 08/06/12
+ ! 25-Mar-14 14:56     
 
 use tzcf-aviso-ssh-hov.nc
+set mode meta
 shade/levels=(-25,25,2.5) sshnpacanom[X=@SBX:10,Y=@AVE,T=@SBX:12]
+  7 contour/over/levels=(-25,25,2.5) sshnpacanom[X=@SBX:10,Y=@AVE,T=@SBX:12]
+  8 list/format=cdf/file=tzcf-aviso-ssh-hov.nc sshnpacanom
 contour/over/levels=(-25,25,2.5) sshnpacanom[X=@SBX:10,Y=@AVE,T=@SBX:12]
+cancel mode meta
+exit
