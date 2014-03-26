@@ -1,17 +1,15 @@
  ! NOAA/PMEL TMAP
- ! FERRET v6.3  
- ! Darwin 9.8.0 (ifort) - 11/30/09
- ! 13-Oct-12 22:54     
+ ! FERRET v6.82  
+ ! Darwin 9.8.0 - 08/06/12
+ ! 25-Mar-14 16:57     
 
-!use "http://thredds.jpl.nasa.gov/thredds/dodsC/ocean_winds/1998_CCMP_MEASURES_ATLAS_L4_OW_L3_5A_MONTHLY_WIND_VECTORS_FLK_v11l35flk.nc"
-!use "http://thredds.jpl.nasa.gov/thredds/dodsC/ocean_winds/1999_CCMP_MEASURES_ATLAS_L4_OW_L3_5A_MONTHLY_WIND_VECTORS_FLK_v11l35flk.nc"
-!use "http://thredds.jpl.nasa.gov/thredds/dodsC/ocean_winds/2009_CCMP_MEASURES_ATLAS_L4_OW_L3_5A_MONTHLY_WIND_VECTORS_FLK_v11l35flk.nc"
-!use "http://www.ncdc.noaa.gov/thredds/dodsC/oceanwindsMonStrs"
 use "tzcf-ncdc-mon-wstress.nc"
 use "http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/seawifs/monthly"
 use "http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/pfgac/monthly"
 use "http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/aqua/monthly"
-
+shade/levels=(0,0.75,0.05) TAU[d=1,X=180:220@MED,Y=25:45@MED,T="15-NOV-1997":"15-MAR-1998"@AVE]
+vector/over/length=100 TAUX[d=1,X=180:220,Y=25:45,T="15-NOV-1997":"15-MAR-1998"@AVE],TAUY[d=1,X=180:220@MED,Y=25:45@MED,T="15-NOV-1997":"15-MAR-1998"@AVE]
+vector/over/length=0.3 TAUX[d=1,X=180:220,Y=25:45,T="15-NOV-1997":"15-MAR-1998"@AVE],TAUY[d=1,X=180:220@MED,Y=25:45@MED,T="15-NOV-1997":"15-MAR-1998"@AVE]
 SET MODE META
 !1998
 shade/levels=(0,0.75,0.05) TAU[d=1,X=180:220@MED,Y=25:45@MED,T="15-NOV-1997":"15-MAR-1998"@AVE]
@@ -19,7 +17,6 @@ vector/over/length=0.3 TAUX[d=1,X=180:220,Y=25:45,T="15-NOV-1997":"15-MAR-1998"@
 contour/over/levels=(17,17,1) SST[d=3,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-1998"]
 contour/over/levels=(0.2,0.2,1) CHLA[d=2,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-1998"]
 CANCEL MODE META
-
 SET MODE META
 !1999
 shade/levels=(0,0.75,0.05) TAU[d=1,X=180:220@MED,Y=25:45@MED,T="15-NOV-1998":"15-MAR-1999"@AVE]
@@ -27,25 +24,19 @@ vector/over/length=0.3 TAUX[d=1,X=180:220,Y=25:45,T="15-NOV-1998":"15-MAR-1999"@
 contour/over/levels=(17,17,1) SST[d=3,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-1999"]
 contour/over/levels=(0.2,0.2,1) CHLA[d=2,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-1999"]
 CANCEL MODE META
-
-!2000
 SET MODE META
 shade/levels=(0,0.75,0.05) TAU[d=1,X=180:220@MED,Y=25:45@MED,T="15-NOV-1999":"15-MAR-2000"@AVE]
 vector/over/length=0.3 TAUX[d=1,X=180:220,Y=25:45,T="15-NOV-1999":"15-MAR-2000"@AVE],TAUY[d=1,X=180:220@MED,Y=25:45@MED,T="15-NOV-1999":"15-MAR-2000"@AVE]
 contour/over/levels=(17,17,1) SST[d=3,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2000"]
 contour/over/levels=(0.2,0.2,1) CHLA[d=2,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2000"]
 CANCEL MODE META
-
-!2008
 SET MODE META
 shade/levels=(0,0.75,0.05) TAU[d=1,X=180:220@MED,Y=25:45@MED,T="15-NOV-2007":"15-MAR-2008"@AVE]
 vector/over/length=0.3 TAUX[d=1,X=180:220,Y=25:45,T="15-NOV-2007":"15-MAR-2008"@AVE],TAUY[d=1,X=180:220@MED,Y=25:45@MED,T="15-NOV-2007":"15-MAR-2008"@AVE]
 contour/over/levels=(17,17,1) SST[d=3,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2008"]
-contour/over/levels=(0.2,0.2,1) CHLA[d=2,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2008"]
+!contour/over/levels=(0.2,0.2,1) CHLA[d=2,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2008"]
 contour/over/levels=(0.2,0.2,1) CHLA[d=4,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2008"]
 CANCEL MODE META
-
-!2009
 SET MODE META
 shade/levels=(0,0.75,0.05) TAU[d=1,X=180:220@MED,Y=25:45@MED,T="15-NOV-2008":"15-MAR-2009"@AVE]
 vector/over/length=0.3 TAUX[d=1,X=180:220,Y=25:45,T="15-NOV-2008":"15-MAR-2009"@AVE],TAUY[d=1,X=180:220@MED,Y=25:45@MED,T="15-NOV-2008":"15-MAR-2009"@AVE]
@@ -53,12 +44,10 @@ contour/over/levels=(17,17,1) SST[d=3,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-20
 contour/over/levels=(0.2,0.2,1) CHLA[d=2,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2009"]
 contour/over/levels=(0.2,0.2,1) CHLA[d=4,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2009"]
 CANCEL MODE META
-
-!2011
 SET MODE META
 shade/levels=(0,0.75,0.05) TAU[d=1,X=180:220@MED,Y=25:45@MED,T="15-NOV-2010":"15-MAR-2011"@AVE]
 vector/over/length=0.3 TAUX[d=1,X=180:220,Y=25:45,T="15-NOV-2010":"15-MAR-2011"@AVE],TAUY[d=1,X=180:220@MED,Y=25:45@MED,T="15-NOV-2010":"15-MAR-2011"@AVE]
 contour/over/levels=(17,17,1) SST[d=3,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2011"]
 contour/over/levels=(0.2,0.2,1) CHLA[d=4,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2011"]
 CANCEL MODE META
-
+exit

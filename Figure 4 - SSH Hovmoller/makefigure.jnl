@@ -3,6 +3,10 @@
 !let sshnpacanom = sshnpac - sshnpac[T=@AVE]
 use tzcf-aviso-ssh-hov.nc
 
+!Updated 3/25 to reflect loss of 2011 to smoothing
+let sshnpac = SSH[d=2,X=160E:140W,Y=32N:34N,T="15-JAN-1996":"15-DEC-2012"]
+let sshnpacanom = sshnpac - SSH[d=2,X=160E:140W,Y=32N:34N,T="15-JAN-1997":"15-DEC-2011"@AVE]
+
 shade/levels=(-25,25,2.5) sshnpacanom[X=@SBX:10,Y=@AVE,T=@SBX:12]
 contour/over/levels=(-25,25,2.5) sshnpacanom[X=@SBX:10,Y=@AVE,T=@SBX:12]
 list/format=cdf/file=tzcf-aviso-ssh-hov.nc sshnpacanom
