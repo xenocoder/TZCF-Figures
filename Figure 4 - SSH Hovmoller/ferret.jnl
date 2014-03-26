@@ -6,3 +6,4 @@
 use tzcf-aviso-ssh-hov.nc
 shade/levels=(-25,25,2.5) sshnpacanom[X=@SBX:10,Y=@AVE,T=@SBX:12]
 contour/over/levels=(-25,25,2.5) sshnpacanom[X=@SBX:10,Y=@AVE,T=@SBX:12]
+exit
