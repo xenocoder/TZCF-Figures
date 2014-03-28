@@ -1,8 +1,6 @@
  ! NOAA/PMEL TMAP
  ! FERRET v6.82  
  ! Darwin 9.8.0 - 08/06/12
- ! 27-Mar-14 17:18     
+ ! 27-Mar-14 20:15     
 
-use tzcf-aviso-ssh-hov.nc
-show data
-exit
+use "http://opendap.aviso.oceanobs.com/thredds/dodsC/dataset-duacs-dt-ref-global-merged-msla-h.html"
