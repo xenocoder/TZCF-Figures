@@ -1,9 +1,0 @@
- ! NOAA/PMEL TMAP
- ! FERRET v6.82  
- ! Darwin 9.8.0 - 08/06/12
- ! 28-Mar-14 07:22     
-
-use "http://aviso-users:grid2010@opendap.aviso.oceanobs.com/thredds/dodsC/dataset-duacs-dt-ref-global-merged-msla-err.dds"
-use "http://aviso-users:grid2010@opendap.aviso.oceanobs.com/thredds/dodsC/dataset-duacs-dt-ref-global-merged-msla-err"
-show data
-shade GRID_0001[d=1,X=198:208,Y=25.5N:36.5N,T="15-MAR-2009"]
