@@ -1,15 +1,31 @@
 !use "http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/altim_merged/monthly"
 !let sshnpac = SSH[d=2,X=160E:140W,Y=32N:34N,T="15-JAN-1997":"15-DEC-2011"]
 !let sshnpacanom = sshnpac - sshnpac[T=@AVE]
-use tzcf-aviso-ssh-hov.nc
+!use tzcf-aviso-ssh-hov.nc ! LUCAS'S DATA
+use dataset-duacs-dt-ref-global-merged-msla-h_1996-2012.nc ! Straight from AVISO
+use dataset-duacs-dt-ref-global-merged-msla-uv-1996-2012.nc ! Straight from AVISO
 
 !Updated 3/25 to reflect loss of 2011 to smoothing
-let sshnpac = SSH[d=2,X=160E:140W,Y=32N:34N,T="15-JAN-1996":"15-DEC-2012"]
-let sshnpacanom = sshnpac - SSH[d=2,X=160E:140W,Y=32N:34N,T="15-JAN-1997":"15-DEC-2011"@AVE]
+!let sshnpac = SSH[d=1,X=160E:140W,Y=32N:34N,T="15-JAN-1996":"15-DEC-2012"]
+!let sshnpacanom = sshnpac - SSH[d=2,X=160E:140W,Y=32N:34N,T="15-JAN-1997":"15-DEC-2011"@AVE] !only need if using OceanWatch data (get rid of Niiler)
+!list/format=cdf/file=tzcf-aviso-ssh-hov.nc sshnpacanom
 
-shade/levels=(-25,25,2.5) sshnpacanom[X=@SBX:10,Y=@AVE,T=@SBX:12]
-contour/over/levels=(-25,25,2.5) sshnpacanom[X=@SBX:10,Y=@AVE,T=@SBX:12]
-list/format=cdf/file=tzcf-aviso-ssh-hov.nc sshnpacanom
+define viewport/XLIM=0,0.66/YLIM=0,1 wleft
+define viewport/XLIM=0.66,1/YLIM=0,1 wright
+
+set mode meta
+set viewport wleft
+shade/palette=blue_darkred/levels=(-30,30,3) GRID_0001[d=1,X=160E:140W@SBX:10,Y=32N:34N@AVE,T="15-JAN-1996":"15-DEC-2012"@SBX:52]
+contour/over/levels=(-30,30,3) GRID_0001[d=1,X=160E:140W@SBX:10,Y=32N:34N@AVE,T="15-JAN-1996":"15-DEC-2012"@SBX:52]
+cancel mode meta
+
+DEFINE VIEWPORT/XLIM=0,1/YLIM=0,0.5 wbottom
+DEFINE VIEWPORT/XLIM=0,1/YLIM=0.5,1 wtop
+set mode meta
+set viewport wbottom
+plot/YLIM=-20:20:2 GRID_0001[d=1,X=158W,Y=32N:34N@AVE,T="15-JAN-1996":"15-DEC-2012"],GRID_0001[d=1,X=158W,Y=32N:34N@AVE,T="15-JAN-1996":"15-DEC-2012"@SBX:52]
+cancel mode meta
+
 
 ! IF USING ERD COASTWATCH!!!
 !use erdTAsshmday_9c16_c340_62c0.nc

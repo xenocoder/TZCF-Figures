@@ -1,0 +1,51 @@
+ ! NOAA/PMEL TMAP
+ ! FERRET v6.82  
+ ! Darwin 9.8.0 - 08/06/12
+ ! 28-Mar-14 07:37     
+
+use dataset-duacs-dt-ref-global-merged-msla-h-20090318.nc
+use dataset-duacs-dt-ref-global-merged-msla-uv-20090318.nc
+use dataset-duacs-dt-ref-global-merged-msla-h-20110316.nc
+use dataset-duacs-dt-ref-global-merged-msla-uv-20110316.nc
+
+let ssh09 = GRID_0001[d=1,x=198:208:0.01,y=25.5:36.5:0.01]
+let u09 = GRID_0001[d=2,x=198:208:0.01,y=25.5:36.5:0.01]
+let v09 = GRID_0002[d=2,x=198:208:0.01,y=25.5:36.5:0.01]
+let eke09 = 0.5 * (u09^2 + v09^2)
+
+let ssh11 = GRID_0001[d=3,x=198:208:0.01,y=25.5:36.5:0.01]
+let u11 = GRID_0001[d=4,x=198:208:0.01,y=25.5:36.5:0.01]
+let v11 = GRID_0002[d=4,x=198:208:0.01,y=25.5:36.5:0.01]
+let eke11 = 0.5 * (u11^2 + v11^2)
+
+
+!set up window
+!This will split the plot half and half horizontally
+DEFINE VIEWPORT/XLIM=0,0.5/YLIM=0,1 wleft
+DEFINE VIEWPORT/XLIM=0.5,1/YLIM=0,1 wright
+
+set mode meta
+!plot 2009 first
+set viewport wleft 
+shade/PALETTE=blue_darkred/levels=(-20,20,1) GRID_0001[d=1,x=198:208:0.01,y=25.5:36.5:0.01]
+vector/over/length=20 GRID_0001[d=2,x=198:208:0.01,y=25.5:36.5:0.01], GRID_0002[d=2,x=198:208:0.01,y=25.5:36.5:0.01]
+!contour/over/levels=c(-20,20,2) GRID_0001[d=1,x=198:208:0.01,y=25.5:36.5:0.01]
+
+!plot 2011 second
+set viewport wright
+shade/PALETTE=blue_darkred/levels=(-20,20,1) GRID_0001[d=3,x=198:208:0.01,y=25.5:36.5:0.01]
+vector/over/length=20 GRID_0001[d=4,x=198:208:0.01,y=25.5:36.5:0.01], GRID_0002[d=4,x=198:208:0.01,y=25.5:36.5:0.01]
+!contour/over/levels=c(-20,20,2) GRID_0001[d=1,x=198:208:0.01,y=25.5:36.5:0.01]
+cancel mode meta
+
+!now plot eke, these will split vertically
+cancel viewport
+DEFINE VIEWPORT/XLIM=0,1/YLIM=0,0.5 wbottom
+DEFINE VIEWPORT/XLIM=0,1/YLIM=0.5,1 wtop
+
+set mode meta
+set viewport wtop
+plot/vlimits=0:350:25 eke09[X=158W]
+set viewport wbottom
+plot/vlimits=0:350:25 eke11[X=158W]
+cancel mode meta
