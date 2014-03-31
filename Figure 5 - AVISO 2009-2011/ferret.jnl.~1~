@@ -1,0 +1,63 @@
+ ! NOAA/PMEL TMAP
+ ! FERRET v6.82  
+ ! Darwin 9.8.0 - 08/06/12
+ ! 29-Mar-14 14:27     
+
+use dataset-duacs-dt-ref-global-merged-msla-h-20090318.nc
+show data
+cancel data 1
+use dataset-duacs-dt-ref-global-merged-msla-h-19980426.nc
+use dataset-duacs-dt-ref-global-merged-msla-uv-19980426.nc
+use dataset-duacs-dt-ref-global-merged-msla-h-20080326.nc
+use dataset-duacs-dt-ref-global-merged-msla-uv-20080326.nc
+use dataset-duacs-dt-ref-global-merged-msla-h-20090318.nc
+use dataset-duacs-dt-ref-global-merged-msla-uv-20090318.nc
+use dataset-duacs-dt-ref-global-merged-msla-h-20110316.nc
+use dataset-duacs-dt-ref-global-merged-msla-uv-20110316.nc
+cancel data
+cancel data 1
+cancel data 2
+cancel data 3
+cancel data 4
+show data
+use dataset-duacs-dt-ref-global-merged-msla-h-19980426.nc
+use dataset-duacs-dt-ref-global-merged-msla-uv-19980426.nc
+use dataset-duacs-dt-ref-global-merged-msla-h-20080326.nc
+use dataset-duacs-dt-ref-global-merged-msla-uv-20080326.nc
+use dataset-duacs-dt-ref-global-merged-msla-h-20090318.nc
+use dataset-duacs-dt-ref-global-merged-msla-uv-20090318.nc
+use dataset-duacs-dt-ref-global-merged-msla-h-20110316.nc
+use dataset-duacs-dt-ref-global-merged-msla-uv-20110316.nc
+show data
+cancel data 1
+cancel data 3
+cancel data 2
+cancel data 4
+cancel data 5
+cancel data 6
+use dataset-duacs-dt-ref-global-merged-msla-h-19980429.nc
+use dataset-duacs-dt-ref-global-merged-msla-uv-19980429.nc
+use dataset-duacs-dt-ref-global-merged-msla-h-20080326.nc
+use dataset-duacs-dt-ref-global-merged-msla-uv-20080326.nc
+use dataset-duacs-dt-ref-global-merged-msla-h-20090318.nc
+use dataset-duacs-dt-ref-global-merged-msla-uv-20090318.nc
+use dataset-duacs-dt-ref-global-merged-msla-h-20110316.nc
+use dataset-duacs-dt-ref-global-merged-msla-uv-20110316.nc
+DEFINE VIEWPORT/XLIM=0,0.5/YLIM=0,1 wleft
+DEFINE VIEWPORT/XLIM=0.5,1/YLIM=0,1 wright
+set viewport wleft
+shade/PALETTE=blue_darkred/levels=(-20,20,1) ssh98
+let ssh98 = GRID_0001[d=1,x=198:208:0.01,y=25.5:36.5:0.01]
+let u98 = GRID_0001[d=2,x=198:208:0.01,y=25.5:36.5:0.01]
+let v98 = GRID_0002[d=2,x=198:208:0.01,y=25.5:36.5:0.01]
+let eke98 = 0.5 * (u98^2 + v98^2)
+shade/PALETTE=blue_darkred/levels=(-20,20,1) ssh98
+let ssh08 = GRID_0001[d=3,x=198:208:0.01,y=25.5:36.5:0.01]
+let u08 = GRID_0001[d=4,x=198:208:0.01,y=25.5:36.5:0.01]
+let v08 = GRID_0002[d=4,x=198:208:0.01,y=25.5:36.5:0.01]
+let eke08 = 0.5 * (u08^2 + v08^2)
+vector/over/length=20 u98, v98
+set viewport wright
+shade/PALETTE=blue_darkred/levels=(-20,20,1) ssh08
+vector/over/length=20 u08, v08
+exit
