@@ -22,23 +22,44 @@ XI = 1; %Depth of the nitricline (Taken from Seki et al. 2002)
 
 in.NUTS.nitrate(find(in.NUTS.nitrate<0)) = 0; %Get rid of erroneous negative numbers.
 
-i=28;
+i=32;
 ind = find(in.latitude(1,:)>=i&in.latitude(1,:)<=i+2);
 p = in.pressure(:,ind(end));
 yt = gsw_z_from_p(p,29)*-1.0; %Calculate depth, latitude is 29N here
 
-xn = nanmean(in.NUTS.nitrate(:,ind),2);
-yn = in.NUTS.pressure(:,ind(end));
-xt = nanmean(in.conservativetemperature(:,ind),2);
+indnuts = find(in.NUTS.latitude(1,:)>=i&in.NUTS.latitude(1,:)<=i+2);
+xn = nanmean(in.NUTS.nitrate(:,indnuts),2);
+yn = in.NUTS.pressure(:,indnuts(end));
 
-reft = interp1(yt,xt,10); %Find where depth is 10m
+xt = nanmean(in.temperature(:,ind),2);
+
+xf = nanmean(in.fluorcorrected(:,ind),2); %fluorescence 
+
+reft = interp1(yt,xt,20); %Find where depth is 20m
 
 nclinedepth = interp1(xn,yn,XI); %Get depth where nutricline (1 UM NO3)
 
-mld = interp1(xt,yt,reft-0.2);
+d15 = interp1(xt+rand(length(xt),1)./1000,yt,15);
 
-fprintf("Nutricline: %f, MLD: %f\n", nclinedepth, mld);
+mld = interp1(xt+rand(length(xt),1)./1000,yt,reft-0.2);
 
-out = [nclinedepth mld];
+dcm = yt(find(xf==max(xf)));
+
+%Find integrated fluor 50-150m
+intind = find(yt>=10&yt<=215);
+ytint = yt(intind);
+xtint = xt(intind);
+xfint = xf(intind);
+YI = 15:150;
+
+tempspline = spline(ytint, xtint, YI);
+tempint = sum(diff(tempspline));
+
+fluorspline = spline(ytint, xfint, YI);
+fluorint = sum(fluorspline);
+
+fprintf("%f, %f, %f, %f, %f, %f\n", nclinedepth, mld, d15, dcm, fluorint, tempint);
+
+out = [nclinedepth mld d15, dcm fluorint tempint];
 
 endfunction
