@@ -1,0 +1,67 @@
+ ! NOAA/PMEL TMAP
+ ! FERRET v6.82  
+ ! Darwin 9.8.0 - 08/06/12
+ ! 30-Mar-14 16:31     
+
+use pdo.nc
+show data
+plot PDO
+plot PDO[T="15-JAN-1996":"15-DEC-2012"]
+list/file="temp.txt" PDO[T="15-JAN-1996":"15-DEC-2012"]
+plot PDO[T="15-JAN-1996":"15-DEC-2012"]
+plot PDO[T="15-JAN-1996":"15-DEC-2012"], PDO[T="15-JAN-1996":"15-DEC-2012"@SBX:12]
+DEFINE VIEWPORT/XLIM=0,1/YLIM=0,0.5 wbottom
+DEFINE VIEWPORT/XLIM=0,1/YLIM=0.5,1 wtop
+set viewport wtop
+plot PDO[T="15-JAN-1996":"15-DEC-2012"], PDO[T="15-JAN-1996":"15-DEC-2012"@SBX:12]
+use npi.nc
+show data
+set view wbottomn
+set view wbottom
+plot npi
+let npianom = npi - 1008.9
+plot npianom
+plot npianom[T="15-JAN-1996":"15-DEC-2012"]
+plot npianom[T="15-JAN-1997":"15-DEC-2012"], npianom[T="15-JAN-1997":"15-DEC-2012"@SBX:12]
+set mode meta
+set viewport wtop
+plot PDO[T="15-JAN-1996":"15-DEC-2012"], PDO[T="15-JAN-1996":"15-DEC-2012"@SBX:12]
+set view wbottom
+plot npianom[T="15-JAN-1997":"15-DEC-2012"], npianom[T="15-JAN-1997":"15-DEC-2012"@SBX:12]
+cancel mode meta
+set mode meta
+set viewport wtop
+plot PDO[d=1, T="15-JAN-1996":"15-DEC-2012"], PDO[T="15-JAN-1996":"15-DEC-2012"@SBX:12]
+set view wbottom
+plot npianom[d=2, T="15-JAN-1997":"15-DEC-2012"], npianom[T="15-JAN-1997":"15-DEC-2012"@SBX:12]
+cancel mode meta
+show data
+set mode meta
+set viewport wtop
+plot PDO[d=1, T="15-JAN-1996":"15-DEC-2012"], PDO[d=1,T="15-JAN-1996":"15-DEC-2012"@SBX:12]
+set view wbottom
+plot npianom[d=2, T="15-JAN-1997":"15-DEC-2012"], npianom[d=2,T="15-JAN-1997":"15-DEC-2012"@SBX:12]
+cancel mode meta
+set viewport wtop
+plot PDO[d=1,T="15-JAN-1996":"15-DEC-2012"@SBX:12]
+set view wbottom
+plot npianom[d=2,T="15-JAN-1997":"15-DEC-2012"@SBX:12]
+let npianom = (npi - 1008.9) * -1
+plot npianom[d=2,T="15-JAN-1997":"15-DEC-2012"@SBX:12]
+set viewport wtop
+plot PDO[d=1,T="15-JAN-1996":"15-DEC-2012"@SBX:12], npianom[d=2,T="15-JAN-1997":"15-DEC-2012"@SBX:12]
+let npicomp = npianom - npianom[L=@AVE]
+plot npicomp
+let npianom = (npi[T="15-JAN-1997":"15-DEC-2012"] - 1008.9) * -1
+plot npianom
+let npicomp = npianom - npianom[L=@AVE]
+plot npicomp
+plot npianom
+plot npicomp
+plot npicomp[L=@SBX:12]
+plot npicomp[L=@SBX:12], PDO[d=1,T="15-JAN-1996":"15-DEC-2012"@SBX:12]
+plot npicomp[L=@SBX:12], PDO[d=1,T="15-JAN-1997":"15-DEC-2012"@SBX:12]
+set mode meta
+plot npicomp[L=@SBX:12], PDO[d=1,T="15-JAN-1997":"15-DEC-2012"@SBX:12]
+cancel mode meta
+exit
