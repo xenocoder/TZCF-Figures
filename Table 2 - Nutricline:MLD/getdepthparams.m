@@ -47,9 +47,10 @@ mld = interp1(xt+rand(length(xt),1)./1000,yt,reft-0.2);
 
 dcm = yt(find(xf==max(xf)));
 
+%Stratification index based on Behrenfeld et al. 2006 Nature
 dens20 = interp1(yt,xd,20); %Find density value at 20m
-dens150 = interp1(yt,xd,150); %find density value at 150m
-deltadens = (dens150-dens20) / 130; %density change per m
+dens150 = interp1(yt,xd,200); %find density value at 200m
+deltadens = (dens150-dens20); %density change per m
 
 %Find integrated fluor 50-150m
 intind = find(yt>=10&yt<=215);
