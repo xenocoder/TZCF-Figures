@@ -33,6 +33,8 @@ yn = in.NUTS.pressure(:,indnuts(end));
 
 xt = nanmean(in.temperature(:,ind),2);
 
+xd = nanmean(in.density(:,ind),2);
+
 xf = nanmean(in.fluorcorrected(:,ind),2); %fluorescence 
 
 reft = interp1(yt,xt,20); %Find where depth is 20m
@@ -44,6 +46,10 @@ d15 = interp1(xt+rand(length(xt),1)./1000,yt,15);
 mld = interp1(xt+rand(length(xt),1)./1000,yt,reft-0.2);
 
 dcm = yt(find(xf==max(xf)));
+
+dens20 = interp1(yt,xd,20); %Find density value at 20m
+dens150 = interp1(yt,xd,150); %find density value at 150m
+deltadens = (dens150-dens20) / 130; %density change per m
 
 %Find integrated fluor 50-150m
 intind = find(yt>=10&yt<=215);
@@ -58,8 +64,8 @@ tempint = sum(diff(tempspline));
 fluorspline = spline(ytint, xfint, YI);
 fluorint = sum(fluorspline);
 
-fprintf("%f, %f, %f, %f, %f, %f\n", nclinedepth, mld, d15, dcm, fluorint, tempint);
+fprintf("%f, %f, %f, %f, %f, %f\n", nclinedepth, mld, d15, dcm, fluorint, deltadens);
 
-out = [nclinedepth mld d15, dcm fluorint tempint];
+out = [nclinedepth mld d15, dcm fluorint deltadens];
 
 endfunction
