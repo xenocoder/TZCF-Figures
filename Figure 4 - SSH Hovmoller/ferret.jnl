@@ -1,7 +1,33 @@
  ! NOAA/PMEL TMAP
  ! FERRET v6.82  
  ! Darwin 9.8.0 - 08/06/12
- ! 31-Mar-14 08:36     
+ ! 14-Apr-14 19:25     
 
-use "http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/altim_merged/monthly"
+use dataset-duacs-dt-ref-global-merged-msla-uv-1996-2012.nc
+show datra
+show data
+list U[X=158W,L=1]
+list GRID_0001[X=158W,L=1]
+plot GRID_0001[X=158W,Y=32:34@AVE]
+let u = GRID_0001[X=158W,Y=32:34@AVE]
+let v = GRID_0002[X=158W,Y=32:34@AVE]
+let eke = 0.5 * (u^2 + v^2)
+plot eke
+list eke[T="15-FEB-1998":"15-MAR-1998"@AVE]
+list eke[T="15-FEB-1999":"15-MAR-1999"@AVE]
+list eke[T="15-FEB-2000":"15-MAR-2000"@AVE]
+list eke[T="15-FEB-2009":"15-MAR-2009"@AVE]
+list eke[T="15-FEB-2008":"15-MAR-2008"@AVE]
+list eke[T="15-FEB-2011":"15-MAR-2011"@AVE]
+let u = GRID_0001[X=157W:159W]
+let v = GRID_0002[X=157W:159W]
+let eke = 0.5 * (u^2 + v^2)
+list eke[T="15-Feb-1998":"15-MAR-1998"]
+list eke[X=@AVE,Y=@AVE,T="15-FEB-1998":"15-MAR-1998"]
+list eke[X=@AVE,Y=@AVE,T="15-FEB-1998":"15-MAR-1998"@AVE]
+list eke[X=@AVE,Y=@AVE,T="15-FEB-1999":"15-MAR-1999"@AVE]
+list eke[X=@AVE,Y=@AVE,T="15-FEB-2000":"15-MAR-2000"@AVE]
+list eke[X=@AVE,Y=@AVE,T="15-FEB-2008":"15-MAR-2008"@AVE]
+list eke[X=@AVE,Y=@AVE,T="15-FEB-2009":"15-MAR-2009"@AVE]
+list eke[X=@AVE,Y=@AVE,T="15-FEB-2011":"15-MAR-2011"@AVE]
 exit

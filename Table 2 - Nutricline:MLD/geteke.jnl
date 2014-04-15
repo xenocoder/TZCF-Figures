@@ -1,0 +1,68 @@
+ ! NOAA/PMEL TMAP
+ ! FERRET v6.82  
+ ! Darwin 9.8.0 - 08/06/12
+ ! 14-Apr-14 19:25     
+
+use dataset-duacs-dt-ref-global-merged-msla-uv-1996-2012.nc
+let u = GRID_0001[X=157W:159W]
+let v = GRID_0002[X=157W:159W]
+let eke = 0.5 * (u^2 + v^2)
+list eke[T="15-Feb-1998":"15-MAR-1998"]
+list eke[X=@AVE,Y=@AVE,T="15-FEB-1998":"15-MAR-1998"]
+list eke[X=@AVE,Y=@AVE,T="15-FEB-1998":"15-MAR-1998"@AVE]
+list eke[X=@AVE,Y=@AVE,T="15-FEB-1999":"15-MAR-1999"@AVE]
+list eke[X=@AVE,Y=@AVE,T="15-FEB-2000":"15-MAR-2000"@AVE]
+list eke[X=@AVE,Y=@AVE,T="15-FEB-2008":"15-MAR-2008"@AVE]
+list eke[X=@AVE,Y=@AVE,T="15-FEB-2009":"15-MAR-2009"@AVE]
+list eke[X=@AVE,Y=@AVE,T="15-FEB-2011":"15-MAR-2011"@AVE]
+
+!DATA BELOW
+yes? list eke[X=@AVE,Y=@AVE,T="15-FEB-1998":"15-MAR-1998"@AVE]
+             VARIABLE : 0.5 * (U^2 + V^2)
+             DATA SET : SSALTO/DUACS - DT Geostrophic Velocities Anomaly - Homogeneous Global Processing
+             FILENAME : dataset-duacs-dt-ref-global-merged-msla-uv-1996-2012.nc
+             LONGITUDE: 157.2W(202.8) to 158.8W(561.2) (XYT ave)
+             LATITUDE : 31.9N to 34.2N (XYT ave)
+             TIME     : 15-FEB-1998 00:00 to 15-MAR-1998 00:00 (XYT ave)
+          188.4
+yes? list eke[X=@AVE,Y=@AVE,T="15-FEB-1999":"15-MAR-1999"@AVE]
+             VARIABLE : 0.5 * (U^2 + V^2)
+             DATA SET : SSALTO/DUACS - DT Geostrophic Velocities Anomaly - Homogeneous Global Processing
+             FILENAME : dataset-duacs-dt-ref-global-merged-msla-uv-1996-2012.nc
+             LONGITUDE: 157.2W(202.8) to 158.8W(561.2) (XYT ave)
+             LATITUDE : 31.9N to 34.2N (XYT ave)
+             TIME     : 15-FEB-1999 00:00 to 15-MAR-1999 00:00 (XYT ave)
+          249.5
+yes? list eke[X=@AVE,Y=@AVE,T="15-FEB-2000":"15-MAR-2000"@AVE]
+             VARIABLE : 0.5 * (U^2 + V^2)
+             DATA SET : SSALTO/DUACS - DT Geostrophic Velocities Anomaly - Homogeneous Global Processing
+             FILENAME : dataset-duacs-dt-ref-global-merged-msla-uv-1996-2012.nc
+             LONGITUDE: 157.2W(202.8) to 158.8W(561.2) (XYT ave)
+             LATITUDE : 31.9N to 34.2N (XYT ave)
+             TIME     : 15-FEB-2000 00:00 to 15-MAR-2000 00:00 (XYT ave)
+          263.3
+yes? list eke[X=@AVE,Y=@AVE,T="15-FEB-2008":"15-MAR-2008"@AVE]
+             VARIABLE : 0.5 * (U^2 + V^2)
+             DATA SET : SSALTO/DUACS - DT Geostrophic Velocities Anomaly - Homogeneous Global Processing
+             FILENAME : dataset-duacs-dt-ref-global-merged-msla-uv-1996-2012.nc
+             LONGITUDE: 157.2W(202.8) to 158.8W(561.2) (XYT ave)
+             LATITUDE : 31.9N to 34.2N (XYT ave)
+             TIME     : 15-FEB-2008 00:00 to 15-MAR-2008 00:00 (XYT ave)
+          236.2
+yes? list eke[X=@AVE,Y=@AVE,T="15-FEB-2009":"15-MAR-2009"@AVE]
+             VARIABLE : 0.5 * (U^2 + V^2)
+             DATA SET : SSALTO/DUACS - DT Geostrophic Velocities Anomaly - Homogeneous Global Processing
+             FILENAME : dataset-duacs-dt-ref-global-merged-msla-uv-1996-2012.nc
+             LONGITUDE: 157.2W(202.8) to 158.8W(561.2) (XYT ave)
+             LATITUDE : 31.9N to 34.2N (XYT ave)
+             TIME     : 15-FEB-2009 00:00 to 15-MAR-2009 00:00 (XYT ave)
+          153.9
+yes? list eke[X=@AVE,Y=@AVE,T="15-FEB-2011":"15-MAR-2011"@AVE]
+             VARIABLE : 0.5 * (U^2 + V^2)
+             DATA SET : SSALTO/DUACS - DT Geostrophic Velocities Anomaly - Homogeneous Global Processing
+             FILENAME : dataset-duacs-dt-ref-global-merged-msla-uv-1996-2012.nc
+             LONGITUDE: 157.2W(202.8) to 158.8W(561.2) (XYT ave)
+             LATITUDE : 31.9N to 34.2N (XYT ave)
+             TIME     : 15-FEB-2011 00:00 to 15-MAR-2011 00:00 (XYT ave)
+          171.5
+
