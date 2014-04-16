@@ -25,7 +25,7 @@ in.NUTS.nitrate(find(in.NUTS.nitrate<0)) = 0; %Get rid of erroneous negative num
 i=32;
 ind = find(in.latitude(1,:)>=i&in.latitude(1,:)<=i+2);
 p = in.pressure(:,ind(end));
-yt = gsw_z_from_p(p,29)*-1.0; %Calculate depth, latitude is 29N here
+yt = gsw_z_from_p(p,31)*-1.0; %Calculate depth, latitude is 31N here
 
 indnuts = find(in.NUTS.latitude(1,:)>=i&in.NUTS.latitude(1,:)<=i+2);
 xn = nanmean(in.NUTS.nitrate(:,indnuts),2);
@@ -49,15 +49,18 @@ dcm = yt(find(xf==max(xf)));
 
 %Stratification index based on Behrenfeld et al. 2006 Nature
 dens20 = interp1(yt,xd,20); %Find density value at 20m
-dens150 = interp1(yt,xd,200); %find density value at 200m
+dens150 = interp1(yt,xd,150); %find density value at 150m
 deltadens = (dens150-dens20); %density change per m
 
 %Find integrated fluor 50-150m
 intind = find(yt>=10&yt<=215);
+sind = find(yt<=15);
+surfchla = nanmean(xf(sind));
+
 ytint = yt(intind);
 xtint = xt(intind);
 xfint = xf(intind);
-YI = 15:150;
+YI = 15:100; %Changed to 100m to isolate upper water column
 
 tempspline = spline(ytint, xtint, YI);
 tempint = sum(diff(tempspline));
@@ -65,7 +68,7 @@ tempint = sum(diff(tempspline));
 fluorspline = spline(ytint, xfint, YI);
 fluorint = sum(fluorspline);
 
-fprintf("%f, %f, %f, %f, %f, %f\n", nclinedepth, mld, d15, dcm, fluorint, deltadens);
+fprintf("%f, %f, %f, %f, %f, %f, %f\n", nclinedepth, d15, mld, deltadens, dcm, fluorint, surfchla);
 
 out = [nclinedepth mld d15, dcm fluorint deltadens];
 

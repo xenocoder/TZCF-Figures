@@ -18,8 +18,8 @@ XI = 1:175; %Make spline based on pressure 0-175
 out = zeros(5,4);
 count = 1;
 
-for i = 26:2:34 %All but 1998
-%for i = 26:2:30 %1998
+%for i = 26:2:34 %All but 1998
+for i = 30 %1998
     ind = find(in.latitude(1,:)>=i&in.latitude(1,:)<i+2);
     x = in.pressure(:,ind(end));
     prok = nanmean(in.chlaprok(:,ind),2);
