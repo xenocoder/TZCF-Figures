@@ -23,7 +23,7 @@ XI = 1; %Depth of the nitricline (Taken from Seki et al. 2002)
 in.NUTS.nitrate(find(in.NUTS.nitrate<0)) = 0; %Get rid of erroneous negative numbers.
 
 i=32;
-ind = find(in.latitude(1,:)>=i&in.latitude(1,:)<=i+2);
+ind = find(in.latitude(1,:)>=i&in.latitude(1,:)<=i+1); %32-33N
 p = in.pressure(:,ind(end));
 yt = gsw_z_from_p(p,31)*-1.0; %Calculate depth, latitude is 31N here
 
