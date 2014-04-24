@@ -1,291 +1,156 @@
-qplot(carat, price/carat)
-qplot(carat, price/carat,data=dsmall)
-qplot(carat, price/carat,data=dsmall,ylab=expression(frac(price,carat)))
-qplot(carat, price)
-qplot(carat, price,data=dsmall)
-qplot(carat, price,data=dsmall,log="xy")
-table(mpg)
-summary(mpg)
-nrows(mpg)
-dim(mpg)
-qqplot(displ, hwy, data=mpg)
-qplot(displ, hwy, data=mpg)
-qplot(displ, hwy, data=mpg,color=factor(cyl))
-qplot(displ, hwy, data=mpg,shape=factor(cyl))
-qplot(displ, hwy, data=mpg, facets=.~year)
-qplot(displ, hwy, data=mpg, facets=.~year) + geom_smooth()
-qplot(displ, hwy, data=mpg,color=factor(cyl))
-p<-qplot(displ, hwy, data=mpg,color=factor(cyl))
-summary(p)
-ggsave("plot.png", width=6, height=3)
-p<-ggplot(diamonds, aes(carat,price,color=cut))
-p<-p+layer(geom="point")
-p
-p=ggplot(diamonds,aes(x=carat))
-p=p+layer(geom="bar",geom_params=list(fill="steelblue"),stat="bin",stat_params=list(binwidth=2))
-p
-p=ggplot(diamonds,aes(x=carat))
-p=p+geom_histogram(binwidth=2,fill="steelblue")
-p
-ggplot(msleep,aes(sleep_rem/sleep_total, awake)) + geom_point()
-qplot(sleep_rem/sleep_total, awake, data=msleep)+geom_smooth()
-p=ggplot(msleep,aes(sleep_rem/sleep_total, awake))
-summary(p)
-table(msleep)
-summary(msleep)
-qplot(sleep_rem/sleep_total, awake, data=msleep,facet=vore~.)
-qplot(sleep_rem/sleep_total, awake, data=msleep,facets=vore~.)
-qplot(sleep_rem/sleep_total, awake, data=msleep,facets=vore~.)+geom_smooth()
-bestfit = geom_smooth(method="lm",se=F, color=alpha("steelblue", 0.5),size=2)
-qplot(sleep_rem, sleep_total, data=msleep) + bestfit
-qplot(awake, brain_wt, data=msleep,log="y") + bestfit
-qplot(awake, brainwt, data=msleep,log="y") + bestfit
-qplot(bodywt, brainwt, data=msleep,log="xy") + bestfit
-p=ggplot(mtcars,aes(mpg,wt,color=cyl)) + geom_point()
-p
-mtcars<-transform(mtcars, mpg=mpg^2)
-p %+% mtcars
-p
-q()
-library(ggplot2)
-?download.url
-help.search(download)
-help.search("download")
-download.file('http://coastwatch.pfeg.noaa.gov/erddap/griddap/erdHadISST.htmlTable?sst[(1900-01-01T00:00:00Z):1:(2010-12-31T00:00:00Z)][(25.5):1:(25.5)][(-151.5):1:(-151.5)]')
-download.file('http://coastwatch.pfeg.noaa.gov/erddap/griddap/erdHadISST.htmlTable?sst[(1900-01-01T00:00:00Z):1:(2010-12-31T00:00:00Z)][(25.5):1:(25.5)][(-151.5):1:(-151.5)]', 'temp.csv')
+clim =read.csv()
+clim =read.csv('NPI-Fronts.csv')
+summary
+summary()
 ls()
-d = read.csv('temp.csv')
-summary(d)
-download.file('http://coastwatch.pfeg.noaa.gov/erddap/griddap/erdHadISST.csv?sst[(1900-01-01T00:00:00Z):1:(2010-12-31T00:00:00Z)][(25.5):1:(25.5)][(-151.5):1:(-151.5)]','temp.csv')
-d = read.csv('temp.csv')
-summary(d)
-plot(d$sst)
-plot(as.numeric(d$sst))
-plot(as.numeric(d$sst),type='l')
-q()
-! /bin/bash /Applications/Plain\ Clip.app/pc -i -w pbpaste
-pbpaste
-! /bin/bash /Applications/Plain\ Clip.app/pc -i -w pbpaste
-library(ncdf4)
-library(ECDR)
-library(EDCR)
-example1 <- EDC.get()
-q()
-?ccf
-q()
-clim= read.csv('NPI-Fronts.csv')
 clim
-plot(clim$NPI,clim$SST17,cex=0.7,pch=21,bg='r')
-plot(clim$NPI,clim$SST17,cex=0.7,pch=21,bg='red')
-sstfit = lm(SST17~NPI, data=clim)
-sstfit
-summary(sstfit)
-plot(clim$NPI,clim$SST17,xlim=c(-4.5,4.5),ylim=c(30,35),cex=0.7,pch=21,bg='red')
-abline()
-?abline
-abline(sstfit)
-plot(clim$NPI,clim$SST17,xlim=c(-4.5,4.5),ylim=c(30,35),cex=0.7,pch=21,bg='red',xlab="NPI",ylab="Latitude of 17°C SST (°N)")
-abline(sstfit)
-text(2,34,"r2=0.58",p<0.01)
-text(2,34,"r2=0.58, p<0.01")
-plot(clim$NPI,clim$CHLAp2,xlim=c(-4.5,4.5),ylim=c(30,35),cex=0.7,pch=22,bg='green',xlab="NPI",ylab="Latitude of 0.2 mg m-3 Chl-a (°N)")#
-chlafit = lm(CHLAp2~NPI, data=clim)#
-abline(chlafit)
-plot(clim$NPI,clim$CHLAp2,xlim=c(-4.5,4.5),ylim=c(30,36),cex=0.7,pch=22,bg='green',xlab="NPI",ylab="Latitude of 0.2 mg m-3 Chl-a (°N)")#
-chlafit = lm(CHLAp2~NPI, data=clim)#
-abline(chlafit)
-summary(chlafit)
-text(2,34,"r2=0.50, p<0.01")
-par(mfrow=c(2,1))#
-plot(clim$NPI,clim$SST17,xlim=c(-4.5,4.5),ylim=c(30,36),cex=0.7,pch=21,bg='red',xlab="NPI",ylab="Latitude of 17°C SST (°N)")#
-sstfit = lm(SST17~NPI, data=clim)#
-abline(sstfit)#
-text(2,34,"r2=0.58, p<0.01")#
-#
-plot(clim$NPI,clim$CHLAp2,xlim=c(-4.5,4.5),ylim=c(30,36),cex=0.7,pch=22,bg='green',xlab="NPI",ylab="Latitude of 0.2 mg m-3 Chl-a (°N)")#
-chlafit = lm(CHLAp2~NPI, data=clim)#
-abline(chlafit)#
-text(2,34,"r2=0.50, p<0.01")
 par(mfrow=c(1,2))#
-plot(clim$NPI,clim$SST17,xlim=c(-4.5,4.5),ylim=c(30,36),cex=0.7,pch=21,bg='red',xlab="NPI",ylab="Latitude of 17°C SST (°N)")#
-sstfit = lm(SST17~NPI, data=clim)#
-abline(sstfit)#
-text(2,34,"r2=0.58, p<0.01")#
-#
-plot(clim$NPI,clim$CHLAp2,xlim=c(-4.5,4.5),ylim=c(30,36),cex=0.7,pch=22,bg='green',xlab="NPI",ylab="Latitude of 0.2 mg m-3 Chl-a (°N)")#
-chlafit = lm(CHLAp2~NPI, data=clim)#
-abline(chlafit)#
-text(2,34,"r2=0.50, p<0.01")
-sstfit2 = glm(SST17~NPI+NPGO)
-sstfit2 = glm(SST17~NPI+NPGO,data=clim)
+plot(clim$NPI,clim$SST17,xlim=c(-4.5,4.5),ylim=c(30,36),cex=0.7,pch=21,bg='red',xlab="NPI",ylab="Latitude of 17°C SST (°N)")
+par(mfrow=c(1,2))#
+plot(clim$NPI,clim$SST17,xlim=c(-4.5,4.5),ylim=c(30,36),cex=0.7,pch=21,bg='red',xlab="NPI",ylab="Latitude of 17°C SST (°N)")
+sstfit = glm(SST17~NPI,data=clim)
+sstfit = glm(SST17~NPI.NDJFM,data=clim)
+summary(sstfit)
+sstfit = glm(SST17~NPI.NDJFM+NPGO.NDJFM,data=clim)
+summary(sstfit)
+sstfit2 = glm(SST17~NPI.NDJFM+NPGO.NDJFM,data=clim)
 summary(sstfit2)
 sstfit = glm(SST17~NPI,data=clim)
-summary(sstfit)
-5.3806/13.9442
-plot(sstfit)
-plot(sstfit)
-plot(sstfit2)
-cor(SST17,predict(sstfit))^2
-cor(clim$SST17,predict(sstfit))^2
-1-5.3806/13.9442
-chlafit = glm(CHLAp2~NPI,data=clim)
+sstfit = glm(SST17~NPI.NDJFM,data=clim)
+chlafit = glm(CHLAp2~NPI.NDJFM,data=clim)
 summary(chlafit)
-chlafit2 = glm(CHLAp2~NPI+NPGO,data=clim)
+chlafit2 = glm(CHLAp2~NPI.NDJFM+NPGO.NDJFM,data=clim)
 summary(chlafit2)
-library(mgcv)
-sstfitg = gam(SST17~NPI,data=clim)
-summary(sstfitg)
-plot(sstfitg)
-plot.gam(sstfitg)
-sstfitg2 = gam(SST17~NPI+NPGO,data=clim)
-summary(sstfitg2)
-plot(sstfitg2)
-sstfitg2 = gam(SST17~s(NPI)+s(NPGO),data=clim)
-par(mfrow=c(1,2))#
-plot(clim$NPI,clim$SST17,xlim=c(-4.5,4.5),ylim=c(30,36),cex=0.7,pch=21,bg='red',xlab="NPI",ylab="Latitude of 17°C SST (°N)")#
-sstfit = lm(SST17~NPI, data=clim)#
-abline(sstfit)#
-text(2,34,"r2=0.58, p<0.01")#
-#
-plot(clim$NPI,clim$CHLAp2,xlim=c(-4.5,4.5),ylim=c(30,36),cex=0.7,pch=22,bg='green',xlab="NPI",ylab="Latitude of 0.2 mg m-3 Chl-a (°N)")#
-chlafit = lm(CHLAp2~NPI, data=clim)#
-abline(chlafit)#
-text(2,34,"r2=0.50, p<0.01")#
-#
-plot(clim$NPI,clim$SST17,xlim=c(-4.5,4.5),ylim=c(30,36),cex=0.7,pch=21,bg='red',xlab="NPI",ylab="Latitude of 17°C SST (°N)")#
-sstfit = lm(SST17~NPI, data=clim)#
-abline(sstfit)#
-text(2,34,"r2=0.58, p<0.01")#
-#
-plot(clim$NPI,clim$CHLAp2,xlim=c(-4.5,4.5),ylim=c(30,36),cex=0.7,pch=22,bg='green',xlab="NPI",ylab="Latitude of 0.2 mg m-3 Chl-a (°N)")#
-chlafit = lm(CHLAp2~NPI, data=clim)#
-abline(chlafit)#
-text(2,34,"r2=0.50, p<0.01")
-ls
+load("/Users/evan.howell/projects/2012_TZCF/TZCF-Hiroshima/Climate.RData")
 ls()
-save.image(file="modelfits")
-ls()
-clim
-clim = read.csv('NPI-Fronts.csv')
-clim
-PDOfit = lm(PDO.FebMar~NPI.NDJFM,data=clim)
-summary(PDOfit)
-PDOfit2 = lm(PDO.NDJFM~NPI.NDJFM,data=clim)
-summary(PDOfi2)
-summary(PDOfit2)
+NPIF
 ls()
 rm(chlafit)
 rm(chlafit2)
-rm(clim)
-rm(PDOfit)
-rm(PDOfit2)
 rm(sstfit)
 rm(sstfit2)
-rm(sstfitg)
-rm(sstfitg2)
+rm(NPIF)
 ls()
-ind = read.csv('Nutricline-MLD.csv')
-ind
-ind.mat = as.matrix(ind)
-ind.mat
-ind.cent = apply(ind.mat,2,scale,center=TRUE,scale=FALSE)
-ind.cent
-mean(ind.cent)
-mean(ind.cent,2)
-?mean
-mean(ind.cent$year)
-ind = read.csv('Nutricline-MLD.csv')
-ind.mat = as.matrix(ind)
-ind.mat
-ind.cent = apply(ind.mat,2,scale,center=TRUE,scale=FALSE)
-ind.cent
-mean(ind.cent[,1])
-mean(ind.cent)
-mean(ind.cent[,2])
-ind.cov = cov(ind.mat)
-ind.eig = eigen(ind.cov)
-ind.eig$values
-ind.eig$vectors
-U=ind.eig$vectors
-F = ind.cent%*%U
-F
-U2 = U %*% diag(ind.eig$values^(0.5))
-U2
-G = F %*% diag(ind.eig$values^(-0.5))
-G
-plot(F[,1], F[,2], xlim=c(-4,4), ylim=c(-3,3), asp=1, xlab="Axe 1", ylab="Axe 2")
-F
-plot(F[,1], F[,2], asp=1, xlab="Axe 1", ylab="Axe 2")
-ind.mat
-ind.cent
-Y.cent = apply(Y.mat,2,scale,center=TRUE,scale=TRUE)
-ind.cent = apply(ind.mat,2,scale,center=TRUE,scale=TRUE)
-ind.cent
-ind.cov
-ind.cov = cov(ind.cent)
-ind.cov
-ind.eig = eigen(ind.cov)
-ind.eig$values
-ind.eig$vectors
-U=ind.eig$vectors
-F = ind.cent%*%U
-F
-U2 = U %*% diag(ind.eig$values^(0.5))
-U2
-G = F %*% diag(ind.eig$values^(-0.5))
-G
-plot(F[,1], F[,2], xlim=c(-4,4), ylim=c(-3,3), asp=1, xlab="Axe 1", ylab="Axe 2")
-arrows(x0=0, y0=0, U[,1]*3, U[,2]*3)
-plot(F[,1], F[,2], xlim=c(-4,4), ylim=c(-3,3), asp=1, xlab="Axe 1", ylab="Axe 2")
-plot(F[,1], F[,2], xlim=c(-4,4), ylim=c(-4,4), asp=1, xlab="Axe 1", ylab="Axe 2")
-years = c('1998','1999','2000','2008'.'2009'.'2011')
-years = c('1998','1999','2000','2008','2009','2011')
-years
-text(F[,1],F[,2],years)
-lines(c(0,0),c(-4,4))
-lines(c(-4,4),c(0,0))
-library(stats)
-a = princomp(ind)
-ind.eigen$value
-ind.eigen$values
-ind.eig$values
-ind.eig$values/sum(ind.eig$values)
-ind.eig$values/sum(ind.eig$values)*100
-text(3,3, 'loadings 1+2 = 82%')
-?prcomp
-a=prcomp(ind.mat)
-a
-summary(prcomp)
-summary(a)
-plot(a)
-biplot(a)
-plot(F[,1], F[,2], xlim=c(-4,4), ylim=c(-4,4), asp=1, xlab="Axe 1", ylab="Axe 2")
-text(F[,1],F[,2],years)
-arrows(x0=0, y0=0, U[,1]*3, U[,2]*3)
-U
-a = prcomp(ind.cent)
-biplot(a)
-biplot(a)
-summary(a)
-a
-ind = read.csv('Nutricline-MLD.csv')
-ind.mat = as.matrix(ind)
-ind.cent = apply(ind.mat,2,scale,center=TRUE,scale=FALSE)
-pc = prcomp(ind.cent)
-pc
-biplot(pc)
-ind.cent
-ind.mat
-ind = read.csv('Nutricline-MLD.csv')
-ind
-ind.mat = as.matrix(ind)
-ind.cent = apply(ind.mat,2,scale,center=TRUE,scale=FALSE)
-ind.cent
-pc = prcomp(ind.cent)
-pc
-ind.cent = apply(ind.mat,2,scale,center=TRUE,scale=TRUE)
-pc = prcomp(ind.cent)
-pc
-biplot(pc)
-?biplot.prcomp
+rm(clim)
+clim =read.csv('NPI-Fronts.csv')
+clim
+clim =read.csv('NPI-Fronts.csv')
+clim
+clim =read.csv('NPI-Fronts.csv')
+clim
+sstfit = glm(SST17.FebMar~NPI.NDJFM,data=clim)
+summary(sstfit)
+sstfit2 = glm(SST17.FebMar~NPI.NDJFM+NPGO.NDJFM,data=clim)
+summary(sstfit2)
+chlafit = glm(CHLAp2.FebMar~NPI.NDJFM,data=clim)
+summary(chlafit)
+chlafit2 = glm(CHLAp2.FebMar~NPI.NDJFM+NPGO.NDJFM,data=clim)
+summary(chlafit2)
+plot(clim$CHLAp2.FebMar,clim$NPGO.NDJFM)
+plot(clim$SST17.FebMar,clim$NPGO.NDJFM)
+plot(clim$CHLAp2.FebMar,clim$NPGO.NDJFM)
+library(mgcv)
+chlafit2g = gam(CHLAp2.FebMar~s(NPI.NDJFM)+s(NPGO.NDJFM),data=clim,link=identity)
+chlafit2g = gam(CHLAp2.FebMar~s(NPI.NDJFM)+s(NPGO.NDJFM,k=2),data=clim,link=identity)
+chlafit2g = gam(CHLAp2.FebMar~s(NPI.NDJFM,k=2)+s(NPGO.NDJFM,k=2),data=clim,link=identity)
+plot(chlafitg2)
+ls()
+clim
+clim = read.csv('Figure 3 - Climate-Frontal Position/NPI-Fronts.csv')
+clim
+plot(clim$NPI.NDJFM,clim$PDO.FebMar, pch=21,bg='grey')
+plot(clim$NPI.NDJFM,clim$PDO.FebMar*-1, pch=21,bg='grey')
+plot(clim$NPI.NDJFM,clim$PDO.FebMar, pch=21,bg='grey')
+abline
+pdofit = lm(PDO.FebMar~NPI.NDJFM,data=clim)
+summary(pdofit)
+abline(pdofit)
+summary(lm(CHLAp2.FebMar~NPI.NDJFM,data=clim))
+summary(lm(CHLAp2.FebMar~NPI.NDJFM+PDO.FebMar,data=clim))
+summary(lm(CHLAp2.FebMar~PDO.FebMar,data=clim))
+summary(lm(CHLAp2.FebMar~PDO.FebMar+NPI.NDJFM,data=clim))
+summary(lm(CHLAp2.FebMar~PDO.FebMar*-1,data=clim))
+plot(clim$PDO.FebMar,clim$CHLAp2,pch=22,bg='grey')
+plot(clim$PDO.FebMar*-1,clim$CHLAp2,pch=22,bg='grey')
+plot(clim$PDO.FebMar,clim$CHLAp2,pch=22,bg='grey')
+plot(clim$PDO.FebMar,clim$SST17,pch=22,bg='grey')
+clim
+plot(clim$PDO.FebMar,clim$SST17.FebMar,pch=22,bg='grey')
+plot(clim$PDO.FebMar,clim$SST17.FebMar,pch=22,bg='grey')
+SST17.pdofit = lm(SST17.FebMar~PDO.FebMar,data=clim)
+summary(SST17.pdofit)
+abline(SST17.pdofit)
+text(-1.3,30.25,'r2=0.70')
+summary(lm(SST17.FebMar~PDO.FebMar+NPGO.NDJFM,data=clim))
+plot(clim$PDO.FebMar,clim$SST17,pch=22,bg='grey')
+CHLAp2.pdofit = lm(CHLAp2.FebMar~PDO.FebMar,data=clim)
+abline(CHLAp2.pdofit)
+summary(CHLAp2.pdofit)
+plot(clim$PDO.FebMar,clim$SST17.FebMar,pch=22,bg='grey')
+abline(SST17.pdofit)
+plot(clim$PDO.FebMar,clim$CHLAp2.FebMar,pch=21,bg='grey')
+abline(CHLAp2.pdofit)
+ma <- function(x,n=5){filter(x,rep(1/n,n), sides=2)}
+clim
+ls()
+summary(CHLAp2.pdofit)
+summary(SST17.pdofit)
+summary(lm(CHLAp2.FebMar~NPI.NDJFM,data=clim))
+ls()
+save.image('../Figure3.RData')
+rm(chlafit)
+rm(chlafit2)
+rm(chlafit2g)
+rm(CHLAp2.pdofit)
+rm(clim)
+rm(ma)
+rm(pdofit)
+rm(SST17.pdofit)
+rm(sstfit)
+rm(sstfit2)
+ls()
+table2 = read.csv('table2params.csv')
+table2
+d15c.pdo.fit = lm(depth15c~pdo.febmar,data=table2)
+ncline.d15c.fit = lm(nutricline~depth15c,data=table2)
+summary(d15c.pdo.fit)
+summary(ncline.d15c.fit
+)
+plot(table2.pdo.febmar,table2.depth15c,pch=21,bg='grey')
+plot(table2$pdo.febmar,table2$depth15c,pch=21,bg='grey')
+abline(d15c.pdo.fit)
+text(35,-1,'r2=0.75,p=0.02')
+text(-1, 35,'r2=0.75,p=0.02')
+text(-1, 50,'r2=0.75,p=0.02')
+plot(table2$depth15c,table2$nutricline,pch=21,bg='grey')
+plot(table2$pdo.febmar,table2$depth15c,pch=21,bg='grey',ylim=c(40,130))
+abline(d15c.pdo.fit)
+text(-1, 50,'r2=0.75,p=0.02')
+plot(table2$pdo.febmar,table2$depth15c,pch=21,bg='grey',xlim=c(40,130))
+plot(table2$depth15c,table2$nutricline,pch=21,bg='grey',xlim=c(40,130))
+plot(table2$depth15c,table2$nutricline,pch=21,bg='grey',xlim=c(40,130))
+plot(table2$pdo.febmar,table2$depth15c,pch=21,bg='grey',ylim=c(40,130))
+abline(d15c.pdo.fit)
+text(-1, 50,'r2=0.75,p=0.02')
+plot(table2$depth15c,table2$nutricline,pch=21,bg='grey',xlim=c(40,130))
+abline(ncline.d15c.fit)
+text(40, 90,'r2=0.93,p<0.01')
+text(50, 95,'r2=0.93,p<0.01')
+text(60, 100,'r2=0.93,p<0.01')
+savehistory('makeFigure8.R')
+?savehistory
+savehistory(fil='makeFigure8.R')
+savehistory(file='makeFigure8.R')
+savehistory(file = "makeFigure8.R")
+plot(table2$pdo.febmar,table2$depth15c,pch=21,bg='grey',ylim=c(40,130))#
+abline(d15c.pdo.fit)#
+text(-1, 50,'r2=0.75,p=0.02')#
+#
+plot(table2$depth15c,table2$nutricline,pch=21,bg='grey',xlim=c(40,130))#
+abline(ncline.d15c.fit)#
+text(60, 100,'r2=0.93,p<0.01')
+save.image('../Figure 7 - Climate Physical/Figure7.RData')
+table2
+summary(lm(dcm~nutricline,data=table2))
+summary(lm(intchla~nutricline,data=table2))
 q()
