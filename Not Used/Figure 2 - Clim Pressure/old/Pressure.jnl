@@ -1,8 +1,0 @@
-use "http://iridl.ldeo.columbia.edu/SOURCES/.NOAA/.NCEP-NCAR/.CDAS-1/.MONTHLY/.Intrinsic/.MSL/.pressure/dods"
-show data
-USE climatological_axes
-let press = PRESSURE[d=1,X=130:240,Y=25:60,T=15-jan-1998:15-DEC-2011]
-LET press_monclim = press[GT=month_360_day@MOD]
-shade press_monclim[L=3]
-
-

@@ -1,7 +1,0 @@
- ! NOAA/PMEL TMAP
- ! FERRET v6.82  
- ! Darwin 9.8.0 - 08/06/12
- ! 31-Mar-14 08:36     
-
-use "http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/altim_merged/monthly"
-exit

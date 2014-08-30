@@ -1,0 +1,22 @@
+clim = read.csv('NPI-Fronts.csv')
+
+par(mfrow=c(1,2))
+plot(clim$NPI,clim$SST17,xlim=c(-4.5,4.5),ylim=c(30,36),cex=0.7,pch=21,bg='red',xlab="NPI",ylab="Latitude of 17°C SST (°N)")
+sstfit = lm(SST17~NPI, data=clim)
+abline(sstfit)
+text(2,34,"r2=0.58, p<0.01")
+
+plot(clim$NPI,clim$CHLAp2,xlim=c(-4.5,4.5),ylim=c(30,36),cex=0.7,pch=22,bg='green',xlab="NPI",ylab="Latitude of 0.2 mg m-3 Chl-a (°N)")
+chlafit = lm(CHLAp2~NPI, data=clim)
+abline(chlafit)
+text(2,34,"r2=0.50, p<0.01")
+
+plot(clim$NPI,clim$SST17,xlim=c(-4.5,4.5),ylim=c(30,36),cex=0.7,pch=21,bg='red',xlab="NPI",ylab="Latitude of 17°C SST (°N)")
+sstfit = lm(SST17~NPI, data=clim)
+abline(sstfit)
+text(2,34,"r2=0.58, p<0.01")
+
+plot(clim$NPI,clim$CHLAp2,xlim=c(-4.5,4.5),ylim=c(30,36),cex=0.7,pch=22,bg='green',xlab="NPI",ylab="Latitude of 0.2 mg m-3 Chl-a (°N)")
+chlafit = lm(CHLAp2~NPI, data=clim)
+abline(chlafit)
+text(2,34,"r2=0.50, p<0.01")

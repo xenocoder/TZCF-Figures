@@ -1,8 +1,5 @@
-pscoast -Rg -JA180/25/3.5i -B30/15 -Dc -A1000 -Gblack -P -K > map.ps
-psxy -Rg -JA -Wthin,black  -O -A <<END>> map.ps
-130 25
-230 25
-230 50
-130 50
-130 25
+pscoast -R200/210/18/38 -Jm0.4 -Df -Bf1a2/f1a2WeSn -Tf207/22/0.75 -Gblack -P -K > map.ps
+psxy -R -Jm -Wthin,black  -O -A <<END>> map.ps
+202 26
+202 36
 END
