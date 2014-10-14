@@ -1,26 +1,71 @@
  ! NOAA/PMEL TMAP
  ! FERRET v6.82  
  ! Darwin 9.8.0 - 08/06/12
- ! 30-Mar-14 10:36     
+ ! 13-Oct-14 17:31     
 
-use "http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/seawifs/monthly"
-use erdSWchlamday_SEAWIFS-TZCF-TS.nc
+use "tzcf-ncdc-mon-wstress.nc"
+shade/levels=(0,0.75,0.05) TAU[d=1,X=180:220@MED,Y=25:45@MED,T="15-NOV-2007":"15-MAR-2008"@AVE]
+vector/over/length=0.3 TAUX[d=1,X=180:220,Y=25:45,T="15-NOV-2007":"15-MAR-2008"@AVE],TAUY[d=1,X=180:220@MED,Y=25:45@MED,T="15-NOV-2007":"15-MAR-2008"@AVE]
 show data
-plot CHLOROPHYLL[d=1,X=201:203@AVE]
-shade CHLOROPHYLL[d=1,X=201:203@AVE]
-shade CHLOROPHYLL[d=1,X=201:203@AVE,Y=0.05@SBX:3]
-shade CHLOROPHYLL[d=1,X=201:203@AVE,Y=32:34@SBX:3]
-shade CHLOROPHYLL[d=1,X=201:203@AVE,Y=32:34@SBX:3,L=1:157:SBX:5]
-shade CHLOROPHYLL[d=1,X=201:203@AVE,Y=32:34@SBX:3,L=1:157@SBX:5]
-shade CHLOROPHYLL[d=1,X=201:203@AVE]
-use erdMBchlamday_AQUA-TZCF-TS.nc
+use "http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/MODIS/monthly"
+use "http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/aqua/monthly"
+use "http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/pfgac/monthly"
 show data
-shade CHLOROPHYLL[d=2,X=201:203@AVE]
-plot CHLOROPHYLL[d=1,X=@AVE,Y=@AVE]
-plot CHLOROPHYLL[d=1,X=@AVE,Y=@AVE],CHLOROPHYLL[d=2,X=@AVE,Y=@AVE]
-use climatological_axes
-plot CHLOROPHYLL[d=1, X=@AVE,Y=@LOC:18,T="15-JAN-1998":"15-DEC-2011"]
-plot CHLOROPHYLL[d=1, X=@AVE,Y=@LOC:0.2,T="15-JAN-1998":"15-DEC-2011"]
-plot CHLOROPHYLL[d=1, X=@AVE,Y=@LOC:0.2]
-plot CHLOROPHYLL[d=1, X=@AVE,Y=@LOC:0.2], CHLOROPHYLL[d=2, X=@AVE,Y=@LOC:0.2]
-exit
+contour/over/levels=(17,17,1) SST[d=3,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2008"]
+contour/over/levels=(18,18,1) SST[d=3,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2008"]
+contour/over/levels=(0.15,0.15,1) CHLA[d=2,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2008"]
+contour/over/levels=(0.25,0.25,1) CHLA[d=2,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2008"]
+shade/levels=(0,0.75,0.05) TAU[d=1,X=180:220@MED,Y=25:45@MED,T="15-NOV-2007":"15-MAR-2008"@AVE]
+vector/over/length=0.3 TAUX[d=1,X=180:220,Y=25:45,T="15-NOV-2007":"15-MAR-2008"@AVE],TAUY[d=1,X=180:220@MED,Y=25:45@MED,T="15-NOV-2007":"15-MAR-2008"@AVE]
+contour/over/color=Red/levels=(17,17,1) SST[d=2,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2008"]
+contour/over/color=Red/levels=(18,18,1) SST[d=2,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2008"]
+contour/over/color=Green/levels=(0.15,0.15,1) CHLA[d=2,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2008"]
+contour/over/color=Green/levels=(0.25,0.25,1) CHLA[d=2,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2008"]
+cancel data 2
+cancel dat 3
+cancel data 3
+show data
+use "http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/pfgac/monthly"
+use "http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/aqua/monthly"
+shade/levels=(0,0.75,0.05) TAU[d=1,X=180:220@MED,Y=25:45@MED,T="15-NOV-2007":"15-MAR-2008"@AVE]
+vector/over/length=0.3 TAUX[d=1,X=180:220,Y=25:45,T="15-NOV-2007":"15-MAR-2008"@AVE],TAUY[d=1,X=180:220@MED,Y=25:45@MED,T="15-NOV-2007":"15-MAR-2008"@AVE]
+contour/over/color=Red/levels=(17,17,1) SST[d=2,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2008"]
+contour/over/color=Red/levels=(18,18,1) SST[d=2,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2008"]
+contour/over/color=Green/levels=(0.15,0.15,1) CHLA[d=2,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2008"]
+contour/over/color=Green/levels=(0.15,0.15,1) CHLA[d=3,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2008"]
+contour/over/color=Green/levels=(0.25,0.25,1) CHLA[d=3,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2008"]
+go MakeFigure2.jnl
+SET MODE META
+shade/levels=(0,0.75,0.05) TAU[d=1,X=180:220@MED,Y=25:45@MED,T="15-NOV-2008":"15-MAR-2009"@AVE]
+vector/over/length=0.3 TAUX[d=1,X=180:220,Y=25:45,T="15-NOV-2008":"15-MAR-2009"@AVE],TAUY[d=1,X=180:220@MED,Y=25:45@MED,T="15-NOV-2008":"15-MAR-2009"@AVE]
+contour/over/color=Red/levels=(17,17,1) SST[d=2,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2009"]
+contour/over/color=Red/levels=(18,18,1) SST[d=2,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2009"]
+contour/over/color=Green/levels=(0.15,0.15,1) CHLA[d=3,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2009"]
+contour/over/color=Green/levels=(0.25,0.25,1) CHLA[d=3,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2009"]
+CANCEL MODE META
+SET MODE META
+shade/levels=(0,0.75,0.05) TAU[d=1,X=180:220@MED,Y=25:45@MED,T="15-NOV-2010":"15-MAR-2011"@AVE]
+vector/over/length=0.3 TAUX[d=1,X=180:220,Y=25:45,T="15-NOV-2010":"15-MAR-2011"@AVE],TAUY[d=1,X=180:220@MED,Y=25:45@MED,T="15-NOV-2010":"15-MAR-2011"@AVE]
+contour/over/color=Red/levels=(17,17,1) SST[d=2,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2011"]
+contour/over/color=Red/levels=(18,18,1) SST[d=2,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2011"]
+contour/over/color=Green/levels=(0.15,0.15,1) CHLA[d=3,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2011"]
+contour/over/color=Green/levels=(0.25,0.25,1) CHLA[d=3,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2011"]
+CANCEL MODE META
+list CHLA[d=3,X=202,Y=25:45@LOC:0.2,T=15-MAR-2008]
+list CHLA[d=3,X=202,Y=25:45@LOC:0.15,T=15-MAR-2008]
+list CHLA[d=3,X=202,Y=25:45@LOC:0.25,T=15-MAR-2008]
+list SST[d=2,X=202,Y=25:45@LOC:17,T=15-MAR-2008]
+list SST[d=2,X=202,Y=25:45@LOC:17.5,T=15-MAR-2008]
+list SST[d=2,X=202,Y=25:45@LOC:18,T=15-MAR-2008]
+list CHLA[d=3,X=202,Y=25:45@LOC:0.15,T=15-MAR-2009]
+list CHLA[d=3,X=202,Y=25:45@LOC:0.2,T=15-MAR-2009]
+list CHLA[d=3,X=202,Y=25:45@LOC:0.25,T=15-MAR-2009]
+list SST[d=2,X=202,Y=25:45@LOC:17,T=15-MAR-2009]
+list SST[d=2,X=202,Y=25:45@LOC:17.5,T=15-MAR-2009]
+list SST[d=2,X=202,Y=25:45@LOC:18,T=15-MAR-2009]
+list CHLA[d=3,X=202,Y=25:45@LOC:0.15,T=15-MAR-2011]
+list CHLA[d=3,X=202,Y=25:45@LOC:0.2,T=15-MAR-2011]
+list CHLA[d=3,X=202,Y=25:45@LOC:0.25,T=15-MAR-2011]
+list SST[d=2,X=202,Y=25:45@LOC:17,T=15-MAR-2011]
+list SST[d=2,X=202,Y=25:45@LOC:17.5,T=15-MAR-2011]
+list SST[d=2,X=202,Y=25:45@LOC:18,T=15-MAR-2011]

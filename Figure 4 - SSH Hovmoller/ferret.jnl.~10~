@@ -1,8 +1,0 @@
- ! NOAA/PMEL TMAP
- ! FERRET v6.82  
- ! Darwin 9.8.0 - 08/06/12
- ! 27-Mar-14 17:18     
-
-use tzcf-aviso-ssh-hov.nc
-show data
-exit
