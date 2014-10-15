@@ -48,18 +48,18 @@ vector/over/length=25 u98, v98
 
 !plot 2008
 set viewport wright
-shade/PALETTE=blue_darkred/levels=(-24,24,1) ssh08
+shade/PALETTE=blue_darkred/levels=(-20,20,1) ssh08
 vector/over/length=25 u08, v08
 
 set mode meta
 !plot 2009 first
 set viewport wleft 
-shade/PALETTE=blue_darkred/levels=(-24,24,1) ssh09
+shade/PALETTE=blue_darkred/levels=(-20,20,1) ssh09
 vector/over/length=25 u09,v09
 
 !plot 2011 second
 set viewport wright
-shade/PALETTE=blue_darkred/levels=(-24,24,1) ssh11
+shade/PALETTE=blue_darkred/levels=(-20,20,1) ssh11
 vector/over/length=25 u09,v09
 cancel mode meta
 
@@ -70,7 +70,7 @@ DEFINE VIEWPORT/XLIM=0,1/YLIM=0.5,1 wtop
 
 set mode meta
 set viewport wtop
-plot/vlimits=0:700:50 eke98[X=158W]
+plot/vlimits=0:350:25 eke08[X=158W]
 cancel mode meta
 
 set mode meta
