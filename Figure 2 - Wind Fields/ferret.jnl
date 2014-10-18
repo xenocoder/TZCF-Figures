@@ -1,73 +1,82 @@
  ! NOAA/PMEL TMAP
  ! FERRET v6.82  
  ! Darwin 9.8.0 - 08/06/12
- ! 13-Oct-14 17:31     
+ ! 18-Oct-14 10:53     
 
-use "tzcf-ncdc-mon-wstress.nc"
-shade/levels=(0,0.75,0.05) TAU[d=1,X=180:220@MED,Y=25:45@MED,T="15-NOV-2007":"15-MAR-2008"@AVE]
-vector/over/length=0.3 TAUX[d=1,X=180:220,Y=25:45,T="15-NOV-2007":"15-MAR-2008"@AVE],TAUY[d=1,X=180:220@MED,Y=25:45@MED,T="15-NOV-2007":"15-MAR-2008"@AVE]
-show data
-use "http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/MODIS/monthly"
-use "http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/aqua/monthly"
-use "http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/pfgac/monthly"
-show data
-contour/over/levels=(17,17,1) SST[d=3,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2008"]
-contour/over/levels=(18,18,1) SST[d=3,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2008"]
-contour/over/levels=(0.15,0.15,1) CHLA[d=2,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2008"]
-contour/over/levels=(0.25,0.25,1) CHLA[d=2,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2008"]
-shade/levels=(0,0.75,0.05) TAU[d=1,X=180:220@MED,Y=25:45@MED,T="15-NOV-2007":"15-MAR-2008"@AVE]
-vector/over/length=0.3 TAUX[d=1,X=180:220,Y=25:45,T="15-NOV-2007":"15-MAR-2008"@AVE],TAUY[d=1,X=180:220@MED,Y=25:45@MED,T="15-NOV-2007":"15-MAR-2008"@AVE]
-contour/over/color=Red/levels=(17,17,1) SST[d=2,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2008"]
-contour/over/color=Red/levels=(18,18,1) SST[d=2,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2008"]
-contour/over/color=Green/levels=(0.15,0.15,1) CHLA[d=2,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2008"]
-contour/over/color=Green/levels=(0.25,0.25,1) CHLA[d=2,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2008"]
-cancel data 2
-cancel dat 3
-cancel data 3
-show data
 use "http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/pfgac/monthly"
 use "http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/aqua/monthly"
-shade/levels=(0,0.75,0.05) TAU[d=1,X=180:220@MED,Y=25:45@MED,T="15-NOV-2007":"15-MAR-2008"@AVE]
-vector/over/length=0.3 TAUX[d=1,X=180:220,Y=25:45,T="15-NOV-2007":"15-MAR-2008"@AVE],TAUY[d=1,X=180:220@MED,Y=25:45@MED,T="15-NOV-2007":"15-MAR-2008"@AVE]
-contour/over/color=Red/levels=(17,17,1) SST[d=2,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2008"]
-contour/over/color=Red/levels=(18,18,1) SST[d=2,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2008"]
-contour/over/color=Green/levels=(0.15,0.15,1) CHLA[d=2,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2008"]
-contour/over/color=Green/levels=(0.15,0.15,1) CHLA[d=3,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2008"]
-contour/over/color=Green/levels=(0.25,0.25,1) CHLA[d=3,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2008"]
-go MakeFigure2.jnl
-SET MODE META
-shade/levels=(0,0.75,0.05) TAU[d=1,X=180:220@MED,Y=25:45@MED,T="15-NOV-2008":"15-MAR-2009"@AVE]
-vector/over/length=0.3 TAUX[d=1,X=180:220,Y=25:45,T="15-NOV-2008":"15-MAR-2009"@AVE],TAUY[d=1,X=180:220@MED,Y=25:45@MED,T="15-NOV-2008":"15-MAR-2009"@AVE]
-contour/over/color=Red/levels=(17,17,1) SST[d=2,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2009"]
-contour/over/color=Red/levels=(18,18,1) SST[d=2,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2009"]
-contour/over/color=Green/levels=(0.15,0.15,1) CHLA[d=3,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2009"]
-contour/over/color=Green/levels=(0.25,0.25,1) CHLA[d=3,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2009"]
-CANCEL MODE META
-SET MODE META
-shade/levels=(0,0.75,0.05) TAU[d=1,X=180:220@MED,Y=25:45@MED,T="15-NOV-2010":"15-MAR-2011"@AVE]
-vector/over/length=0.3 TAUX[d=1,X=180:220,Y=25:45,T="15-NOV-2010":"15-MAR-2011"@AVE],TAUY[d=1,X=180:220@MED,Y=25:45@MED,T="15-NOV-2010":"15-MAR-2011"@AVE]
-contour/over/color=Red/levels=(17,17,1) SST[d=2,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2011"]
-contour/over/color=Red/levels=(18,18,1) SST[d=2,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2011"]
-contour/over/color=Green/levels=(0.15,0.15,1) CHLA[d=3,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2011"]
-contour/over/color=Green/levels=(0.25,0.25,1) CHLA[d=3,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2011"]
-CANCEL MODE META
-list CHLA[d=3,X=202,Y=25:45@LOC:0.2,T=15-MAR-2008]
-list CHLA[d=3,X=202,Y=25:45@LOC:0.15,T=15-MAR-2008]
-list CHLA[d=3,X=202,Y=25:45@LOC:0.25,T=15-MAR-2008]
-list SST[d=2,X=202,Y=25:45@LOC:17,T=15-MAR-2008]
-list SST[d=2,X=202,Y=25:45@LOC:17.5,T=15-MAR-2008]
-list SST[d=2,X=202,Y=25:45@LOC:18,T=15-MAR-2008]
-list CHLA[d=3,X=202,Y=25:45@LOC:0.15,T=15-MAR-2009]
-list CHLA[d=3,X=202,Y=25:45@LOC:0.2,T=15-MAR-2009]
-list CHLA[d=3,X=202,Y=25:45@LOC:0.25,T=15-MAR-2009]
-list SST[d=2,X=202,Y=25:45@LOC:17,T=15-MAR-2009]
-list SST[d=2,X=202,Y=25:45@LOC:17.5,T=15-MAR-2009]
-list SST[d=2,X=202,Y=25:45@LOC:18,T=15-MAR-2009]
-list CHLA[d=3,X=202,Y=25:45@LOC:0.15,T=15-MAR-2011]
-list CHLA[d=3,X=202,Y=25:45@LOC:0.2,T=15-MAR-2011]
-list CHLA[d=3,X=202,Y=25:45@LOC:0.25,T=15-MAR-2011]
-list SST[d=2,X=202,Y=25:45@LOC:17,T=15-MAR-2011]
-list SST[d=2,X=202,Y=25:45@LOC:17.5,T=15-MAR-2011]
-list SST[d=2,X=202,Y=25:45@LOC:18,T=15-MAR-2011]
-list SST[d=2,X=202,Y=25:45@LOC:18,T=15-MAR-2011]
+use "http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/pfgac/weekly"
+use "http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/aqua/weekly"
+list SST[d=3,X=202,Y=25:45@LOC:18,T=21-MAR-2009]
+list SST[d=3,X=202,Y=25:45@LOC:17.5,T=21-MAR-2009]
+list SST[d=3,X=202,Y=25:45@LOC:17,T=21-MAR-2009]
+list CHLA[d=4,X=202,Y=25:45@LOC:0.15,T=23-MAR-2009]
+list CHLA[d=4,X=202,Y=25:45@LOC:0.1,T=23-MAR-2009]
+list CHLA[d=4,X=202,Y=25:45@LOC:0.11,T=23-MAR-2009]
+list CHLA[d=4,X=202,Y=25:45@LOC:0.12,T=23-MAR-2009]
+contour/color=Green/levels=(0.2,0.2,0.1) CHLA[d=4,X=180:220:1@AVE,Y=25:45:1@AVE,T="22-MAR-2011"]
+contour/color=Blue/over/levels=(0.2,0.2,1) CHLA[d=4,X=180:220:1@AVE,Y=25:45:1@AVE,T="22-MAR-2011"]
+shade CHLA[d=4,X=180:220:1@AVE,Y=25:45:1@AVE,T="22-MAR-2011"]
+shade CHLA[d=4,X=180:220,Y=25:45,T="22-MAR-2011"]
+shade CHLA[d=4,X=180:220,Y=25:45,T="15-MAR-2011":"30-MAR-2011"]
+contour/color=Green/levels=(0.2,0.2,0.1) CHLA[d=4,X=180:220:1@AVE,Y=25:45:1@AVE,T="22-MAR-2009"]
+contour/color=Green/levels=(0.2,0.2,0.1) CHLA[d=4,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2009":"30-MAR-2009"@AVE]
+CHLA[d=4,X=202,Y=25:45@LOC:0.15,T=15-MAR-2009:30-MAR-2009@AVE]
+CHLA[d=4,X=202,Y=25:45@LOC:0.15,"T=15-MAR-2009":"30-MAR-2009"@AVE]
+list CHLA[d=4,X=202,Y=25:45@LOC:0.15,"T=15-MAR-2009":"30-MAR-2009"@AVE]
+list CHLA[d=4,X=202,Y=25:45@LOC:0.15,T=15-MAR-2009:30-MAR-2009@AVE]
+list CHLA[d=4,X=202,Y=25:45@LOC:0.2,T=15-MAR-2009:30-MAR-2009@AVE]
+contour/color=Green/levels=(0.2,0.2,0.1) CHLA[d=4,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2009":"30-MAR-2009"@AVE]
+contour/color=Green/levels=(0.2,0.2,0.1) CHLA[d=4,X=180:220:1@AVE,Y=25:45:1@AVE,T="22-MAR-2009"]
+contour/color=Green/levels=(0.2,0.2,0.1) CHLA[d=4,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2009":"30-MAR-2009"@AVE]
+contour/color=Green/levels=(0.15,0.15,0.1) CHLA[d=4,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2009":"30-MAR-2009"@AVE]
+contour/color=Green/levels=(0.25,0.25,0.1) CHLA[d=4,X=180:220:1@AVE,Y=25:45:1@AVE,T="15-MAR-2009":"30-MAR-2009"@AVE]
+list SST[d=3,X=202,Y=25:45@LOC:18,T=20-MAR-2011]
+list SST[d=3,X=202,Y=25:45@LOC:17.5,T=20-MAR-2011]
+list SST[d=3,X=202,Y=25:45@LOC:17,T=20-MAR-2011]
+list CHLA[d=4,X=202,Y=25:45@LOC:0.15,T=20-MAR-2011]
+list CHLA[d=4,X=202,Y=25:45@LOC:0.2,T=20-MAR-2011]
+list CHLA[d=4,X=202,Y=25:45@LOC:0.25,T=20-MAR-2011
+list CHLA[d=4,X=202,Y=25:45@LOC:0.25,T=20-MAR-2011]
+list CHLA[d=4,X=202,Y=25:45@LOC:0.15,T=21-MAR-2011]
+list CHLA[d=4,X=202,Y=25:45@LOC:0.2,T=21-MAR-2011]
+list CHLA[d=4,X=202,Y=25:45@LOC:0.25,T=21-MAR-2011]
+list CHLA[d=4,X=202,Y=25:45@LOC:0.15,T=22-MAR-2011]
+list CHLA[d=4,X=202,Y=25:45@LOC:0.2,T=22-MAR-2011]
+list CHLA[d=4,X=202,Y=25:45@LOC:0.25,T=22-MAR-2011]
+list/file=Table-RS-Locations.dat SST[d=3,X=202,Y=25:45@LOC:18,T=29-MAR-2008]
+list/append/file=Table-RS-Locations.dat SST[d=3,X=202,Y=25:45@LOC:17.5,T=29-MAR-2008]
+list/append/file=Table-RS-Locations.dat SST[d=3,X=202,Y=25:45@LOC:17,T=29-MAR-2008]
+list/append/file=Table-RS-Locations.dat CHLA[d=4,X=202,Y=25:45@LOC:0.15,T=01-APR-2008]
+list/append/file=Table-RS-Locations.dat CHLA[d=4,X=202,Y=25:45@LOC:0.2,T=01-APR-2008]
+list/append/file=Table-RS-Locations.dat CHLA[d=4,X=202,Y=25:45@LOC:0.25,T=01-APR-2008
+list/append/file=Table-RS-Locations.dat SST[d=3,X=202,Y=25:45@LOC:18,T=21-MAR-2009]
+list/append/file=Table-RS-Locations.dat SST[d=3,X=202,Y=25:45@LOC:17.5,T=21-MAR-2009]
+list/append/file=Table-RS-Locations.dat SST[d=3,X=202,Y=25:45@LOC:17,T=21-MAR-2009]
+list/append/file=Table-RS-Locations.dat CHLA[d=4,X=202,Y=25:45@LOC:0.15,T=23-MAR-2009]
+list/append/file=Table-RS-Locations.dat CHLA[d=4,X=202,Y=25:45@LOC:0.2,T=23-MAR-2009]
+list/append/file=Table-RS-Locations.dat CHLA[d=4,X=202,Y=25:45@LOC:0.25,T=23-MAR-2009]
+list/append/file=Table-RS-Locations.dat SST[d=3,X=202,Y=25:45@LOC:18,T=20-MAR-2011]
+list/append/file=Table-RS-Locations.dat SST[d=3,X=202,Y=25:45@LOC:17.5,T=20-MAR-2011]
+list/append/file=Table-RS-Locations.dat SST[d=3,X=202,Y=25:45@LOC:17,T=20-MAR-2011]
+list/append/file=Table-RS-Locations.dat CHLA[d=4,X=202,Y=25:45@LOC:0.15,T=21-MAR-2011]
+list/append/file=Table-RS-Locations.dat CHLA[d=4,X=202,Y=25:45@LOC:0.2,T=21-MAR-2011]
+list/append/file=Table-RS-Locations.dat CHLA[d=4,X=202,Y=25:45@LOC:0.25,T=21-MAR-2011]
+list/clobber/file=Table-RS-Locations.dat SST[d=3,X=202,Y=25:45@LOC:18,T=29-MAR-2008]
+list/append/file=Table-RS-Locations.dat SST[d=3,X=202,Y=25:45@LOC:17.5,T=29-MAR-2008]
+list/append/file=Table-RS-Locations.dat SST[d=3,X=202,Y=25:45@LOC:17,T=29-MAR-2008]
+list/append/file=Table-RS-Locations.dat CHLA[d=4,X=202,Y=25:45@LOC:0.15,T=01-APR-2008]
+list/append/file=Table-RS-Locations.dat CHLA[d=4,X=202,Y=25:45@LOC:0.2,T=01-APR-2008]
+list/append/file=Table-RS-Locations.dat CHLA[d=4,X=202,Y=25:45@LOC:0.25,T=01-APR-2008]
+list/append/file=Table-RS-Locations.dat SST[d=3,X=202,Y=25:45@LOC:18,T=21-MAR-2009]
+list/append/file=Table-RS-Locations.dat SST[d=3,X=202,Y=25:45@LOC:17.5,T=21-MAR-2009]
+list/append/file=Table-RS-Locations.dat SST[d=3,X=202,Y=25:45@LOC:17,T=21-MAR-2009]
+list/append/file=Table-RS-Locations.dat CHLA[d=4,X=202,Y=25:45@LOC:0.15,T=23-MAR-2009]
+list/append/file=Table-RS-Locations.dat CHLA[d=4,X=202,Y=25:45@LOC:0.2,T=23-MAR-2009]
+list/append/file=Table-RS-Locations.dat CHLA[d=4,X=202,Y=25:45@LOC:0.25,T=23-MAR-2009]
+list/append/file=Table-RS-Locations.dat SST[d=3,X=202,Y=25:45@LOC:18,T=20-MAR-2011]
+list/append/file=Table-RS-Locations.dat SST[d=3,X=202,Y=25:45@LOC:17.5,T=20-MAR-2011]
+list/append/file=Table-RS-Locations.dat SST[d=3,X=202,Y=25:45@LOC:17,T=20-MAR-2011]
+list/append/file=Table-RS-Locations.dat CHLA[d=4,X=202,Y=25:45@LOC:0.15,T=21-MAR-2011]
+list/append/file=Table-RS-Locations.dat CHLA[d=4,X=202,Y=25:45@LOC:0.2,T=21-MAR-2011]
 exit

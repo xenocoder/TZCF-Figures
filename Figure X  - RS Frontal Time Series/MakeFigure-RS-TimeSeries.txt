@@ -1,0 +1,14 @@
+! This is a FERRET file to make a plot of the time series of the 17-18C and 0.15-0.25 ranges from 1998-2011.
+
+use "http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/pfgac/monthly"
+use "http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/aqua/monthly"
+use "http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/pfgac/weekly"
+use "http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/aqua/weekly"
+
+SST
+15-MAR-2003 = L = 219
+15-MAR-2011 = L = 315
+
+CHLA
+15-MAR-2003 = L = 8
+15-MAR-2011 = L =105 

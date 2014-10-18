@@ -6,6 +6,8 @@
 use "tzcf-ncdc-mon-wstress.nc"
 use "http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/pfgac/monthly"
 use "http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/aqua/monthly"
+use "http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/pfgac/weekly"
+use "http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/aqua/weekly"
 
 SET MODE META
 shade/levels=(0,0.75,0.05) TAU[d=1,X=180:220@MED,Y=25:45@MED,T="15-NOV-2007":"15-MAR-2008"@AVE]
