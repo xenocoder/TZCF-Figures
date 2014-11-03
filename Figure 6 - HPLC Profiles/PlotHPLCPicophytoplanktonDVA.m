@@ -30,7 +30,34 @@
 
 %2008
 clf
-subplot(1,2,1)
+subplot(1,3,1)
+ssta = stationlistHPLC.SSTFZ(1,1);
+esta = stationlistHPLC.SSTFZ(1,2);
+x = nanmean(SE0802.HPLC.dva(:,ssta:esta),2);
+y = SE0802.HPLC.pressure(:,ssta);
+plot(x,y,'b-','linewidth',5);
+set(gca, 'xlim',[0 200])
+axis ij
+hold on
+
+ssta = stationlistHPLC.SSTFZ(2,1);
+esta = stationlistHPLC.SSTFZ(2,2);
+x = nanmean(SE0902.HPLC.dva(:,ssta:esta),2);
+y = SE0902.HPLC.pressure(:,ssta);
+plot(x,y,'r-','linewidth',5)
+
+ssta = stationlistHPLC.SSTFZ(3,1);
+esta = stationlistHPLC.SSTFZ(3,2);
+x = nanmean(SE1102.HPLC.dva(:,ssta:esta),2);
+y = SE1102.HPLC.pressure(:,ssta);
+plot(x,y,'k-','linewidth',5)
+
+legend('2008','2009','2011','Location','northeast')
+title('Mean Divinyl-Chlorophyll-a at Southern STFZ')
+xlabel('Divinyl-Chlorophyll-a (nmol kg-1)')
+ylabel('Pressure (db)')
+
+subplot(1,3,2)
 ssta = stationlistHPLC.STFZ(1,1);
 esta = stationlistHPLC.STFZ(1,2);
 x = nanmean(SE0802.HPLC.dva(:,ssta:esta),2);
@@ -58,7 +85,7 @@ xlabel('Divinyl-Chlorophyll-a (nmol kg-1)')
 ylabel('Pressure (db)')
 
 %TZCF%
-subplot(1,2,2)
+subplot(1,3,3)
 ssta = stationlistHPLC.TZCF(1,1);
 esta = stationlistHPLC.TZCF(1,2);
 x = nanmean(SE0802.HPLC.dva(:,ssta:esta),2);
