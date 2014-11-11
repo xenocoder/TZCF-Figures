@@ -179,4 +179,11 @@ picopro(3,3) = prochl(3,3) + otherchl(3,3);
 picoeuk(3,3) = prymchl(3,3) + pelchl(3,3);
 nanoeuk(3,3) = diatchl(3,3) + dinochl(3,3);
 
+years = [2008 2008 2008;2009 2009 2009;2011 2011 2011];
+zones = [1 2 3; 1 2 3; 1 2 3];
+fid = fopen('chlpigdata.csv','w+');
+fprintf(fid,'year,zone, Pro, Prym, Pel, Diat, Dino, Other, Total, Pico, Nano, Micro\n');
+dlmwrite('chlpigdata.csv',[reshape(years,9,1),reshape(zones,9,1),reshape(prochl,9,1),reshape(prymchl,9,1),reshape(pelchl,9,1),reshape(diatchl,9,1),reshape(dinochl,9,1),reshape(otherchl,9,1),reshape(totalchl,9,1),reshape(picopro,9,1),reshape(picoeuk,9,1),reshape(nanoeuk,9,1)],'-append');
+fclose(fid);
+
 clear ssta esta x XI 
