@@ -1,18 +1,0 @@
-Indicators are from Andersen et al. (1996) 
-
-Also from Suzuki et al. 1997 Chlorophyll a contributions provided by the majoreukaryotic phytoplankton groups (i.e. prymnesiophytes,pelagophytes, dinoflagellates and diatoms) were calculated by the method of Bidigare and Ondrusek (1996), which used integrated pigment concentrations in the water column (trapezoidal rule; 0–150 m) and the algorithms given in Table 1 (after Letelier et al., 1993). The chlorophyll a associated with eukaryotic photoautotrophs was calculated by summing the contributions of prymnesiophytes, pelagophytes (sensu Andersen et al. (1993) referred to chrysophytes in Letelier et al. (1993)), diatoms and di- noflagellates. The chlorophyll associated with prokaryotic autotrophs (Prochlorococcus and cyanobacteria) was cal- culated as the difference between total chlorophyll and that contributed by eukaryotic photoautotrophs. The low level of prasinoxanthin and alloxanthin detected indicate that prasinophytes and cryptophytes were not major phytoplank- ton components (described below), and their contributions were ignored in the chlorophyll biomass calculations. Non- parametric one-way analysis of variance (ANOVA) was used to test for significant differences in pigment concen- trations.
-
-prokaryotes
-divinyl chlorophyll-a (prochlorococcus)
-zeaxanthin (
-
-Picoeukayotes
-19’-butanoyloxyfucoxanthin (pelagophytes)
-19’-hexanoyloxyfucoxanthin (prymnesiophytes)
-
-Eukaryotes
-fucoxanthin (diatoms)
-peridinin (dinoflagellates). 
-
-[Chl-a]picoeukaryotic = [Chl-a](prymnesio. + pelago.)
-[Chl-a]eukaryotic = [Chl-a](dino. + diatoms)[Chl-a]prokaryotic = [Chl-a]total – ([Chl-a]picoeukayotic + [Chl-a]eukaryotic)
