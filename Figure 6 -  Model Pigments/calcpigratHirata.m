@@ -36,6 +36,9 @@ out.SDP = Fuco + Perid + Hex + Allo + But + Chlb + Zea; %= Chl-a (Uitz et al., 2
 %Calculate straight values
 out.diatoms = Fuco; %diatoms
 out.dino = Perid; %dinoflagellates
+out.prym = Hex;
+out.pelago = But;
+out.crypto = Allo;
 out.galgae = Chlb; %Green algae
 out.prok = Zea; %prokaryotes
 out.proc = DVChla; %prochlorococcus (divide by totalchla
@@ -44,21 +47,18 @@ out.picopl = (Zea + Chlb + out.Yp .* Hex); %Look at Uitz et al. 2006
 out.nanopl = (out.Xn .* Hex + But + Allo); %Nanoplankton (2-20um)
 out.micropl = (Fuco + Perid); % Microplankton (>20um)^2 so need to sqrt
 
-out.prym = out.nanopl - out.galgae; %approximated from Hirata et al. 2011
-out.picoeuk = out.picopl - out.prok; %approximated from Hirata et al. 2011
-
 %Calculate percentages
-out.diatompercent = Fuco./out.SDP; %diatoms
-out.dinopercent = Perid./out.SDP; %dinoflagellates
-out.galgaepercent = Chlb ./ out.SDP; %Green algae
-out.prokpercent = Zea ./ out.SDP; %prokaryotes
-out.procpercent = DVChla; %prochlorococcus (divide by totalchla
-
-out.picoplpercent = (Zea + out.Yp .* Hex) ./ out.SDP;
-out.nanoplpercent = (out.Xn .* Hex + Chlb + But + Allo)./out.SDP; %Nanoplankton (2-20um)
-out.microplpercent = (Fuco + Perid) ./ out.SDP; % Microplankton (>20um)^2 so need to sqrt
-
-out.prympercent = out.nanopl - out.galgae; %approximated from Hirata et al. 2011
-out.picoeukpercent = out.picopl - out.prok; %approximated from Hirata et al. 2011
+% out.diatompercent = Fuco./out.SDP; %diatoms
+% out.dinopercent = Perid./out.SDP; %dinoflagellates
+% out.galgaepercent = Chlb ./ out.SDP; %Green algae
+% out.prokpercent = Zea ./ out.SDP; %prokaryotes
+% out.procpercent = DVChla; %prochlorococcus (divide by totalchla
+% 
+% out.picoplpercent = (Zea + Chlb + out.Yp .* Hex) ./ out.SDP;
+% out.nanoplpercent = (out.Xn .* Hex + But + Allo)./out.SDP; %Nanoplankton (2-20um)
+% out.microplpercent = (Fuco + Perid) ./ out.SDP; % Microplankton (>20um)^2 so need to sqrt
+% 
+% out.prympercent = out.nanopl - out.galgae; %approximated from Hirata et al. 2011
+% out.picoeukpercent = out.picopl - out.prok; %approximated from Hirata et al. 2011
 
 end
