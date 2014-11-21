@@ -2,17 +2,27 @@
 % Plot the output from mediancell function given input SST and Chl-a
 %
 %
-sst08 = load('sst08.txt');
-sst09 = load('sst09.txt');
-sst11 = load('sst11.txt');
+% READ IN SATELLITE DATA IF NO mediansatdata STRUCTURE
+%readsatdata;
 
-chla08 = load('chla08.txt');
-chla09 = load('chla09.txt');
-chla11 = load('chla11.txt');
+%latitude, CHECK to make sure still valid
+latitude = transpose(30:0.1:36);
 
-md5008 = [sst08(:,1) mediancell(sst08(:,2),chla08(:,2))];
-md5009 = [sst09(:,1) mediancell(sst09(:,2),chla09(:,2))];
-md5011 = [sst11(:,1) mediancell(sst11(:,2),chla11(:,2))];
+%Take nanmean for calculations
+%2008
+sst08 = nanmean(mediansatdata.sst08,2);
+chla08 = nanmean(mediansatdata.chla08,2);
+md5008 = [latitude mediancell(sst08,chla08)];
+
+%2009
+sst09 = nanmean(mediansatdata.sst09,2);
+chla09 = nanmean(mediansatdata.chla09,2);
+md5009 = [latitude mediancell(sst09,chla09)];
+
+%2011
+sst11 = nanmean(mediansatdata.sst11,2);
+chla11 = nanmean(mediansatdata.chla11,2);
+md5011 = [latitude mediancell(sst11,chla11)];
 
 %subplot(3,1,1)
 plot(md5008(:,1),md5008(:,2),'b-')
@@ -20,7 +30,7 @@ set(gca, 'Ylim', [0.5 2.5])
 xlabel('Latitude °N')
 ylabel('Cell diameter (uM)')
 text(30.5, 2.2, '2008')
-title('Average of Mar-Apr monthly median cell size for 30°-36°N')
+title('Average of Mar-Apr weekly median cell size for 30°-36°N')
 hold on
 
 %subplot(3,1,2)
@@ -44,10 +54,13 @@ a = csvread('chlpigdatahirata-surface.csv',1);
 percpicopl = sum(a(:,4:5),2)./a(:,14); %CHECK THIS ALWAYS BEFORE %1-3=STFZ 08-11, 4-6=TZCF 08-11
 
 md50array = ones(6,1); %1-3=STFZ 08-11, 4-6=TZCF 08-11
-md50array(1,1) = mean(md5008(33:39,2)); %2008 STFZ
-md50array(2,1) = mean(md5009(38:49,2)); %2009 STFZ
-md50array(3,1) = mean(md5011(38:49,2)); %2011 STFZ
+md50array(1,1) = mean(md5008(23:29,2)); %2008 STFZ (32.25-32.75)
+md50array(2,1) = mean(md5009(13:24,2)); %2009 STFZ (31.25-32.25)
+md50array(3,1) = mean(md5011(13:24,2)); %2011 STFZ (31.25-32.25)
 
-md50array(4,1) = mean(md5008(3:9,2)); %2008 TZCF
-md50array(5,1) = mean(md5009(1:11,2)); %2009 TZCF
-md50array(6,1) = mean(md5011(26:36,2)); %2011 TZCF
+md50array(4,1) = mean(md5008(43:54,2)); %2008 TZCF (34.25-35.75)
+md50array(5,1) = mean(md5009(51:61,2)); %2009 TZCF (35-36)
+md50array(6,1) = mean(md5011(26:36,2)); %2011 TZCF (32.50-33.50)
+
+%[percpicopl md50array]
+plot(percpicopl, md50array,'b*')
