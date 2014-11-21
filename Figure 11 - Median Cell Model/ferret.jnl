@@ -1,0 +1,47 @@
+ ! NOAA/PMEL TMAP
+ ! FERRET v6.82  
+ ! Darwin 9.8.0 - 08/06/12
+ ! 20-Nov-14 17:41     
+
+go mediancell.jnl
+show var
+cancel sst08
+cancel var sst08
+show var
+cancel var sst09
+cancel var sst11
+cancel var chla08
+cancel var chla09
+cancel var chla11
+show var
+list SST[d=1,X=180,Y=20:21,L=3]
+let sst08 = SST[d=1,X=201:203,Y=30:36,T="15-MAR-2008":"15-APR-2008"@AVE]
+let sst09 = SST[d=1,X=201:203,Y=30:36,T="15-MAR-2009":"15-APR-2009"@AVE]
+let sst11 = SST[d=1,X=201:203,Y=30:36,T="15-MAR-2011":"15-APR-2011"@AVE]
+let chla08 = CHLA[d=1,X=201:203@0.1AVE,Y=30:36,T="15-MAR-2008":"15-APR-2008"@AVE]
+let chla09 = CHLA[d=1,X=201:203@0.1AVE,Y=30:36,T="15-MAR-2009":"15-APR-2009"@AVE]
+let chla11 = CHLA[d=1,X=201:203@0.1AVE,Y=30:36,T="15-MAR-2011":"15-APR-2011"@AVE]
+list/clobber/file=sst08.txt sst08
+list/clobber/file=chla08.txt chla08
+cancel var chla08
+let chla08 = CHLA[d=1,X=201:203:0.1@AVE,Y=30:36,T="15-MAR-2008":"15-APR-2008"@AVE]
+list/clobber/file=chla08.txt chla08
+cancel var chla08
+let chla08 = CHLA[d=2,X=201:203:0.1@AVE,Y=30:36,T="15-MAR-2008":"15-APR-2008"@AVE]
+list/clobber/file=chla08.txt chla08
+cancel var sst08
+cancel var sst09
+cancel var sst11
+cancel var chla08
+cancel var chla09
+cancel var chla11
+let sst08 = SST[d=1,X=202,Y=30:36,T="15-MAR-2008":"15-APR-2008"@AVE]
+let chla08 = SST[d=2,X=202,Y=30:36:1@AVE,T="15-MAR-2008":"15-APR-2008"@AVE]
+list/clobber/file=sst08.txt sst08
+list/clobber/file=chla08.txt chla08
+let chla08 = CHLA[d=2,X=202,Y=30:36:1@AVE,T="15-MAR-2008":"15-APR-2008"@AVE]
+list/clobber/file=chla08.txt chla08
+let chla08 = CHLA[d=2,X=202,Y=30:36:0.1@AVE,T="15-MAR-2008":"15-APR-2008"@AVE]
+list/clobber/file=chla08.txt chla08
+list/clobber/file=chla08.txt chla08
+list/clobber/file=sst08.txt sst08

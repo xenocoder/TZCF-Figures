@@ -1,0 +1,19 @@
+!This is a FERRET script to calculate the median cell size from SST and Chl-a data. This is the equation from Polovina and Woodworth (2012)
+
+
+!use "http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/pfgac/weekly"
+use "http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/pfgac/monthly"
+!use "http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/aqua/weekly"
+use "http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/aqua/monthly"
+
+let sst08 = SST[d=1,X=201:203,Y=30:36,T="15-MAR-2008":"15-APR-2008"@AVE]
+let sst09 = SST[d=1,X=201:203,Y=30:36,T="15-MAR-2009":"15-APR-2009"@AVE]
+let sst11 = SST[d=1,X=201:203,Y=30:36,T="15-MAR-2011":"15-APR-2011"@AVE]
+
+let chla08 = CHLA[d=2,X=201:203:0.1@AVE,Y=30:36,T="15-MAR-2008":"15-APR-2008"@AVE]
+let chla09 = CHLA[d=2,X=201:203:0.1@AVE,Y=30:36,T="15-MAR-2009":"15-APR-2009"@AVE]
+let chla11 = CHLA[d=2,X=201:203:0.1@AVE,Y=30:36,T="15-MAR-2011":"15-APR-2011"@AVE]
+
+!list/clobber/file=sst08.txt sst08
+!list/clobber/file=chla08.txt chla08
+

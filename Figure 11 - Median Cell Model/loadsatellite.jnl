@@ -1,0 +1,4 @@
+use "http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/pfgac/weekly"
+use "http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/pfgac/monthly"
+use "http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/aqua/weekly"
+use "http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/aqua/monthly"

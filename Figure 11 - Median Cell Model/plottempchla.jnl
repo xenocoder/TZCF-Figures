@@ -1,0 +1,27 @@
+DEFINE VIEWPORT/XLIM=0.,0.33/YLIM= 0,1 V1
+DEFINE VIEWPORT/XLIM=0.34,0.66/YLIM= 0,1 V2
+DEFINE VIEWPORT/XLIM=0.67,1/YLIM= 0,1 V3
+
+!FIRST CHLA
+!SET MODE META
+
+set viewport v1
+shade/levels=(0,0.5,0.01) CHLA[d=4,X=201:203,Y=30:36,T="15-MAR-2008":"15-APR-2008"@AVE]
+set viewport v2
+shade/levels=(0,0.5,0.01) CHLA[d=4,X=201:203,Y=30:36,T="15-MAR-2009":"15-APR-2009"@AVE]
+set viewport v3
+shade/levels=(0,0.5,0.01) CHLA[d=4,X=201:203,Y=30:36,T="15-MAR-2011":"15-APR-2011"@AVE]
+
+!CANCEL MODE META
+
+!SST NEXT
+!SET MODE META
+
+set viewport v1
+shade/levels=c(13.8,21,0.2) SST[d=2,X=201:203,Y=30:36,T="15-MAR-2008":"15-APR-2008"@AVE]
+set viewport v2
+shade/levels=c(13.8,21,0.2) SST[d=2,X=201:203,Y=30:36,T="15-MAR-2009":"15-APR-2009"@AVE]
+set viewport v3
+shade/levels=c(13.8,21,0.2) SST[d=2,X=201:203,Y=30:36,T="15-MAR-2011":"15-APR-2011"@AVE]
+
+!CANCEL MODE META
