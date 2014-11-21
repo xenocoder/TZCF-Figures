@@ -15,5 +15,7 @@ function md50 = mediancell(sst, chla)
     a = 1.340 - 0.043.*x + 0.920.*y;
 
     mb50 = 10.^a;
+    
+    md50 = (2.14.*mb50).^0.35;
 
 end

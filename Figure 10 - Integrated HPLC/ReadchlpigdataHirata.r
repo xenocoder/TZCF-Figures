@@ -35,3 +35,33 @@ repigperc.size = melt(pigperc,id=c('year','zone')) #Reshape to columns only taki
 
 # Barplot of pico, nano, micro in all areas grouped by year and zone
 ggplot() + geom_bar(data=repigperc.size, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year)
+
+###############FOR SURFACE DATA###################
+pigsurf = read.csv('chlpigdatahirata-surface.csv', header=T)
+pigsurf$zone[pigsurf$zone==1]='1-STFZ'
+pigsurf$zone[pigsurf$zone==2]='2-TZCF'
+
+repigsurf.all = melt(pigsurf[,c(1:2,4:10)],id=c('year','zone')) #Reshape to columns only taking chloropigments (e.g. pro, prym, diat, etc)
+repigsurf.size = melt(pigsurf[,c(1:2,11:13)],id=c('year','zone')) # Reshape but only pico, nano, micro groups
+
+# Barplot of pico, nano, micro in all areas grouped by year and zone
+ggplot() + geom_bar(data=repigsurf.size, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year)
+
+# Barplot of all groups in all areas grouped by year and zone
+ggplot() + geom_bar(data=repigsurf.all, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year)
+
+# Do same thing but as percentage
+pigsurfperc = cbind(pigsurf[,1:2],pigsurf[4:10]/rowSums(pigsurf[4:10]))
+
+repigsurfperc.all = melt(pigsurfperc,id=c('year','zone')) #Reshape to columns only taking chloropigments (e.g. pro, prym, diat, etc)
+
+# Barplot of pico, nano, micro in all areas grouped by year and zone
+ggplot() + geom_bar(data=repigsurfperc.all, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year)
+
+# Now do the size classes
+pigsurfperc = cbind(pigsurf[,1:2],pigsurf[11:13]/rowSums(pigsurf[11:13]))
+
+repigsurfperc.size = melt(pigsurfperc,id=c('year','zone')) #Reshape to columns only taking chloropigments (e.g. pro, prym, diat, etc)
+
+# Barplot of pico, nano, micro in all areas grouped by year and zone
+ggplot() + geom_bar(data=repigsurfperc.size, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year)

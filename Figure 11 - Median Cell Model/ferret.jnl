@@ -45,3 +45,11 @@ let chla08 = CHLA[d=2,X=202,Y=30:36:0.1@AVE,T="15-MAR-2008":"15-APR-2008"@AVE]
 list/clobber/file=chla08.txt chla08
 list/clobber/file=chla08.txt chla08
 list/clobber/file=sst08.txt sst08
+let sst09 = SST[d=1,X=202,Y=30:36,T="15-MAR-2009":"15-APR-2009"@AVE]
+let chla09 = CHLA[d=2,X=202,Y=30:36:0.1@AVE,T="15-MAR-2009":"15-APR-2009"@AVE]
+list/clobber/file=sst09.txt sst09
+list/clobber/file=chla09.txt chla09
+let sst11 = SST[d=1,X=202,Y=30:36,T="15-MAR-2011":"15-APR-2011"@AVE]
+let chla11 = CHLA[d=2,X=202,Y=30:36:0.1@AVE,T="15-MAR-2011":"15-APR-2011"@AVE]
+list/clobber/file=sst11.txt sst11
+list/clobber/file=chla11.txt chla11
