@@ -1,0 +1,16 @@
+! A ferret script to calculate the latitude of the two fronts. The idea is to
+! calculate the latitude for each edge and report the midpoint. I will look at the
+! March 15 - April 15 weekly average (~4 weeks)
+
+!go loadsatellite.jnl !Load satellite data
+
+!Open file
+list/quiet/norowlabs/nohead/clobber/format=comma/file=SSTFrontLat.csv "Year","SST","TZCF"
+
+! MARCH AND APRIL MEAN
+!rep/range=2003:2014:1/name=YEAR (list/quiet/append/norowlabs/nohead/format=comma/file=SSTFrontLat.csv YEAR,SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:17,T=15-MAR-`YEAR`:15-APR-`YEAR`@AVE],CHLA[d=4,X=201.5:202.5@AVE,Y=26:40N@LOC:0.2,T=15-MAR-`YEAR`:15-APR-`YEAR`@AVE])
+
+! MARCH ONLY
+rep/range=2003:2014:1/name=YEAR (list/quiet/append/norowlabs/nohead/format=comma/file=SSTFrontLat.csv YEAR,SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:17,T=15-MAR-`YEAR`],CHLA[d=4,X=201.5:202.5@AVE,Y=26:40N@LOC:0.2,T=15-MAR-`YEAR`])
+
+

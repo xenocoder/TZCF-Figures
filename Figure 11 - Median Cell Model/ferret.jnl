@@ -135,3 +135,96 @@ list/FORMAT=comma/clobber/file=chla11.csv CHLA[d=3,X=201.5:202.5,Y=30:36:0.1@AVE
 list/FORMAT=comma/clobber/file=chla08.csv CHLA[d=3,X=201.5:202.5,Y=30:36:0.1@AVE,T="30-MAR-2008":"15-APR-2008"@AVE]
 list/FORMAT=comma/clobber/file=chla09.csv CHLA[d=3,X=201.5:202.5,Y=30:36:0.1@AVE,T="15-MAR-2009":"01-APR-2009"@AVE]
 list/FORMAT=comma/clobber/file=chla11.csv CHLA[d=3,X=201.5:202.5,Y=30:36:0.1@AVE,T="15-MAR-2011":"01-APR-2011"@AVE]
+show data
+list SST[d=1,X=201.5:202.5@AVE,Y=30:36N@LOC:18,T="15-MAR-2003":"15-APR-2003"]
+list SST[d=1,X=201.5:202.5@AVE,Y=30:36N@LOC:18,T="15-MAR-2003":"15-APR-2003@AVE"]
+list SST[d=1,X=201.5:202.5@AVE,Y=30:36N@LOC:18,T="15-MAR-2003":"15-APR-2003"@AVE]
+cancel viewport
+plot SST[d=1,X=201.5:202.5@AVE,Y=30:36N,T="15-MAR-2003"]
+plot SST[d=1,X=201.5:202.5@AVE,Y=26:36N,T="15-MAR-2003"]
+plot SST[d=1,X=201.5:202.5@AVE,Y=26:36N,T="20-MAR-2003"]
+plot SST[d=1,X=201.5:202.5@AVE,Y=26:36N,T="04-APR-2003"]
+plot SST[d=1,X=201.5:202.5@AVE,Y=26:36N,T="12-APR-2003"]
+list SST[d=1,X=201.5:202.5@AVE,Y=26:36N@LOC:18,T="15-MAR-2003":"15-APR-2003"@AVE]
+list SST[d=2,X=201.5:202.5@AVE,Y=26:36N@LOC:18,T="15-MAR-2003":"15-APR-2003"@AVE]
+REPEAT/YEAR=2003:2004 list SST[d=2,X=201.5:202.5@AVE,Y=26:36N@LOC:18,T=15-MAR-`YEAR`:15-APR-`YEAR`@AVE]
+REPEAT/RANGE=2003:2004/NAME=YEAR
+REPEAT/RANGE=2003:2004/NAME=YEAR
+REPEAT/RANGE=2003:2004
+REPEAT/RANGE=2003:2004:1
+rep/range=3:7
+rep/range=3:7:-1/name=s (list s)
+list s
+rep/range=3:7:-1
+rep/range=3:-3:-3/name=s (rep/range=1:2/name=tt list s + sin(tt))
+rep/range=1:2/name=tt list s + sin(tt)
+rep/range=3:-3:-3/name=s (list s)
+rep/range=2003:2004:1/name=s (list s)
+rep/range=2003:2004:1/name=s (list SST[d=2,X=201.5:202.5@AVE,Y=26:36N@LOC:18,T=15-MAR-`YEAR`:15-APR-`YEAR`@AVE])
+rep/range=2003:2004:1/name=YEAR (list SST[d=2,X=201.5:202.5@AVE,Y=26:36N@LOC:18,T=15-MAR-`YEAR`:15-APR-`YEAR`@AVE])
+rep/range=2003:2014:1/name=YEAR (list SST[d=2,X=201.5:202.5@AVE,Y=26:36N@LOC:18,T=15-MAR-`YEAR`:15-APR-`YEAR`@AVE])
+rep/range=2003:2014:1/name=YEAR (list YEAR,SST[d=2,X=201.5:202.5@AVE,Y=26:36N@LOC:18,T=15-MAR-`YEAR`:15-APR-`YEAR`@AVE])
+rep/range=2003:2014:1/name=YEAR (list YEAR,18,SST[d=2,X=201.5:202.5@AVE,Y=26:36N@LOC:18,T=15-MAR-`YEAR`:15-APR-`YEAR`@AVE])
+rep/range=2003:2014:1/name=YEAR (list YEAR,18,SST[d=2,X=201.5:202.5@AVE,Y=26:36N@LOC:17:18,T=15-MAR-`YEAR`:15-APR-`YEAR`@AVE])
+rep/range=2003:2014:1/name=YEAR (list YEAR,18,SST[d=2,X=201.5:202.5@AVE,Y=26:36N@LOC:18,T=15-MAR-`YEAR`:15-APR-`YEAR`@AVE])
+rep/range=2003:2014:1/name=YEAR (list YEAR,18,SST[d=2,X=201.5:202.5@AVE,Y=26:36N@LOC:18,T=15-MAR-`YEAR`:15-APR-`YEAR`@AVE])
+rep/range=2003:2014:1/name=YEAR (list YEAR,17,SST[d=2,X=201.5:202.5@AVE,Y=26:36N@LOC:17,T=15-MAR-`YEAR`:15-APR-`YEAR`@AVE])
+rep/range=2003:2014:1/name=YEAR (list/clobber/format=CSV/file=SSTFrontLat.csv YEAR,17,SST[d=2,X=201.5:202.5@AVE,Y=26:36N@LOC:17,T=15-MAR-`YEAR`:15-APR-`YEAR`@AVE],18,SST[d=2,X=201.5:202.5@AVE,Y=26:36N@LOC:18,T=15-MAR-`YEAR`:15-APR-`YEAR`@AVE])
+rep/range=2003:2014:1/name=YEAR (list/clobber/format=comma/file=SSTFrontLat.csv YEAR,17,SST[d=2,X=201.5:202.5@AVE,Y=26:36N@LOC:17,T=15-MAR-`YEAR`:15-APR-`YEAR`@AVE],18,SST[d=2,X=201.5:202.5@AVE,Y=26:36N@LOC:18,T=15-MAR-`YEAR`:15-APR-`YEAR`@AVE])
+go getlatfronts.jnl
+go getlatfronts.jnl
+go getlatfronts.jnl
+list/clobber/format=comma/file=SSTFrontLat.csv "Delete",Year,"SST17","SST18"
+list/clobber/format=comma/file=SSTFrontLat.csv "Delete","Year","SST17","SST18"
+list/nohead/clobber/format=comma/file=SSTFrontLat.csv "Delete","Year","SST17","SST18"
+go getlatfronts.jnl
+list CHLA[d=3,X=201.5:202.5@AVE,Y=30:36N@LOC:0.15,T="15-MAR-2003":"15-APR-2003@AVE"]
+list CHLA[d=3,X=201.5:202.5@AVE,Y=30:36N@LOC:0.15,T="15-MAR-2003":"15-APR-2003"@AVE]
+list CHLA[d=3,X=201.5:202.5@AVE,Y=26:40N@LOC:0.15,T="15-MAR-2003":"15-APR-2003"@AVE]
+plot CHLA[d=3,X=201.5:202.5@AVE,Y=26:40N,T="15-MAR-2003":"15-APR-2003"@AVE]
+plot CHLA[d=4,X=201.5:202.5@AVE,Y=26:40N,T="15-MAR-2003":"15-APR-2003"@AVE]
+shade CHLA[d=4,X=201.5:202.5,Y=26:40N,T="15-MAR-2003":"15-APR-2003"@AVE]
+go getlatfronts.jnl
+go getlatfronts.jnl
+shade CHLA[d=4,X=201.5:202.5,Y=26:40N,T="15-MAR-2009":"15-APR-2009"@AVE]
+shade CHLA[d=4,X=201.5:202.5,Y=26:40N,T="15-MAR-2009"]
+set viewport left
+shade CHLA[d=4,X=201.5:202.5,Y=26:40N,T="15-MAR-2009"]
+set viewport right
+shade CHLA[d=4,X=201.5:202.5,Y=26:40N,T="15-APR-2009"]
+set viewport left
+contour/levels=(0.2,0.2,0.1)/over CHLA[d=4,X=201.5:202.5,Y=26:40N,T="15-MAR-2009"]
+set viewport right
+contour/levels=(0.2,0.2,0.1)/over CHLA[d=4,X=201.5:202.5,Y=26:40N,T="15-APR-2009"]
+go getlatfronts.jnl
+go getlatfronts.jnl
+set viewport left
+set viewport v1
+shade CHLA[d=4,X=201.5:202.5@AVE,Y=26:40N,T="15-MAR-2009"]
+shade CHLA[d=4,X=201.5:202.5,Y=26:40N,T="15-MAR-2009"]
+cancel viewport
+set viewport v1
+shade CHLA[d=4,X=201.5:202.5,Y=26:40N,T="15-MAR-2009"]
+set viewport v2
+shade CHLA[d=4,X=201.5:202.5,Y=26:40N,T="15-MAR-2010"]
+set viewport v3
+shade CHLA[d=4,X=201.5:202.5,Y=26:40N,T="15-MAR-2014"]
+set viewport v1
+contour/over/levels=(0.2,0.2,0.1) CHLA[d=4,X=201.5:202.5,Y=26:40N,T="15-MAR-2009"]
+set viewport v2
+contour/over/levels=(0.2,0.2,0.1) CHLA[d=4,X=201.5:202.5,Y=26:40N,T="15-MAR-2010"]
+set viewport v3
+contour/over/levels=(0.2,0.2,0.1) CHLA[d=4,X=201.5:202.5,Y=26:40N,T="15-MAR-2014"]
+cancel viewport
+shade CHLA[d=4,X=201.5:202.5,Y=26:40N,T="15-MAR-2010"]
+shade CHLA[d=4,X=195:215,Y=26:40N,T="15-MAR-2010"]
+shade/levels=(0,0.5,0.025) CHLA[d=4,X=195:215,Y=26:40N,T="15-MAR-2010"]
+set viewport left
+shade/levels=(0,0.5,0.025) CHLA[d=4,X=195:215,Y=26:40N,T="15-MAR-2010"]
+set viewport right
+shade/levels=(0,0.5,0.025) CHLA[d=4,X=195:215,Y=26:40N,T="15-MAR-2014"]
+contour/over/levels=(0.2,0.2,0.1) CHLA[d=4,X=195:215,Y=26:40N,T="15-MAR-2014"]
+set viewport left
+contour/over/levels=(0.2,0.2,0.1) CHLA[d=4,X=195:215,Y=26:40N,T="15-MAR-2010"]
+let i = 10
+i=10
