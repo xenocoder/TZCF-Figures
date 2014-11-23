@@ -1,3 +1,4 @@
+! This script plots the strips of data used to calculate the median cell size. The output is a plot as well as the 2008, 2009, and 2011 SST and CHLA .csv files
 DEFINE VIEWPORT/XLIM=0.,0.33/YLIM= 0,1 V1
 DEFINE VIEWPORT/XLIM=0.34,0.66/YLIM= 0,1 V2
 DEFINE VIEWPORT/XLIM=0.67,1/YLIM= 0,1 V3

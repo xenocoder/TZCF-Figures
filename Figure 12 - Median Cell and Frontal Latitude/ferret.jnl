@@ -1,0 +1,16 @@
+ ! NOAA/PMEL TMAP
+ ! FERRET v6.82  
+ ! Darwin 9.8.0 - 08/06/12
+ ! 22-Nov-14 17:01     
+
+go loadsatellite.jnl
+show data
+use "http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/seawifs/monthly"
+list/quiet/norowlabs/nohead/clobber/format=comma/file=SSTFrontLatseawifs.csv "Year","SST","TZCF"
+rep/range=2003:2014:1/name=YEAR (list/quiet/append/norowlabs/nohead/format=comma/file=SSTFrontLatseawifs.csv YEAR,SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:17.5,T=15-MAR-`YEAR`],CHLA[d=4,X=201.5:202.5@AVE,Y=26:40N@LOC:0.2,T=15-MAR-`YEAR`])
+list/quiet/norowlabs/nohead/clobber/format=comma/file=SSTFrontLatseawifs.csv "Year","SST","TZCF"
+! MARCH ONLY
+rep/range=1998:2010:1/name=YEAR (list/quiet/append/norowlabs/nohead/format=comma/file=SSTFrontLatseawifs.csv YEAR,SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:17.5,T=15-MAR-`YEAR`],CHLA[d=5,X=201.5:202.5@AVE,Y=26:40N@LOC:0.2,T=15-MAR-`YEAR`])
+list/quiet/norowlabs/nohead/clobber/format=comma/file=SSTFrontLatmodis.csv "Year","SST","TZCF"
+! MARCH ONLY
+rep/range=2003:2014:1/name=YEAR (list/quiet/append/norowlabs/nohead/format=comma/file=SSTFrontLatmodis.csv YEAR,SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:17.5,T=15-MAR-`YEAR`],CHLA[d=4,X=201.5:202.5@AVE,Y=26:40N@LOC:0.2,T=15-MAR-`YEAR`])
