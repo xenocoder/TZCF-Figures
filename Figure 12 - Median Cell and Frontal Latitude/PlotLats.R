@@ -1,7 +1,7 @@
 #Script to plot latitudes of fronts and fits
 
-#lats = read.csv('SSTFrontLatmodis.csv',header=T) #MODIS only
-lats = read.csv('SSTFrontLatboth.csv',header=T) #both (spliced from modis/seawifs files by hand r2=0.92 2003-2010
+lats = read.csv('SSTFrontLatmodis.csv',header=T) #MODIS only
+#lats = read.csv('SSTFrontLatboth.csv',header=T) #both (spliced from modis/seawifs files by hand r2=0.92 2003-2010
 
 #Get slopes from linear fits
 stfz.fit = lm(SST~Year,data=lats)

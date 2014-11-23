@@ -14,3 +14,18 @@ rep/range=1998:2010:1/name=YEAR (list/quiet/append/norowlabs/nohead/format=comma
 list/quiet/norowlabs/nohead/clobber/format=comma/file=SSTFrontLatmodis.csv "Year","SST","TZCF"
 ! MARCH ONLY
 rep/range=2003:2014:1/name=YEAR (list/quiet/append/norowlabs/nohead/format=comma/file=SSTFrontLatmodis.csv YEAR,SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:17.5,T=15-MAR-`YEAR`],CHLA[d=4,X=201.5:202.5@AVE,Y=26:40N@LOC:0.2,T=15-MAR-`YEAR`])
+rep/range=2003:2014/name=YEAR (list YEAR)
+show data
+show data
+list/format=CDF/clobber/file=2003sst.nc SST[d=2,X=201.5:202.5,Y=26:36N,T=15-MAR-2003]
+list/format=CDF/clobber/file=2003sst.nc SST[d=2,X=201.5:202.5:0.1@AVE,Y=26:36N:0.1@AVE,T=15-MAR-2003]
+show axis
+show axis L
+show axis L SST[d=2]
+list/format=CDF/clobber/file=sst.nc SST[d=2,X=201.5:202.5:0.1@AVE,Y=26:36N:0.1@AVE,T=15-MAR-2003]
+list/format=CDF/append/file=sst.nc SST[d=2,X=201.5:202.5:0.1@AVE,Y=26:36N:0.1@AVE,T=15-MAR-2004]
+list/format=CDF/clobber/file=sst.nc SST[d=2,X=201.5:202.5:0.1@AVE,Y=26:36N:0.1@AVE,T=15-MAR-2003]
+list/format=CDF/append/file=sst.nc SST[d=2,X=201.5:202.5:0.1@AVE,Y=26:36N:0.1@AVE,T=15-MAR-2004]
+list/format=CDF/append/file=sst.nc SST[d=2,X=201.5:202.5:0.1@AVE,Y=26:36N:0.1@AVE,T=15-MAR-2005]
+list/format=CDF/clobber/file=2003chla.nc SST[d=4,X=201.5:202.5:0.1@AVE,Y=26:36N:0.1@AVE,T=15-MAR-2003]
+list/format=CDF/clobber/file=2003chla.nc CHLA[d=4,X=201.5:202.5:0.1@AVE,Y=26:36N:0.1@AVE,T=15-MAR-2003]

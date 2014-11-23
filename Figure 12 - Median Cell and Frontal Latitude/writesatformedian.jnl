@@ -1,1 +1,6 @@
 ! a Ferret script to write out the SST and CHLA data for 
+
+rep/range=2003:2014/name=YEAR (list YEAR)
+
+list/format=CDF/clobber/file=2003sst.nc SST[d=2,X=201.5:202.5:0.1@AVE,Y=26:36N:0.1@AVE,T=15-MAR-2003]
+list/format=CDF/clobber/file=2003chla.nc CHLA[d=4,X=201.5:202.5:0.1@AVE,Y=26:36N:0.1@AVE,T=15-MAR-2003]
