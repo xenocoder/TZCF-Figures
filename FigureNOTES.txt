@@ -1,0 +1,74 @@
+<FIGURE>1</FIGURE>
+<TITLE>Study area map</TITLE>
+<APPLICATIONS>GMT; Illustrator</APPLICATIONS>
+<SCRIPTS>makemap</SCRIPTS>
+<DATA>None</DATA>
+<NOTES>Simple script to plot a mercator map with cruise tracks. I fixed in Illustrator</NOTES>
+
+<FIGURE>2</FIGURE>
+<TITLE>Temperature and Fluorescence Transects</TITLE>
+<APPLICATIONS>Matlab; Illustrator</APPLICATIONS>
+<SCRIPTS>PlotTemperature.m; PlotFluorescence.m</SCRIPTS>
+<DATA>Working.mat</DATA>
+<NOTES>Make the transects in Matlab and save as an EPS file for import to Illustrator</NOTES>
+
+<FIGURE>3</FIGURE>
+<TITLE>Temperature, Salninity, and Density profiles</TITLE>
+<APPLICATIONS>Matlab; Illustrator</APPLICATIONS>
+<SCRIPTS>PlotTempSalDens.m</SCRIPTS>
+<DATA>Working.mat</DATA>
+<NOTES>Make the profiles in Matlab and save as an EPS file for import to Illustrator</NOTES>
+
+<FIGURE>4</FIGURE>
+<TITLE>Nitrate+Nitrite and corrected fluorescence profiles</TITLE>
+<APPLICATIONS>Matlab; Illustrator</APPLICATIONS>
+<SCRIPTS>PlotNitrateFluor.m</SCRIPTS>
+<DATA>Working.mat</DATA>
+<NOTES>Make the profiles in Matlab and save as an EPS file for import to Illustrator</NOTES>
+
+<FIGURE>5</FIGURE>
+<TITLE>All 7 Pigment Composition profiles as chlorophyll-a absolute values</TITLE>
+<APPLICATIONS>Matlab; Illustrator</APPLICATIONS>
+<SCRIPTS>calcpigratHirata.m; BatchCalcPig.m; PlotSplinesAllYears.m</SCRIPTS>
+<DATA>Working.mat</DATA>
+<NOTES>Calculate the chlorophyll fractions with BatchCalcPig.m (calls calchirata.m) and plot with PlotSplinesAllYears.m Make the profiles in Matlab and save as an EPS file for import to Illustrator</NOTES>
+
+<FIGURE>6</FIGURE>
+<TITLE>Pigment Size (pico, nano, and micro) Composition profiles as chlorophyll-a percentage values</TITLE>
+<APPLICATIONS>Matlab; Illustrator</APPLICATIONS>
+<SCRIPTS>PlotSizeSplinesAllYears.m</SCRIPTS>
+<DATA>Working.mat</DATA>
+<NOTES>Calculate and plot the percent size chlorophyll fractions with PlotSizeSplinesAllYears.m Make the profiles in Matlab and save as an EPS file for import to Illustrator</NOTES>
+
+<FIGURE>7</FIGURE>
+<TITLE>Integrated Chloropigment components for Bar charts</TITLE>
+<APPLICATIONS>Matlab; R; R: ggplot2; R: reshape; Illustrator</APPLICATIONS>
+<SCRIPTS>IntegratedSizeClassAll.m; IntegratedSizeClassSurfaceOnly.m; Readchlpigdata.r; ReadchlpigdataHirata.r</SCRIPTS>
+<DATA>Working.mat; chlpigdatahirata.csv; chlpigdatahirata-surface.csv</DATA>
+<OUTPUT></OUTPUT> 
+<NOTES>Integrates the spline fits from the Hirata/Brewin model. Run the matlab scripts to output the data as a CSV and then read into R to make bar charts. Make the profiles in Matlab and save as an EPS file for import to Illustrator</NOTES>
+
+<FIGURE>8</FIGURE>
+<TITLE>Median cell line plots over time</TITLE>
+<APPLICATIONS>Ferret; Matlab; R; Illustrator</APPLICATIONS>
+<SCRIPTS>loadstellite.jnl; plottempchla.jnl; readsatdata.m; mediancell.m; plotmediancell.m</SCRIPTS>
+<DATA>Working.mat; sst[08|09|11].csv; chla[08|09|11]; MD50Plot.xlsx</DATA>
+<OUTPUT>Matlab: Working.mat-mediansatdata; Matlab: Working.mat-mediancell; Matlab:Working.mat-md50array</OUTPUT>
+<NOTES>plottempchla.jnl plots the strips and also writes out the 201.5-202.5 mean satellite data.  readsatdata.m loads in that data and plotmediancell.m plots the lines as well as calculates the %picopl and md50array. The file MD50Plot.xlsx has has the values and fit. Make the profiles in Matlab and save as an EPS file for import to Illustrator</NOTES>
+
+<FIGURE>9</FIGURE>
+<TITLE>Wind fields with STFZ and TZCF</TITLE>
+<APPLICATIONS>Ferret; Illustrator</APPLICATIONS>
+<SCRIPTS>MakeFigure09.jnl</SCRIPTS>
+<DATA>tzcf-ncdc-mon-wstress.nc; http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/pfgac/monthly; http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/aqua/monthly; http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/pfgac/weekly; http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/aqua/weekly</DATA>
+<OUTPUT>metafile.plt</OUTPUT>
+<NOTES>Run the script in Ferret and run FPrint to make EPS file for import to Illustrator</NOTES>
+
+<FIGURE>10</FIGURE>
+<TITLE>Median Cell calculations for frontal areas</TITLE>
+<APPLICATIONS>Ferret; Illustrator</APPLICATIONS>
+<SCRIPTS>calcmedian.jnl; calcaveragemedian.r</SCRIPTS>
+<DATA>http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/pfgac/monthly; http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/aqua/monthly; http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/pfgac/weekly; http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/aqua/weekly</DATA>
+<OUTPUT>ferretoutput/various;marchpositions.xlsx;MarchFrontsMedCell.csv</OUTPUT>
+<NOTES>Run the calcmedian.jnl script in Ferret. This makes separate files in the form ferretoutput/YYYYmediancell-AREA.csv. Then load these files in R with calcaveragemedian.r to get the average median cell size for each year and zone</NOTES>
+

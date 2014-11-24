@@ -1,0 +1,5 @@
+To calculate the latitude positions:
+
+use script getlatfronts.jnl
+
+to plot run script plotlats.R to load and plot data

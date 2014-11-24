@@ -1,0 +1,136 @@
+             VARIABLE : LATITUDE of 18 in Sea-Surface Temperature (degrees_north)
+             DATA SET : AVHRR SST - Weekly
+             FILENAME : weekly
+             FILEPATH : http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/pfgac/
+             LONGITUDE: 158W(202)
+             LATITUDE : 25N to 45N (location of 18)
+             TIME     : 27-MAR-2008 00:00
+          33.24
+             VARIABLE : LATITUDE of 17.5 in Sea-Surface Temperature (degrees_north)
+             DATA SET : AVHRR SST - Weekly
+             FILENAME : weekly
+             FILEPATH : http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/pfgac/
+             LONGITUDE: 158W(202)
+             LATITUDE : 25N to 45N (location of 17.5)
+             TIME     : 27-MAR-2008 00:00
+          33.32
+             VARIABLE : LATITUDE of 17 in Sea-Surface Temperature (degrees_north)
+             DATA SET : AVHRR SST - Weekly
+             FILENAME : weekly
+             FILEPATH : http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/pfgac/
+             LONGITUDE: 158W(202)
+             LATITUDE : 25N to 45N (location of 17)
+             TIME     : 27-MAR-2008 00:00
+          33.42
+             VARIABLE : LATITUDE of 0.15 in Chlorophyll-a Concentration (degrees_north)
+             DATA SET : MODIS Aqua - Weekly Ocean Color
+             FILENAME : weekly
+             FILEPATH : http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/aqua/
+             LONGITUDE: 158W(202)
+             LATITUDE : 25N to 45N (location of 0.15)
+             TIME     : 29-MAR-2008 00:00
+          34.45
+             VARIABLE : LATITUDE of 0.2 in Chlorophyll-a Concentration (degrees_north)
+             DATA SET : MODIS Aqua - Weekly Ocean Color
+             FILENAME : weekly
+             FILEPATH : http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/aqua/
+             LONGITUDE: 158W(202)
+             LATITUDE : 25N to 45N (location of 0.2)
+             TIME     : 29-MAR-2008 00:00
+          35.64
+             VARIABLE : LATITUDE of 0.25 in Chlorophyll-a Concentration (degrees_north)
+             DATA SET : MODIS Aqua - Weekly Ocean Color
+             FILENAME : weekly
+             FILEPATH : http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/aqua/
+             LONGITUDE: 158W(202)
+             LATITUDE : 25N to 45N (location of 0.25)
+             TIME     : 29-MAR-2008 00:00
+          36.85
+             VARIABLE : LATITUDE of 18 in Sea-Surface Temperature (degrees_north)
+             DATA SET : AVHRR SST - Weekly
+             FILENAME : weekly
+             FILEPATH : http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/pfgac/
+             LONGITUDE: 158W(202)
+             LATITUDE : 25N to 45N (location of 18)
+             TIME     : 19-MAR-2009 00:00
+          30.86
+             VARIABLE : LATITUDE of 17.5 in Sea-Surface Temperature (degrees_north)
+             DATA SET : AVHRR SST - Weekly
+             FILENAME : weekly
+             FILEPATH : http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/pfgac/
+             LONGITUDE: 158W(202)
+             LATITUDE : 25N to 45N (location of 17.5)
+             TIME     : 19-MAR-2009 00:00
+          31.54
+             VARIABLE : LATITUDE of 17 in Sea-Surface Temperature (degrees_north)
+             DATA SET : AVHRR SST - Weekly
+             FILENAME : weekly
+             FILEPATH : http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/pfgac/
+             LONGITUDE: 158W(202)
+             LATITUDE : 25N to 45N (location of 17)
+             TIME     : 19-MAR-2009 00:00
+          32.05
+             VARIABLE : LATITUDE of 0.15 in Chlorophyll-a Concentration (degrees_north)
+             DATA SET : MODIS Aqua - Weekly Ocean Color
+             FILENAME : weekly
+             FILEPATH : http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/aqua/
+             LONGITUDE: 158W(202)
+             LATITUDE : 25N to 45N (location of 0.15)
+             TIME     : 22-MAR-2009 00:00
+          37.43
+             VARIABLE : LATITUDE of 0.2 in Chlorophyll-a Concentration (degrees_north)
+             DATA SET : MODIS Aqua - Weekly Ocean Color
+             FILENAME : weekly
+             FILEPATH : http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/aqua/
+             LONGITUDE: 158W(202)
+             LATITUDE : 25N to 45N (location of 0.2)
+             TIME     : 22-MAR-2009 00:00
+          39.19
+             VARIABLE : LATITUDE of 0.25 in Chlorophyll-a Concentration (degrees_north)
+             DATA SET : MODIS Aqua - Weekly Ocean Color
+             FILENAME : weekly
+             FILEPATH : http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/aqua/
+             LONGITUDE: 158W(202)
+             LATITUDE : 25N to 45N (location of 0.25)
+             TIME     : 22-MAR-2009 00:00
+          40.96
+             VARIABLE : LATITUDE of 18 in Sea-Surface Temperature (degrees_north)
+             DATA SET : AVHRR SST - Weekly
+             FILENAME : weekly
+             FILEPATH : http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/pfgac/
+             LONGITUDE: 158W(202)
+             LATITUDE : 25N to 45N (location of 18)
+             TIME     : 17-MAR-2011 00:00
+          31.81
+             VARIABLE : LATITUDE of 17.5 in Sea-Surface Temperature (degrees_north)
+             DATA SET : AVHRR SST - Weekly
+             FILENAME : weekly
+             FILEPATH : http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/pfgac/
+             LONGITUDE: 158W(202)
+             LATITUDE : 25N to 45N (location of 17.5)
+             TIME     : 17-MAR-2011 00:00
+          32.16
+             VARIABLE : LATITUDE of 17 in Sea-Surface Temperature (degrees_north)
+             DATA SET : AVHRR SST - Weekly
+             FILENAME : weekly
+             FILEPATH : http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/pfgac/
+             LONGITUDE: 158W(202)
+             LATITUDE : 25N to 45N (location of 17)
+             TIME     : 17-MAR-2011 00:00
+          32.69
+             VARIABLE : LATITUDE of 0.15 in Chlorophyll-a Concentration (degrees_north)
+             DATA SET : MODIS Aqua - Weekly Ocean Color
+             FILENAME : weekly
+             FILEPATH : http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/aqua/
+             LONGITUDE: 158W(202)
+             LATITUDE : 25N to 45N (location of 0.15)
+             TIME     : 14-MAR-2011 00:00
+          32.72
+             VARIABLE : LATITUDE of 0.2 in Chlorophyll-a Concentration (degrees_north)
+             DATA SET : MODIS Aqua - Weekly Ocean Color
+             FILENAME : weekly
+             FILEPATH : http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/aqua/
+             LONGITUDE: 158W(202)
+             LATITUDE : 25N to 45N (location of 0.2)
+             TIME     : 14-MAR-2011 00:00
+          32.95

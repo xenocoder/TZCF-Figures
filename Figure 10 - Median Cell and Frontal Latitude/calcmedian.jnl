@@ -1,0 +1,42 @@
+! a Ferret script to calculate the median cell size from the Polovina et al. 2012 paper.
+!
+! Runs a repeat to calculate the median cell size for 4 weeks from mar15-apr15 from 2003 to 2014
+!
+! Lists output to a file that can be read into Matlab.
+!
+! If not loaded load satellite data.
+! go loadsatellite.jnl
+
+! Equation is md50 = (2.14*(10^(1.340-0.043*SST[D=5]+0.92*LOG(CHLA[D=5]))))^0.37
+! FROM MATLAB
+! let a = 1.340 - 0.043*SST + 0.920.*y;
+! mb50 = 10.^a;
+! md50 = (2.14.*mb50).^0.35;
+
+! STFZ
+!Make sure Ferret uses NaN for missing values.
+set VAR/bad=NaN SST[d=2]
+!Go through all years WHOLE BLOCK IS REPEAT BLOCK (;\)
+REPEAT/RANGE=2003:2014/name=YEAR (list YEAR; let slats = SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:18,T=15-MAR-`YEAR`]; let slatn = SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:17,T=15-MAR-`YEAR`]; list/quiet/NOROWLAB/NOHEAD/CLOBBER/file="ferretoutput/`YEAR`mediancells-STFZ.csv" (2.14*(10^(1.340-0.043*SST[d=2,X=201.5:202.5:0.1@AVE,Y=`slats`:`slatn`:0.1@AVE,T=15-MAR-`YEAR`]+0.92*LOG(CHLA[d=4,X=201.5:202.5:0.1@AVE,Y=`slats`:`slatn`:0.1@AVE,T=15-MAR-`YEAR`]))))^0.37)
+! END REPEAT BLOCK
+
+! TZCF
+!Make sure Ferret uses NaN for missing values.
+set VAR/bad=NaN CHLA[d=4]
+!Go through all years WHOLE BLOCK IS REPEAT BLOCK (;\)
+REPEAT/range=2003:2014/name=YEAR (list YEAR; let clats = CHLA[d=4,X=201.5:202.5@AVE,Y=26:40N@LOC:0.15,T=15-MAR-`YEAR`]; let clatn = CHLA[d=4,X=201.5:202.5@AVE,Y=26:40N@LOC:0.25,T=15-MAR-`YEAR`]; list/quiet/NOROWLAB/NOHEAD/CLOBBER/file="ferretoutput/`YEAR`mediancells-TZCF.csv" (2.14*(10^(1.340-0.043*SST[d=2,X=201.5:202.5:0.1@AVE,Y=`clats`:`clatn`:0.1@AVE,T=15-MAR-`YEAR`]+0.92*LOG(CHLA[d=4,X=201.5:202.5:0.1@AVE,Y=`clats`:`clatn`:0.1@AVE,T=15-MAR-`YEAR`]))))^0.37)
+! END REPEAT BLOCK
+
+!go loadsatellite.jnl !Load satellite data
+
+!Open file
+!list/quiet/norowlabs/nohead/clobber/format=comma/file=MedianCellAnnualMar-Apr.csv "Year","MD50"
+
+!!!! NOT USED
+! MARCH AND APRIL MEAN
+
+! MARCH ONLY
+
+!rep/range=2003:2014:1/name=YEAR (list/quiet/append/norowlabs/nohead/format=comma/file=MedianCellAnnualMar-Apr.csv YEAR,(2.14*(10^(1.340-0.043*SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:17.5,T=15-MAR-`YEAR`]+0.92*LOG(CHLA[d=4,X=201.5:202.5@AVE,Y=26:40N@LOC:0.2,T=15-MAR-`YEAR`]))))^0.37)
+
+

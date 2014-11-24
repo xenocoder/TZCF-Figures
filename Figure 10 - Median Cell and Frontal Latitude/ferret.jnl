@@ -1,0 +1,229 @@
+ ! NOAA/PMEL TMAP
+ ! FERRET v6.82  
+ ! Darwin 9.8.0 - 08/06/12
+ ! 22-Nov-14 17:01     
+
+go loadsatellite.jnl
+show data
+use "http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/seawifs/monthly"
+list/quiet/norowlabs/nohead/clobber/format=comma/file=SSTFrontLatseawifs.csv "Year","SST","TZCF"
+rep/range=2003:2014:1/name=YEAR (list/quiet/append/norowlabs/nohead/format=comma/file=SSTFrontLatseawifs.csv YEAR,SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:17.5,T=15-MAR-`YEAR`],CHLA[d=4,X=201.5:202.5@AVE,Y=26:40N@LOC:0.2,T=15-MAR-`YEAR`])
+list/quiet/norowlabs/nohead/clobber/format=comma/file=SSTFrontLatseawifs.csv "Year","SST","TZCF"
+! MARCH ONLY
+rep/range=1998:2010:1/name=YEAR (list/quiet/append/norowlabs/nohead/format=comma/file=SSTFrontLatseawifs.csv YEAR,SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:17.5,T=15-MAR-`YEAR`],CHLA[d=5,X=201.5:202.5@AVE,Y=26:40N@LOC:0.2,T=15-MAR-`YEAR`])
+list/quiet/norowlabs/nohead/clobber/format=comma/file=SSTFrontLatmodis.csv "Year","SST","TZCF"
+! MARCH ONLY
+rep/range=2003:2014:1/name=YEAR (list/quiet/append/norowlabs/nohead/format=comma/file=SSTFrontLatmodis.csv YEAR,SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:17.5,T=15-MAR-`YEAR`],CHLA[d=4,X=201.5:202.5@AVE,Y=26:40N@LOC:0.2,T=15-MAR-`YEAR`])
+rep/range=2003:2014/name=YEAR (list YEAR)
+show data
+show data
+list/format=CDF/clobber/file=2003sst.nc SST[d=2,X=201.5:202.5,Y=26:36N,T=15-MAR-2003]
+list/format=CDF/clobber/file=2003sst.nc SST[d=2,X=201.5:202.5:0.1@AVE,Y=26:36N:0.1@AVE,T=15-MAR-2003]
+show axis
+show axis L
+show axis L SST[d=2]
+list/format=CDF/clobber/file=sst.nc SST[d=2,X=201.5:202.5:0.1@AVE,Y=26:36N:0.1@AVE,T=15-MAR-2003]
+list/format=CDF/append/file=sst.nc SST[d=2,X=201.5:202.5:0.1@AVE,Y=26:36N:0.1@AVE,T=15-MAR-2004]
+list/format=CDF/clobber/file=sst.nc SST[d=2,X=201.5:202.5:0.1@AVE,Y=26:36N:0.1@AVE,T=15-MAR-2003]
+list/format=CDF/append/file=sst.nc SST[d=2,X=201.5:202.5:0.1@AVE,Y=26:36N:0.1@AVE,T=15-MAR-2004]
+list/format=CDF/append/file=sst.nc SST[d=2,X=201.5:202.5:0.1@AVE,Y=26:36N:0.1@AVE,T=15-MAR-2005]
+list/format=CDF/clobber/file=2003chla.nc SST[d=4,X=201.5:202.5:0.1@AVE,Y=26:36N:0.1@AVE,T=15-MAR-2003]
+list/format=CDF/clobber/file=2003chla.nc CHLA[d=4,X=201.5:202.5:0.1@AVE,Y=26:36N:0.1@AVE,T=15-MAR-2003]
+list SST[d=4,X=201.5:202.5:0.1@AVE,Y=26:40N@LOC:17,T=15-MAR-2003]
+show data
+list SST[d=2,X=201.5:202.5:0.1@AVE,Y=26:40N@LOC:17,T=15-MAR-2003]
+list SST[d=2,X=201.5:202.5:0.1@AVE,Y=26:40N@LOC:17:18,T=15-MAR-2003]
+list SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:17,T=15-MAR-2003]
+let slat2=SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:17,T=15-MAR-2003]
+list slats
+let slats=SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:17,T=15-MAR-2003]
+cancel var slat2
+list slats
+list/quiet slats
+list/norow slats
+list/norowlab/nohead slats
+let slats = SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:17,T=15-MAR-2003]
+let slatn = SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:18,T=15-MAR-2003]
+let clats = CHLA[d=4,X=201.5:202.5@AVE,Y=26:40N@LOC:0.15,T=15-MAR-2003]
+let clatn = CHLA[d=4,X=201.5:202.5@AVE,Y=26:40N@LOC:0.25,T=15-MAR-2003]
+list/norowlab/nohead slats,slatn,clats,clatn
+let slats = SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:18,T=15-MAR-2003]
+let slatn = SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:17,T=15-MAR-2003]
+list/norowlab/nohead slats,slatn,clats,clatn
+shade SST[d=2,X=201.5:202.5,Y=26:40N,T=15-MAR-2003]
+contour/over/levels=(17:18:1) SST[d=2,X=201.5:202.5,Y=26:40N,T=15-MAR-2003]
+shade SST[d=2,X=201.5:202.5,Y=26:40N,T=15-MAR-2003]
+contour/over/levels=(17,18,1) SST[d=2,X=201.5:202.5,Y=26:40N,T=15-MAR-2003]
+let YEAR=2003
+(2.14*(10^(1.340-0.043*SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:17.5,T=15-MAR-`YEAR`]+0.92*LOG(CHLA[d=4,X=201.5:202.5@AVE,Y=26:40N@LOC:0.2,T=15-MAR-`YEAR`]
+(2.14*(10^(1.340-0.043*SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:17.5,T=15-MAR-`YEAR`]+0.92*LOG(CHLA[d=4,X=201.5:202.5@AVE,Y=26:40N@LOC:0.2,T=15-MAR-`YEAR`])
+(2.14*(10^(1.340-0.043*SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:17.5,T=15-MAR-`YEAR`]+0.92*LOG(CHLA[d=4,X=201.5:202.5@AVE,Y=26:40N@LOC:0.2,T=15-MAR-`YEAR`]))))^0.37)
+(2.14*(10^(1.340-0.043*SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:17.5,T=15-MAR-`YEAR`]+0.92*LOG(CHLA[d=4,X=201.5:202.5@AVE,Y=26:40N@LOC:0.2,T=15-MAR-`YEAR`]))))^0.37
+list (2.14*(10^(1.340-0.043*SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:17.5,T=15-MAR-`YEAR`]+0.92*LOG(CHLA[d=4,X=201.5:202.5@AVE,Y=26:40N@LOC:0.2,T=15-MAR-`YEAR`]))))^0.37
+list SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:17.5,T=15-MAR-`YEAR`]
+list (2.14*(10^(1.340-0.043*SST[d=2,X=201.5:202.5,Y=clats:clatn,T=15-MAR-`YEAR`]+0.92*LOG(CHLA[d=4,X=201.5:202.5,Y=clats:clatn,T=15-MAR-`YEAR`]))))^0.37
+show vars
+show var
+list clats
+list (2.14*(10^(1.340-0.043*SST[d=2,X=201.5:202.5,Y=`clats`:`clatn`,T=15-MAR-`YEAR`]+0.92*LOG(CHLA[d=4,X=201.5:202.5,Y=31.5:32.5,T=15-MAR-`YEAR`]))))^0.37
+list (2.14*(10^(1.340-0.043*SST[d=2,X=201.5:202.5,Y=`clats`:`clatn`,T=15-MAR-`YEAR`]+0.92*LOG(CHLA[d=4,X=201.5:202.5,Y=`clats`:`clatn`,T=15-MAR-`YEAR`]))))^0.37
+list (2.14*(10^(1.340-0.043*SST[d=2,X=201.5:202.5:0.1@AVE,Y=`clats`:`clatn`,T=15-MAR-`YEAR`]+0.92*LOG(CHLA[d=4,X=201.5:202.5,Y=`clats`:`clatn`,T=15-MAR-`YEAR`]))))^0.37
+list (2.14*(10^(1.340-0.043*SST[d=2,X=201.5:202.5:0.1@AVE,Y=`clats`:`clatn`,T=15-MAR-`YEAR`]+0.92*LOG(CHLA[d=4,X=201.5:202.5:0.1@AVE,Y=`clats`:`clatn`,T=15-MAR-`YEAR`]))))^0.37
+list (2.14*(10^(1.340-0.043*SST[d=2,X=201.5:202.5:0.1@AVE,Y=`clats`:`clatn`:0.1@AVE,T=15-MAR-`YEAR`]+0.92*LOG(CHLA[d=4,X=201.5:202.5:0.1@AVE,Y=`clats`:`clatn`:0.1@AVE,T=15-MAR-`YEAR`]))))^0.37
+rep/range=2003:2014/name=YEAR (list YEAR)
+rep/range=2003:2014/name=YEAR (list/nohead/norowlab YEAR)
+rep/range=2003:2014/name=YEAR (list/nohead/norowlab/quiet YEAR)
+rep/range=2003:2014/name=YEAR (list/nohead/norowlabs/quiet YEAR)
+rep/range=2003:2014/name=YEAR (let slat`YEAR` = SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:18,T=15-MAR-`YEAR`])
+rep/range=2003:2014/name=YEAR (list YEAR;\ !Continue on next line
+let slats = SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:18,T=15-MAR-2003];\ !Continue on next line
+let slatn = SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:17,T=15-MAR-2003];\ !Continue on next line
+let clats = CHLA[d=4,X=201.5:202.5@AVE,Y=26:40N@LOC:0.15,T=15-MAR-2003];\ !Continue on next line
+let clatn = CHLA[d=4,X=201.5:202.5@AVE,Y=26:40N@LOC:0.25,T=15-MAR-2003];\
+list/quiet/norowlabs/nohead slats,slatn,clats,clatn)
+rep/range=2003:2014/name=YEAR (list YEAR;\ !Continue on next line
+let slats = SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:18,T=15-MAR-`YEAR];\ !Continue on next line
+let slatn = SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:17,T=15-MAR-`YEAR];\ !Continue on next line
+let clats = CHLA[d=4,X=201.5:202.5@AVE,Y=26:40N@LOC:0.15,T=15-MAR-`YEAR];\ !Continue on next line
+let clatn = CHLA[d=4,X=201.5:202.5@AVE,Y=26:40N@LOC:0.25,T=15-MAR-`YEAR];\
+list/quiet/norowlabs/nohead slats,slatn,clats,clatn)
+rep/range=2003:2014/name=YEAR (list YEAR;\ !Continue on next line
+let slats = SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:18,T=15-MAR-`YEAR`];\ !Continue on next line
+let slatn = SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:17,T=15-MAR-`YEAR`];\ !Continue on next line
+let clats = CHLA[d=4,X=201.5:202.5@AVE,Y=26:40N@LOC:0.15,T=15-MAR-`YEAR`];\ !Continue on next line
+let clatn = CHLA[d=4,X=201.5:202.5@AVE,Y=26:40N@LOC:0.25,T=15-MAR-`YEAR`];\
+list/quiet/norowlabs/nohead slats,slatn,clats,clatn)
+list/file="ferretoutput/marchpositions.csv"/nohead/norowlabs/format=comma/quiet "STFZSouth","STFZNorth","TZCFSouth","TZCFNorth"
+list/clobber/file="ferretoutput/marchpositions.csv"/nohead/norowlabs/format=comma/quiet "STFZSouth","STFZNorth","TZCFSouth","TZCFNorth"
+rep/range=2003:2014/name=YEAR (list YEAR;\ !Continue on next line
+let slats = SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:18,T=15-MAR-`YEAR`];\ !Continue on next line
+let slatn = SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:17,T=15-MAR-`YEAR`];\ !Continue on next line
+let clats = CHLA[d=4,X=201.5:202.5@AVE,Y=26:40N@LOC:0.15,T=15-MAR-`YEAR`];\ !Continue on next line
+let clatn = CHLA[d=4,X=201.5:202.5@AVE,Y=26:40N@LOC:0.25,T=15-MAR-`YEAR`];\
+list/file="ferretoutput/marchpositions.csv"/nohead/norowlabs/format=comma/append/quiet slats,slatn,clats,clatn)
+repeat/range=2003:2003/name=YEAR (list YEAR;\ !Continue on next line
+let slats = SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:18,T=15-MAR-`YEAR`];\ !Continue on next line
+let slatn = SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:17,T=15-MAR-`YEAR`];\ !Continue on next line
+let clats = CHLA[d=4,X=201.5:202.5@AVE,Y=26:40N@LOC:0.15,T=15-MAR-`YEAR`];\ !Continue on next line
+let clatn = CHLA[d=4,X=201.5:202.5@AVE,Y=26:40N@LOC:0.25,T=15-MAR-`YEAR`];\ !Continue on next line
+!Do STFZ
+list (2.14*(10^(1.340-0.043*SST[d=2,X=201.5:202.5:0.1@AVE,Y=`slats`:`slatn`:0.1@AVE,T=15-MAR-`YEAR`]+0.92*LOG(CHLA[d=4,X=201.5:202.5:0.1@AVE,Y=`slats`:`slatn`:0.1@AVE,T=15-MAR-`YEAR`]))))^0.37;\ !Continue on Next Line
+!Do TZCF
+list (2.14*(10^(1.340-0.043*SST[d=2,X=201.5:202.5:0.1@AVE,Y=`clats`:`clatn`:0.1@AVE,T=15-MAR-`YEAR`]+0.92*LOG(CHLA[d=4,X=201.5:202.5:0.1@AVE,Y=`clats`:`clatn`:0.1@AVE,T=15-MAR-`YEAR`]))))^0.37)
+repeat/range=2003:2003/name=YEAR (list YEAR;\ !Continue on next line
+let slats = SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:18,T=15-MAR-`YEAR`];\ !Continue on next line
+let slatn = SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:17,T=15-MAR-`YEAR`];\ !Continue on next line
+let clats = CHLA[d=4,X=201.5:202.5@AVE,Y=26:40N@LOC:0.15,T=15-MAR-`YEAR`];\ !Continue on next line
+let clatn = CHLA[d=4,X=201.5:202.5@AVE,Y=26:40N@LOC:0.25,T=15-MAR-`YEAR`];\
+)
+list slats
+list slatn
+repeat/range=2003:2003/name=YEAR (list YEAR;\ !Continue on next line
+let slats = SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:18,T=15-MAR-`YEAR`];\ !Continue on next line
+let slatn = SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:17,T=15-MAR-`YEAR`];\ !Continue on next line
+let clats = CHLA[d=4,X=201.5:202.5@AVE,Y=26:40N@LOC:0.15,T=15-MAR-`YEAR`];\ !Continue on next line
+let clatn = CHLA[d=4,X=201.5:202.5@AVE,Y=26:40N@LOC:0.25,T=15-MAR-`YEAR`];\ !Continue on next line
+!Do STFZ
+list (2.14*(10^(1.340-0.043*SST[d=2,X=201.5:202.5:0.1@AVE,Y=`slats`:`slatn`:0.1@AVE,T=15-MAR-`YEAR`]+0.92*LOG(CHLA[d=4,X=201.5:202.5:0.1@AVE,Y=`slats`:`slatn`:0.1@AVE,T=15-MAR-`YEAR`]))))^0.37;\ !Continue on Next Line
+)
+list (2.14*(10^(1.340-0.043*SST[d=2,X=201.5:202.5:0.1@AVE,Y=`slats`:`slatn`:0.1@AVE,T=15-MAR-`YEAR`]+0.92*LOG(CHLA[d=4,X=201.5:202.5:0.1@AVE,Y=`slats`:`slatn`:0.1@AVE,T=15-MAR-`YEAR`]))))^0.37
+repeat/range=2003:2003/name=YEAR (list YEAR;\ !Continue on next line
+let slats = SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:18,T=15-MAR-`YEAR`];\ !Continue on next line
+let slatn = SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:17,T=15-MAR-`YEAR`];\ !Continue on next line
+let clats = CHLA[d=4,X=201.5:202.5@AVE,Y=26:40N@LOC:0.15,T=15-MAR-`YEAR`];\ !Continue on next line
+let clatn = CHLA[d=4,X=201.5:202.5@AVE,Y=26:40N@LOC:0.25,T=15-MAR-`YEAR`];\ !Continue on next line
+!Do STFZ
+list (2.14*(10^(1.340-0.043*SST[d=2,X=201.5:202.5:0.1@AVE,Y=`slats`:`slatn`:0.1@AVE,T=15-MAR-`YEAR`]+0.92*LOG(CHLA[d=4,X=201.5:202.5:0.1@AVE,Y=`slats`:`slatn`:0.1@AVE,T=15-MAR-`YEAR`]))))^0.37;\ !Continue on Next Line
+!Do TZCF
+list (2.14*(10^(1.340-0.043*SST[d=2,X=201.5:202.5:0.1@AVE,Y=`clats`:`clatn`:0.1@AVE,T=15-MAR-`YEAR`]+0.92*LOG(CHLA[d=4,X=201.5:202.5:0.1@AVE,Y=`clats`:`clatn`:0.1@AVE,T=15-MAR-`YEAR`]))))^0.37;\ !Continue on next line
+)
+repeat/range=2003:2003/name=YEAR (list YEAR;\ !Continue on next line
+let slats = SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:18,T=15-MAR-`YEAR`];\ !Continue on next line
+let slatn = SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:17,T=15-MAR-`YEAR`];\ !Continue on next line
+let clats = CHLA[d=4,X=201.5:202.5@AVE,Y=26:40N@LOC:0.15,T=15-MAR-`YEAR`];\ !Continue on next line
+let clatn = CHLA[d=4,X=201.5:202.5@AVE,Y=26:40N@LOC:0.25,T=15-MAR-`YEAR`];\ !Continue on next line
+!Do STFZ
+list (2.14*(10^(1.340-0.043*SST[d=2,X=201.5:202.5:0.1@AVE,Y=`slats`:`slatn`:0.1@AVE,T=15-MAR-`YEAR`]+0.92*LOG(CHLA[d=4,X=201.5:202.5:0.1@AVE,Y=`slats`:`slatn`:0.1@AVE,T=15-MAR-`YEAR`]))))^0.37;\ !Continue on Next Line
+!Do TZCF
+list (2.14*(10^(1.340-0.043*SST[d=2,X=201.5:202.5:0.1@AVE,Y=`clats`:`clatn`:0.1@AVE,T=15-MAR-`YEAR`]+0.92*LOG(CHLA[d=4,X=201.5:202.5:0.1@AVE,Y=`clats`:`clatn`:0.1@AVE,T=15-MAR-`YEAR`]))))^0.37;\ !Continue on next line
+repeat/range=2003:2003/name=YEAR (list YEAR;\ !Continue on next line
+let slats = SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:18,T=15-MAR-`YEAR`];\ !Continue on next line
+let slatn = SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:17,T=15-MAR-`YEAR`];\ !Continue on next line
+let clats = CHLA[d=4,X=201.5:202.5@AVE,Y=26:40N@LOC:0.15,T=15-MAR-`YEAR`];\ !Continue on next line
+let clatn = CHLA[d=4,X=201.5:202.5@AVE,Y=26:40N@LOC:0.25,T=15-MAR-`YEAR`];\ !Continue on next line
+!Do STFZ
+list (2.14*(10^(1.340-0.043*SST[d=2,X=201.5:202.5:0.1@AVE,Y=`slats`:`slatn`:0.1@AVE,T=15-MAR-`YEAR`]+0.92*LOG(CHLA[d=4,X=201.5:202.5:0.1@AVE,Y=`slats`:`slatn`:0.1@AVE,T=15-MAR-`YEAR`]))))^0.37;\ !Continue on Next Line
+)
+list slats
+list clats
+list (2.14*(10^(1.340-0.043*SST[d=2,X=201.5:202.5:0.1@AVE,Y=`slats`:`slatn`:0.1@AVE,T=15-MAR-`YEAR`]+0.92*LOG(CHLA[d=4,X=201.5:202.5:0.1@AVE,Y=`slats`:`slatn`:0.1@AVE,T=15-MAR-`YEAR`]))))^0.37
+list/quiet/NOROWLABS/NOHEAD/CLOBBER/FORMAT=comma/file=`YEAR`mediancells.csv (2.14*(10^(1.340-0.043*SST[d=2,X=201.5:202.5:0.1@AVE,Y=`slats`:`slatn`:0.1@AVE,T=15-MAR-`YEAR`]+0.92*LOG(CHLA[d=4,X=201.5:202.5:0.1@AVE,Y=`slats`:`slatn`:0.1@AVE,T=15-MAR-`YEAR`]))))^0.37
+list (2.14*(10^(1.340-0.043*SST[d=2,X=201.5:202.5@AVE,Y=`slats`:`slatn`:0.1@AVE,T=15-MAR-`YEAR`]+0.92*LOG(CHLA[d=4,X=201.5:202.5@AVE,Y=`slats`:`slatn`:0.1@AVE,T=15-MAR-`YEAR`]))))^0.37
+list (2.14*(10^(1.340-0.043*SST[d=2,X=201.5:202.5@AVE,Y=`slats`:`slatn`@AVE,T=15-MAR-`YEAR`]+0.92*LOG(CHLA[d=4,X=201.5:202.5@AVE,Y=`slats`:`slatn`@AVE,T=15-MAR-`YEAR`]))))^0.37
+repeat/range=2003:2003/name=YEAR (list YEAR;\ !Continue on next line
+let slats = SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:18,T=15-MAR-`YEAR`];\ !Continue on next line
+let slatn = SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:17,T=15-MAR-`YEAR`];\ !Continue on next line
+let clats = CHLA[d=4,X=201.5:202.5@AVE,Y=26:40N@LOC:0.15,T=15-MAR-`YEAR`];\ !Continue on next line
+let clatn = CHLA[d=4,X=201.5:202.5@AVE,Y=26:40N@LOC:0.25,T=15-MAR-`YEAR`];\ !Continue on next line
+!Do STFZ
+list/quiet/NOROWLAB/NOHEAD/CLOBBER/FORMAT=comma/file=`YEAR`mediancells.csv (2.14*(10^(1.340-0.043*SST[d=2,X=201.5:202.5:0.1@AVE,Y=`slats`:`slatn`:0.1@AVE,T=15-MAR-`YEAR`]+0.92*LOG(CHLA[d=4,X=201.5:202.5:0.1@AVE,Y=`slats`:`slatn`:0.1@AVE,T=15-MAR-`YEAR`]))))^0.37;\ !Continue on Next Line
+list/quiet/NOROWLAB/NOHEAD/CLOBBER/FORMAT=comma/file=`YEAR`mediancells.csv (2.14*(10^(1.340-0.043*SST[d=2,X=201.5:202.5:0.1@AVE,Y=`slats`:`slatn`:0.1@AVE,T=15-MAR-`YEAR`]+0.92*LOG(CHLA[d=4,X=201.5:202.5:0.1@AVE,Y=`slats`:`slatn`:0.1@AVE,T=15-MAR-`YEAR`]))))^0.37
+list/singly/quiet/NOROWLAB/NOHEAD/CLOBBER/FORMAT=comma/file=`YEAR`mediancells.csv (2.14*(10^(1.340-0.043*SST[d=2,X=201.5:202.5:0.1@AVE,Y=`slats`:`slatn`:0.1@AVE,T=15-MAR-`YEAR`]+0.92*LOG(CHLA[d=4,X=201.5:202.5:0.1@AVE,Y=`slats`:`slatn`:0.1@AVE,T=15-MAR-`YEAR`]))))^0.37
+list SST[d=2,X=180,Y=30:31N,L=10]
+list/nohead SST[d=2,X=180,Y=30:31N,L=10]
+list/norowlab/nohead SST[d=2,X=180,Y=30:31N,L=10]
+list/norowlab/nohead SST[d=2,X=180:180.1,Y=30:31N,L=10]
+list/NOROWLAB/NOHEAD/CLOBBER/FORMAT=comma/file=`YEAR`mediancells.csv (2.14*(10^(1.340-0.043*SST[d=2,X=201.5:202.5:0.1@AVE,Y=`slats`:`slatn`:0.1@AVE,T=15-MAR-`YEAR`]+0.92*LOG(CHLA[d=4,X=201.5:202.5:0.1@AVE,Y=`slats`:`slatn`:0.1@AVE,T=15-MAR-`YEAR`]))))^0.37
+list/NOROWLAB/NOHEAD/CLOBBER/file=`YEAR`mediancells.csv (2.14*(10^(1.340-0.043*SST[d=2,X=201.5:202.5:0.1@AVE,Y=`slats`:`slatn`:0.1@AVE,T=15-MAR-`YEAR`]+0.92*LOG(CHLA[d=4,X=201.5:202.5:0.1@AVE,Y=`slats`:`slatn`:0.1@AVE,T=15-MAR-`YEAR`]))))^0.37
+list/NOROWLAB/NOHEAD/CLOBBER/file=`YEAR`mediancells.csv `YEAR`,"STFZ",(2.14*(10^(1.340-0.043*SST[d=2,X=201.5:202.5:0.1@AVE,Y=`slats`:`slatn`:0.1@AVE,T=15-MAR-`YEAR`]+0.92*LOG(CHLA[d=4,X=201.5:202.5:0.1@AVE,Y=`slats`:`slatn`:0.1@AVE,T=15-MAR-`YEAR`]))))^0.37
+list/NOROWLAB/NOHEAD (2.14*(10^(1.340-0.043*SST[d=2,X=201.5:202.5:0.1@AVE,Y=`slats`:`slatn`:0.1@AVE,T=15-MAR-`YEAR`]+0.92*LOG(CHLA[d=4,X=201.5:202.5:0.1@AVE,Y=`slats`:`slatn`:0.1@AVE,T=15-MAR-`YEAR`]))))^0.37
+list/quiet/NOROWLAB/NOHEAD/CLOBBER/FORMAT=comma/file=ferretoutput/`YEAR`mediancells.csv (2.14*(10^(1.340-0.043*SST[d=2,X=201.5:202.5:0.1@AVE,Y=`slats`:`slatn`:0.1@AVE,T=15-MAR-`YEAR`]+0.92*LOG(CHLA[d=4,X=201.5:202.5:0.1@AVE,Y=`slats`:`slatn`:0.1@AVE,T=15-MAR-`YEAR`]))))^0.37
+list/quiet/NOROWLAB/NOHEAD/CLOBBER/FORMAT=comma/file="ferretoutput/`YEAR`mediancells.csv" (2.14*(10^(1.340-0.043*SST[d=2,X=201.5:202.5:0.1@AVE,Y=`slats`:`slatn`:0.1@AVE,T=15-MAR-`YEAR`]+0.92*LOG(CHLA[d=4,X=201.5:202.5:0.1@AVE,Y=`slats`:`slatn`:0.1@AVE,T=15-MAR-`YEAR`]))))^0.37
+list/quiet/NOROWLAB/NOHEAD/CLOBBER/file="ferretoutput/`YEAR`mediancells.csv" (2.14*(10^(1.340-0.043*SST[d=2,X=201.5:202.5:0.1@AVE,Y=`slats`:`slatn`:0.1@AVE,T=15-MAR-`YEAR`]+0.92*LOG(CHLA[d=4,X=201.5:202.5:0.1@AVE,Y=`slats`:`slatn`:0.1@AVE,T=15-MAR-`YEAR`]))))^0.37
+REPEAT/RANGE=2003:2014/name=YEAR (list YEAR;\ !Continue on next line
+!repeat/range=2003:2003/name=YEAR (list YEAR;\ !Continue on next line
+let slats = SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:18,T=15-MAR-`YEAR`];\ !Continue on next line
+let slatn = SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:17,T=15-MAR-`YEAR`];\ !Continue on next line
+!Do STFZ
+list/quiet/NOROWLAB/NOHEAD/CLOBBER/file="ferretoutput/`YEAR`mediancells-STFZ.csv" (2.14*(10^(1.340-0.043*SST[d=2,X=201.5:202.5:0.1@AVE,Y=`slats`:`slatn`:0.1@AVE,T=15-MAR-`YEAR`]+0.92*LOG(CHLA[d=4,X=201.5:202.5:0.1@AVE,Y=`slats`:`slatn`:0.1@AVE,T=15-MAR-`YEAR`]))))^0.37;\ !Continue on Next Line
+)
+REPEAT/RANGE=2003:2014/name=YEAR (list YEAR;\ !Continue on next line
+!repeat/range=2003:2003/name=YEAR (list YEAR;\ !Continue on next line
+let slats = SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:18,T=15-MAR-`YEAR`];\ !Continue on next line
+let slatn = SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:17,T=15-MAR-`YEAR`];\ !Continue on next line
+!Do STFZ
+list/quiet/NOROWLAB/NOHEAD/CLOBBER/file="ferretoutput/`YEAR`mediancells-STFZ.csv" (2.14*(10^(1.340-0.043*SST[d=2,X=201.5:202.5:0.1@AVE,Y=`slats`:`slatn`:0.1@AVE,T=15-MAR-`YEAR`]+0.92*LOG(CHLA[d=4,X=201.5:202.5:0.1@AVE,Y=`slats`:`slatn`:0.1@AVE,T=15-MAR-`YEAR`]))))^0.37;\ !Continue on Next Line
+REPEAT/RANGE=2003:2014/name=YEAR (list YEAR;\ !Continue on next line
+!repeat/range=2003:2003/name=YEAR (list YEAR;\ !Continue on next line
+let slats = SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:18,T=15-MAR-`YEAR`];\ !Continue on next line
+let slatn = SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:17,T=15-MAR-`YEAR`];\
+REPEAT/RANGE=2003:2014/name=YEAR (list YEAR)
+REPEAT/RANGE=2003:2014/name=YEAR (list YEAR;\
+list "SST" )
+list "sst"
+list "1"
+REPEAT/RANGE=2003:2014/name=YEAR (list YEAR;\
+list "1" )
+REPEAT/RANGE=2003:2014/name=YEAR (list YEAR; let slats = SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:18,T=15-MAR-`YEAR`]; let slatn = SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:17,T=15-MAR-`YEAR`]; list/quiet/NOROWLAB/NOHEAD/CLOBBER/file="ferretoutput/`YEAR`mediancells-STFZ.csv" (2.14*(10^(1.340-0.043*SST[d=2,X=201.5:202.5:0.1@AVE,Y=`slats`:`slatn`:0.1@AVE,T=15-MAR-`YEAR`]+0.92*LOG(CHLA[d=4,X=201.5:202.5:0.1@AVE,Y=`slats`:`slatn`:0.1@AVE,T=15-MAR-`YEAR`]))))^0.37)
+rep/range=2003:2014/name=YEAR (list YEAR; let clats = CHLA[d=4,X=201.5:202.5@AVE,Y=26:40N@LOC:0.15,T=15-MAR-`YEAR`]; let clatn = CHLA[d=4,X=201.5:202.5@AVE,Y=26:40N@LOC:0.25,T=15-MAR-`YEAR`]; list (2.14*(10^(1.340-0.043*SST[d=2,X=201.5:202.5:0.1@AVE,Y=`clats`:`clatn`:0.1@AVE,T=15-MAR-`YEAR`]+0.92*LOG(CHLA[d=4,X=201.5:202.5:0.1@AVE,Y=`clats`:`clatn`:0.1@AVE,T=15-MAR-`YEAR`]))))^0.37
+REPEAT/range=2003:2014/name=YEAR (list YEAR; let clats = CHLA[d=4,X=201.5:202.5@AVE,Y=26:40N@LOC:0.15,T=15-MAR-`YEAR`]; let clatn = CHLA[d=4,X=201.5:202.5@AVE,Y=26:40N@LOC:0.25,T=15-MAR-`YEAR`]; list/quiet/NOROWLAB/NOHEAD/CLOBBER/file="ferretoutput/`YEAR`mediancells-TZCF.csv" (2.14*(10^(1.340-0.043*SST[d=2,X=201.5:202.5:0.1@AVE,Y=`clats`:`clatn`:0.1@AVE,T=15-MAR-`YEAR`]+0.92*LOG(CHLA[d=4,X=201.5:202.5:0.1@AVE,Y=`clats`:`clatn`:0.1@AVE,T=15-MAR-`YEAR`]))))^0.37)
+set VAR/bad=NaN CHLA[d=4]
+REPEAT/range=2003:2014/name=YEAR (list YEAR; let clats = CHLA[d=4,X=201.5:202.5@AVE,Y=26:40N@LOC:0.15,T=15-MAR-`YEAR`]; let clatn = CHLA[d=4,X=201.5:202.5@AVE,Y=26:40N@LOC:0.25,T=15-MAR-`YEAR`]; list/quiet/NOROWLAB/NOHEAD/CLOBBER/file="ferretoutput/`YEAR`mediancells-TZCF.csv" (2.14*(10^(1.340-0.043*SST[d=2,X=201.5:202.5:0.1@AVE,Y=`clats`:`clatn`:0.1@AVE,T=15-MAR-`YEAR`]+0.92*LOG(CHLA[d=4,X=201.5:202.5:0.1@AVE,Y=`clats`:`clatn`:0.1@AVE,T=15-MAR-`YEAR`]))))^0.37)
+list CHLA[d=4,X=201.5:202.5:0.1@AVE,Y=32.1685752225067:33.5419461984351:0.1@AVE,T=15-MAR-2014]
+list CHLA[d=4,X=201.5:202.5:0.1@AVE,Y=32.1685752225067:33.5419461984351:0.1@AVE,T=15-MAR-2005]
+list SST[d=2,X=201.5:202.5:0.1@AVE,Y=32.1685752225067:33.5419461984351:0.1@AVE,T=15-MAR-2005]
+REPEAT/RANGE=2003:2014/name=YEAR (list YEAR; let slats = SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:18,T=15-MAR-`YEAR`]; let slatn = SST[d=2,X=201.5:202.5@AVE,Y=26:40N@LOC:17,T=15-MAR-`YEAR`]; list/quiet/NOROWLAB/NOHEAD/CLOBBER/file="ferretoutput/`YEAR`mediancells-STFZ.csv" (2.14*(10^(1.340-0.043*SST[d=2,X=201.5:202.5:0.1@AVE,Y=`slats`:`slatn`:0.1@AVE,T=15-MAR-`YEAR`]+0.92*LOG(CHLA[d=4,X=201.5:202.5:0.1@AVE,Y=`slats`:`slatn`:0.1@AVE,T=15-MAR-`YEAR`]))))^0.37)
+list SST[d=2,X=201.5:202.5:0.1@AVE,Y=28.8918141947484:31.5532068371587:0.1@AVE,T=15-MAR-2005]
+list CHLA[d=4,X=201.5:202.5:0.1@AVE,Y=28.8918141947484:31.5532068371587:0.1@AVE,T=15-MAR-2005]
+list (2.14*(10^(1.340-0.043*SST[d=2,X=201.5:202.5:0.1@AVE,Y=28.8918141947484:31.5532068371587:0.1@AVE,T=15-MAR-2005]+0.92*LOG(CHLA[d=4,X=201.5:202.5:0.1@AVE,Y=28.8918141947484:31.5532068371587:0.1@AVE,T=15-MAR-2005]))))^0.37
+shade SST[d=2,X=201.5:202.5,Y=26:40,T=15-MAR-2005]
+shade SST[d=2,X=201.5:202.5,Y=26:40,T=15-MAR-2005],contour/over/levels=c(17,18,1) SST[d=2,X=201.5:202.5,Y=26:40,T=15-MAR-2005]
+contour/over/levels=c(17,18,1) SST[d=2,X=201.5:202.5,Y=26:40,T=15-MAR-2005]
+shade SST[d=2,X=201.5:202.5,Y=26:40,T=15-MAR-2005]
+contour/over/levels=c(17,17,1) SST[d=2,X=201.5:202.5,Y=26:40,T=15-MAR-2005]
+shade SST[d=2,X=201.5:202.5,Y=26:40,T=15-MAR-2005]
+contour/over/levels=(17,17,1) SST[d=2,X=201.5:202.5,Y=26:40,T=15-MAR-2005]
+contour/over/levels=(18,18,1) SST[d=2,X=201.5:202.5,Y=26:40,T=15-MAR-2005]
+shade SST[d=2,X=201.5:202.5,Y=26:40:1@AVE,T=15-MAR-2005]
+contour/over/levels=(17,17,1) SST[d=2,X=201.5:202.5,Y=26:40:1@AVE,T=15-MAR-2005]
+contour/over/levels=(18,18,1) SST[d=2,X=201.5:202.5,Y=26:40:1@AVE,T=15-MAR-2005]

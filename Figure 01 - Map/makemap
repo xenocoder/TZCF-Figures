@@ -1,0 +1,5 @@
+pscoast -R200/210/18/38 -Jm0.4 -Df -Bf1a2/f1a2WeSn -Tf207/22/0.75 -Gblack -P -K > map.ps
+psxy -R -Jm -Wthin,black  -O -A <<END>> map.ps
+202 26
+202 36
+END
