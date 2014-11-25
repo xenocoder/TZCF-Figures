@@ -227,3 +227,4 @@ contour/over/levels=(18,18,1) SST[d=2,X=201.5:202.5,Y=26:40,T=15-MAR-2005]
 shade SST[d=2,X=201.5:202.5,Y=26:40:1@AVE,T=15-MAR-2005]
 contour/over/levels=(17,17,1) SST[d=2,X=201.5:202.5,Y=26:40:1@AVE,T=15-MAR-2005]
 contour/over/levels=(18,18,1) SST[d=2,X=201.5:202.5,Y=26:40:1@AVE,T=15-MAR-2005]
+exit

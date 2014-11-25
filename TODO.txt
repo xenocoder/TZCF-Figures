@@ -1,0 +1,21 @@
+To DO
+
+1. Combine Figures 1&2 - Tonight
+2. Combine T, NO3, Fluor figure - Tonight
+3. Remove total chla from profiles -Tonight
+4. One figure for bar charts - Tonight 
+5. T-test median cell size across fronts (couple with 7).
+6. Frontal composition correlates to median cell size. Stable over time
+7. March positions vary but no significant trend (show mean and var, r2,p). High variability (show mean and var for STFZ and TZCF)
+8. Cell size doesn't change within fronts over time (show r2 and p)
+9. Do bar chart of P, N, M% grouped by front. Compute mean of %pico/nano/micro and std. Then double for CI. DO FIRST!!!
+10. Some statistical way to show whether %relationship holds across year and front (ANOVE of %pico with year and front, %nano? Cluster?) DO NEXT!!!
+
+How do we show where the variability is significant across either front, year, for phytoplankton size classes.
+
+picoplankton ~ year + zone
+nanoplankton ~ year + zone 
+microplankton ~ year + zone
+
+We can see that 2009 is different at TZCF both in terms of chla concentration as well as being 50%/50% pico nano at depth (seen in Figure with PSC profiles)
+

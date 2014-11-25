@@ -25,11 +25,13 @@
 % [intval, splval] = calcinterp(SE0802.HPLC.pigrats.chlapro, x, XI, ssta,
 % esta);
 
-function [intval, interpval] = calcinterp(inpigment, x, XI, ssta, esta)
+function [intval, interpval, mn, sd] = calcinterp(inpigment, x, XI, ssta, esta)
     a = inpigment(:,ssta:esta);
     pigval = nanmean(a,2);
     interpval = interp1(x,pigval,XI); %do spline of Y at 1:150 (as 2009 only goes to 175)
     interpval(interpval<0) = 0;
     intval = sum(interpval)./1000; %sum of value in mg m-3
+    
+    a(isnan(a))=0; %set NaNs to 0 now so mean across rows wasn't messed up before.
 
 end

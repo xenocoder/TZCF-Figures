@@ -25,7 +25,7 @@
 % [intval, splval] = calcspline(SE0802.HPLC.pigrats.chlapro, x, XI, ssta,
 % esta);
 
-function [intval, splval] = calcspline(inpigment, x, XI, ssta, esta)
+function [intval, splval, mn, sd] = calcspline(inpigment, x, XI, ssta, esta)
     a = inpigment(:,ssta:esta);
     a(isnan(a)) = 0; %NaNs are values too low to detect so calling 0
     pigval = nanmean(a,2);

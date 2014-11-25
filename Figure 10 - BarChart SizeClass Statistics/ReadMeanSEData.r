@@ -4,10 +4,14 @@
 library(reshape)
 library(ggplot2)
 
-# Read in the file that Matlab wrote out (CSV). chlpigdata.csv is actual values
-#pig = read.csv('chlpigdatahirata.csv',header=T)
-pig = read.csv('chlpigdatahirata-100m.csv',header=T)
+# Clean up if needed
+rm(list=ls())
 
+# Read in the file that Matlab wrote out (CSV). chlpigdata.csv is actual values
+dat = read.csv('meanphyto-werror.csv',header=T)
+
+#Aggregate mean and se across years
+dat.zone = aggregate(dat[,4:5],by=list(dat$PSC,dat$zone),FUN=mean)
 
 #Change 1,2 to '1-STFZ','2-TZCF' since Matlab only writes numbers
 pig$zone[pig$zone==1]='1-STFZ'
@@ -17,7 +21,7 @@ repig.all = melt(pig[,c(1:2,4:10)],id=c('year','zone')) #Reshape to columns only
 repig.size = melt(pig[,c(1:2,11:13)],id=c('year','zone')) # Reshape but only pico, nano, micro groups
 
 # Barplot of all groups in all areas grouped by year and zone
-ggplot() + geom_bar(data=repig.all, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year)
+ggplot() + geom_bar(data=repig.all, aes(y = mn, x = zone, fill = PSC), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year)
 
 # Barplot of pico, nano, micro in all areas grouped by year and zone
 ggplot() + geom_bar(data=repig.size, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year)

@@ -65,10 +65,10 @@
 <NOTES>Run the script in Ferret and run FPrint to make EPS file for import to Illustrator</NOTES>
 
 <FIGURE>10</FIGURE>
-<TITLE>Median Cell calculations for frontal areas</TITLE>
-<APPLICATIONS>Ferret; Illustrator</APPLICATIONS>
-<SCRIPTS>calcmedian.jnl; calcaveragemedian.r</SCRIPTS>
-<DATA>http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/pfgac/monthly; http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/aqua/monthly; http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/pfgac/weekly; http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/aqua/weekly</DATA>
-<OUTPUT>ferretoutput/various;marchpositions.xlsx;MarchFrontsMedCell.csv</OUTPUT>
-<NOTES>Run the calcmedian.jnl script in Ferret. This makes separate files in the form ferretoutput/YYYYmediancell-AREA.csv. Then load these files in R with calcaveragemedian.r to get the average median cell size for each year and zone</NOTES>
+<TITLE>Bar chart and mean comparison</TITLE>
+<APPLICATIONS>Matlab; R; Illustrator</APPLICATIONS>
+<SCRIPTS>interpprofiles.m; ReadMeanSEData.r</SCRIPTS>
+<DATA>Working.mat</DATA>
+<OUTPUT>meanphyto-werror.csv</OUTPUT>
+<NOTES>Run the interpprofiles.m script in Matlab. This makes the meanphyto-werror.csv file. Then load these files in R with ReadMeanSEData.r to make bar chart with SE</NOTES>
 
