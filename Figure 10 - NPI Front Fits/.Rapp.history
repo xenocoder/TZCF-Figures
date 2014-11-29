@@ -1,0 +1,251 @@
+marchdata
+plot(years,marchdata$FrontalDiff)
+plot(years,marchdata$FrontalDiff,type="l")
+summary(marchdata$FrontalDiff~years)
+summary(lm(marchdata$FrontalDiff~years))
+ls()
+rm(a)
+save.image('Working.RData')
+rm(list=ls())
+ls()
+pig = read.csv('chlpigdatahirata.csv',header=T)
+pig
+rowSums(pig[,4:10])
+pig$zone[pig$zone==1]='1-STFZ'pig$zone[pig$zone==2]='2-TZCF'repig.all = melt(pig[,c(1:2,4:10)],id=c('year','zone')) #Reshape to columns only taking chloropigments (e.g. pro, prym, diat, etc)repig.size = melt(pig[,c(1:2,11:13)],id=c('year','zone')) # Reshape but only pico, nano, micro groups
+repig.size
+ggplot() + geom_bar(data=repig.size, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year)
+ggplot() + geom_bar(data=repig.all, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year)
+pigperc = cbind(pig[,1:2],pig[4:10]/rowSums(pig[4:10]))repigperc.all = melt(pigperc,id=c('year','zone')) #Reshape to columns only taking chloropigments (e.g. pro, prym, diat, etc)
+ggplot() + geom_bar(data=repigperc.all, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year)
+ggplot() + geom_bar(data=repig.all, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year)
+ggplot() + geom_bar(data=repig.all, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year)
+ggplot() + geom_bar(data=repig.size, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year)
+pigperc = cbind(pig[,1:2],pig[11:13]/rowSums(pig[11:13]))repigperc.size = melt(pigperc,id=c('year','zone')) #Reshape to columns only taking chloropigments (e.g. pro, prym, diat, etc)# Barplot of pico, nano, micro in all areas grouped by year and zoneggplot() + geom_bar(data=repigperc.size, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year)
+ls()
+rm(list=ls())
+ls()
+pig = read.csv('chlpigdatahirata-100m.csv',header=T)
+pig
+pig$zone[pig$zone==1]='1-STFZ'pig$zone[pig$zone==2]='2-TZCF'repig.all = melt(pig[,c(1:2,4:10)],id=c('year','zone')) #Reshape to columns only taking chloropigments (e.g. pro, prym, diat, etc)repig.size = melt(pig[,c(1:2,11:13)],id=c('year','zone')) # Reshape but only pico, nano, micro groups# Barplot of all groups in all areas grouped by year and zoneggplot() + geom_bar(data=repig.all, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year)
+ggplot() + geom_bar(data=repig.size, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year)
+pig$zone[pig$zone==1]='1-STFZ'pig$zone[pig$zone==2]='2-TZCF'repig.all = melt(pig[,c(1:2,4:10)],id=c('year','zone')) #Reshape to columns only taking chloropigments (e.g. pro, prym, diat, etc)repig.size = melt(pig[,c(1:2,11:13)],id=c('year','zone')) # Reshape but only pico, nano, micro groups# Barplot of all groups in all areas grouped by year and zoneggplot() + geom_bar(data=repig.all, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year)
+pigperc = cbind(pig[,1:2],pig[4:10]/rowSums(pig[4:10]))repigperc.all = melt(pigperc,id=c('year','zone')) #Reshape to columns only taking chloropigments (e.g. pro, prym, diat, etc)# Barplot of all groups in all areas grouped by year and zoneggplot() + geom_bar(data=repigperc.all, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year)
+pigperc = cbind(pig[,1:2],pig[11:13]/rowSums(pig[11:13]))repigperc.size = melt(pigperc,id=c('year','zone')) #Reshape to columns only taking chloropigments (e.g. pro, prym, diat, etc)# Barplot of pico, nano, micro in all areas grouped by year and zoneggplot() + geom_bar(data=repigperc.size, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year)
+rm(list=ls())
+dat = read.csv('meanphyto-werror.csv',header=T)
+dat = read.csv('meanphyto-werror.csv',header=T)
+dat
+class(dat)
+tggplot() + geom_bar(data=d, aes(y = mean, x = zone, fill = variable), stat="identity") + theme_bw() + facet_grid( ~ year)
+ggplot() + geom_bar(data=d, aes(y = mean, x = zone, fill = variable), stat="identity") + theme_bw() + facet_grid( ~ year)
+ggplot() + geom_bar(data=dat, aes(y = mean, x = zone, fill = variable), stat="identity") + theme_bw() + facet_grid( ~ year)
+dat = read.csv('meanphyto-werror.csv',header=T)
+dat
+pig = read.csv('../Figure 07 - Integrated HPLCchlpigdatahirata-100m.csv',header=T)
+pig = read.csv('../Figure 07 - Integrated HPLC/chlpigdatahirata.csv')
+pig
+pig$zone[pig$zone==1]='1-STFZ'pig$zone[pig$zone==2]='2-TZCF'
+repig.all = melt(pig[,c(1:2,4:10)],id=c('year','zone')) #Reshape to columns only taking chloropigments (e.g. pro, prym, diat, etc)
+repig.all
+ggplot() + geom_bar(data=repig.all, aes(y = mn, x = zone, fill = PSC), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year)
+ggplot() + geom_bar(data=dat, aes(y = mn, x = zone, fill = PSC), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year)
+ggplot() + geom_bar(data=dat, aes(y = mn, x = zone, fill = PSC), stat="identity") + theme_bw() + facet_grid( ~ year)
+ggplot() + geom_bar(data=dat, aes(y = mn, x = zone, fill = PSC), stat="identity") + theme_bw() + facet_grid( ~ PSC)
+ggplot() + geom_bar(data=dat, aes(y = mn, x = zone), stat="identity") + theme_bw() + facet_grid( ~ PSC)
+dat
+dat.zone = aggregate(dat$mn,by=list(zone),FUN=mean)
+dat.zone = aggregate(dat$mn,by=list(dat$zone),FUN=mean)
+dat.zone
+dat.zone = aggregate(dat$mn,by=list(dat$zone,dat$year),FUN=mean)
+dat.zone
+dat.zone = aggregate(dat$mn,by=list(dat$zone,dat$PSC),FUN=mean)
+dat.zone
+dat.zone = aggregate(dat$mn,by=list(dat$PSC,dat$zone),FUN=mean)
+dat.zone
+dat.zone = aggregate(list(dat$mn,dat$se),by=list(dat$PSC,dat$zone),FUN=mean)
+dat.zone
+dat.zone = aggregate(dat,by=list(dat$PSC,dat$zone),FUN=mean)
+dat.zone
+dat.zone = aggregate(dat[,3:4],by=list(dat$PSC,dat$zone),FUN=mean)
+dat
+dat.zone = aggregate(dat[,4:5],by=list(dat$PSC,dat$zone),FUN=mean)
+dat.zone
+dat
+aov(mn~Group.1+Group.2)
+aov(mn~Group.1+Group.2,data=dat.zone)
+summary(aov(mn~Group.1+Group.2,data=dat.zone))
+ls()
+rm(list=ls())
+ls()
+pig = read.csv('pigmeanplussem.csv',header=T)
+pig
+pig = read.csv('pigmeanplussem.csv',header=T)
+pig
+ggplot() + geom_bar(data=pig, aes(y = mnval, x = PSC), stat="identity") + theme_bw() + facet_grid( ~ zone)
+ggplot() + geom_bar(data=pig, aes(y = mnval, x = PSC), stat="identity") + theme_bw() + facet_grid( ~ Zone)
+ggplot() + geom_bar(data=pig, aes(y = mnval, x = Zone), stat="identity") + theme_bw() + facet_grid( ~ PSC)
+ggplot() + geom_bar(data=pig, aes(y = mnval, x = Zone), stat="identity") + theme_bw() + facet_grid( ~ PSC) + geom_errorbar(aes(ymin=mnval-sem, ymax=mnval+sem),
+ggplot() + geom_bar(data=pig, aes(y = mnval, x = Zone), stat="identity") + theme_bw() + facet_grid( ~ PSC) + geom_errorbar(aes(ymin=mnval-sem, ymax=mnval+sem)
+ggplot() + geom_bar(data=pig, aes(y = mnval, x = Zone), stat="identity") + theme_bw() + facet_grid( ~ PSC) + geom_errorbar(aes(ymin=mnval-sem, ymax=mnval+sem))
+ggplot() + geom_bar(data=pig, aes(y = mnval, x = Zone), stat="identity") + theme_bw() + facet_grid( ~ PSC) + geom_errorbar(aes(ymin=mnval-sem, ymax=mnval+sem), width=.2, position=position_dodge(.9))
+ggplot() + geom_bar(data=pig, aes(y = mnval, x = Zone), stat="identity") + theme_bw() + facet_grid( ~ PSC)
+ggplot() + geom_bar(data=pig, aes(y = mnval, x = Zone), stat="identity") + facet_grid( ~ PSC)
+ggplot() + geom_bar(data=pig, aes(y = mnval, x = Zone), stat="identity") + theme_bw() + facet_grid( ~ PSC)
+ggplot() + geom_bar(data=pig, aes(y = mnval, x = Zone), stat="identity") + theme_bw() + facet_grid( ~ PSC) + geom_errorbar(aes(ymin=mnval-sem,ymax=mnval+sem))
+ggplot() + geom_bar(data=pig, aes(y = mnval, x = Zone), stat="identity") + theme_bw() + facet_grid( ~ PSC) + geom_errorbar(data=pig, aes(ymin=mnval-sem,ymax=mnval+sem))
+ggplot() + geom_bar(data=pig, aes(y = mnval, x = Zone), stat="identity") + theme_bw() + facet_grid( ~ PSC) + geom_errorbar(data=pig, aes(x=Zone, ymin=mnval-sem,ymax=mnval+sem))
+ggplot() + geom_bar(data=pig, aes(y = mnval, x = Zone), stat="identity", fill = I("grey50")) + theme_bw() + facet_grid( ~ PSC) + geom_errorbar(data=pig, aes(x=Zone, ymin=mnval-sem,ymax=mnval+sem))
+dat = read.csv('meanphyto-werror.csv',header=T)
+dat
+par(mfrow=c(1,2))
+boxplot(mn ~ year + zone, data=dat[dat$PSC=pico])
+boxplot(mn ~ year + zone, data=dat[dat$PSC==pico])
+dat[dat$PSC==pico]
+dat[dat$PSC==pico,]
+dat[dat$mn>5,]
+dat[dat$PSC=="pico",]
+boxplot(mn ~ year + zone, data=dat[dat$PSC=="pico",])
+plot(mn ~ year + zone, data=dat[dat$PSC=="pico",])
+plot(mn ~ year + zone, data=dat[dat$PSC=="pico",])
+plot(mn ~ year + zone, data=dat[dat$PSC=="pico",])
+plot(mn ~ year + zone, data=dat[dat$PSC=="pico",])
+plot(mn ~ year + zone, data=dat[dat$PSC=="pico",])
+interaction.plot(dat$Drug, dat$PSC, dat$mn)
+pico = dat[dat$PSC=="pico",]
+interaction.plot(pico$year,pico$zone,pico$mn)
+interaction.plot(pico$zone,pico$year,pico$mn)
+par(mfrow=c(2,1))
+interaction.plot(pico$year,pico$zone,pico$mn)
+interaction.plot(pico$zone,pico$year,pico$mn)
+par(mfrow=c(1,1))
+interaction.plot(pico$year,pico$zone,pico$mn)
+interaction.plot(pico$year,pico$zone,pico$mn)
+interaction.plot(pico$zone,pico$year,pico$mn)
+nano = dat[dat$PSC=="nano",]
+micro = dat[dat$PSC=="micro",]
+ggplot() + geom_bar(data=pig, aes(y = mnval, x = Zone), stat="identity", fill = I("grey50")) + theme_bw() + facet_grid( ~ PSC) + geom_errorbar(data=pig, aes(x=Zone, ymin=mnval-sem,ymax=mnval+sem))
+interaction.plot(nano$year, nano$zone,nano$mn)
+interaction.plot(nano$zone, nano$year,nano$mn)
+interaction.plot(micro$year, micro$zone,micro$mn)
+interaction.plot(micro$zone, micro$year,micro$mn)
+fit =  lm(mn ~ year + zone + year*zone, data=pico)
+anova(fit)
+aov(mn ~ year + zone + year*zone, data=pico)
+summary(aov(mn ~ year + zone + year*zone, data=pico))
+summary(aov(mn ~ year + zone + year*zone, data=nano))
+summary(aov(mn ~ year + zone + year*zone, data=micro))
+micro
+summary(aov(mn ~ year + zone + PSC + year*zone, data=dat))
+summary(aov(mn ~ year + zone + PSC + year*zone + PSC*zone + PSC*year, data=dat))
+qqnorm(fit$res)
+plot(fit$fitted,fit$res,xlab="Fitted",ylab="Residuals")
+ls()
+save.image('Working.RData')
+pig
+pig = read.csv('chlpigdatahirata.csv',header=T)#pig = read.csv('chlpigdatahirata-100m.csv',header=T)#
+#Change 1,2 to '1-STFZ','2-TZCF' since Matlab only writes numberspig$zone[pig$zone==1]='1-STFZ'pig$zone[pig$zone==2]='2-TZCF'repig.all = melt(pig[,c(1:2,4:10)],id=c('year','zone')) #Reshape to columns only taking chloropigments (e.g. pro, prym, diat, etc)repig.size = melt(pig[,c(1:2,11:13)],id=c('year','zone')) # Reshape but only pico, nano, micro groups
+pig
+rowSums(pig[,11:13])
+colSums(pig[,11:13])
+pig[,11:13]/rowSums(pig[,11:13])
+pig[1:3,11:13]/pig[4:6,11:13]
+pig[4:6,11:13]/pig[1:3,11:13]
+pig[,11:13]/rowSums(pig[,11:13])
+pig[4:6,15]/pig[1:3,15]
+pig
+pig[,4:10]/rowSums(pig[,4:10])
+rm(list=ls())# Read in the file that Matlab wrote out (CSV). chlpigdata.csv is actual valuesdat = read.csv('meanphyto-werror.csv',header=T)pig = read.csv('pigmeanplussem.csv',header=T)
+ggplot() + geom_bar(data=pig, aes(y = mnval, x = Zone), stat="identity", fill = I("grey50")) + theme_bw() + facet_grid( ~ PSC) + geom_errorbar(data=pig, aes(x=Zone, ymin=mnval-sem,ymax=mnval+sem))
+rm(list=ls())# Read in the file that Matlab wrote out (CSV). chlpigdata.csv is actual valuesdat = read.csv('meanphyto-werror.csv',header=T)pig = read.csv('pigmeanplussem.csv',header=T)
+ggplot() + geom_bar(data=pig, aes(y = mnval, x = Zone), stat="identity", fill = I("grey50")) + theme_bw() + facet_grid( ~ PSC) + geom_errorbar(data=pig, aes(x=Zone, ymin=mnval-sem,ymax=mnval+sem))
+ls()
+rm(dat)
+rm(pig)
+dat = read.csv('latpositions98-14.csv')
+dat
+plot(dat$NPI,dat$S18,pch=21,bg='grey',xlab='NPI',ylab='Latitude (N)')
+summary(lm(S18~NPI,data=dat))
+summary(lm(CP2~NPI,data=dat))
+par(mfrow=c(3,1))
+plot(dat$NPI,dat$S18,pch=21,bg='grey',xlab='NPI',ylab='Latitude (N)')
+par(mfrow=c(1,3))
+plot(dat$NPI,dat$S18,pch=21,bg='grey',xlab='NPI',ylab='Latitude (N)')
+S.fit = lm(S18~NPI,data=dat)
+abline(S.fit)
+plot(dat$NPI,dat$CP2,pch=21,bg='grey',xlab='NPI',ylab='Latitude (N)')
+C.fit = lm(CP2~NPI,data=dat)
+abline(C.fit)
+dat
+plot(dat$NPI,dat$FrontDiff,pch=21,bg='grey',xlab='NPI',ylab=' D Latitude')
+D.fit = lm(FrontDiff~NPI,data=dat)
+abline(D.fit)
+summary(D.fit)
+summary(D.fit)$adj.r.squared
+str(summary(D.fit))
+summary(D.fit)$adj.fstatistic
+summary(D.fit)$fstatistic
+summary(D.fit)$coeff
+summary(D.fit)$coeff[2]
+summary(D.fit)$coeff[4]
+summary(D.fit)$coeff[5]
+summary(D.fit)$coeff[6]
+summary(D.fit)$coeff[7]
+summary(D.fit)$coeff[8]
+summary(S.fit)
+summary(S.fit)$coeff[8]
+sprintf('%6.4f',summary(S.fit)$coeff[8])
+sprintf('%6.4f',summary(D.fit)$coeff[8])
+par(mfrow=c(1,3))plot(dat$NPI,dat$S18,pch=21,bg='grey',xlab='NPI',ylab='Latitude (N)')S.fit = lm(S18~NPI,data=dat)abline(S.fit)
+text(1010, 29, sprintf('r2=%5.2f, p=%6.4f', summary(S.fit)$adj.r.squared, sprintf('%6.4f',summary(S.fit)$coeff[8])))
+text(1010, 29, sprintf('r2=%5.2f, p=%s', summary(S.fit)$adj.r.squared, sprintf('%6.4f',summary(S.fit)$coeff[8])))
+source("/Users/ehowell/git/TZCF-Figures/Figure X4 - Wind Fields/PlotNPIFits.r")
+source("/Users/ehowell/git/TZCF-Figures/Figure X4 - Wind Fields/PlotNPIFits.r")
+source("/Users/ehowell/git/TZCF-Figures/Figure X4 - Wind Fields/PlotNPIFits.r")
+source("/Users/ehowell/git/TZCF-Figures/Figure X4 - Wind Fields/PlotNPIFits.r")
+source("/Users/ehowell/git/TZCF-Figures/Figure X4 - Wind Fields/PlotNPIFits.r")
+dat
+dat2  =dat
+save.image('Working.RDAta')
+rm(list=ls())
+pig = read.csv('chlpigdatahirata.csv',header=T)
+pig
+pig$zone[pig$zone==1]='1-STFZ'pig$zone[pig$zone==2]='2-TZCF'repig.all = melt(pig[,c(1:2,4:10)],id=c('year','zone')) #Reshape to columns only taking chloropigments (e.g. pro, prym, diat, etc)repig.size = melt(pig[,c(1:2,11:13)],id=c('year','zone')) # Re
+ggplot() + geom_bar(data=repig.all, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year)
+ggplot() + geom_bar(data=repig.all, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year) + scale_fill_grey(start = 0, end = .9)
+ggplot() + geom_bar(data=repig.all, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year) + scale_fill_grey()
+ggplot() + geom_bar(data=repig.all, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year) + scale_fill_brewer()
+ggplot() + geom_bar(data=repig.all, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year) + scale_fill_brewer(palette="set1")
+ggplot() + geom_bar(data=repig.all, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year) + scale_fill_brewer(palette="Set1")
+ggplot() + geom_bar(data=repig.all, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year) + scale_fill_brewer(palette="Set2")
+ggplot() + geom_bar(data=repig.all, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year) + scale_fill_brewer(palette="Set3")
+ggplot() + geom_bar(data=repig.all, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year) + scale_fill_brewer(palette="Set4")
+ggplot() + geom_bar(data=repig.all, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year) + scale_fill_brewer(palette="Set3")
+ggplot() + geom_bar(data=repig.all, aes(y = value, x = zone, fill = variable,colour="black"), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year) + scale_fill_brewer(palette="Set3")
+ggplot() + geom_bar(data=repig.all, aes(y = value, x = zone, fill = variable,colour="black"), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year) + scale_fill_brewer()
+ggplot() + geom_bar(data=repig.all, aes(y = value, x = zone, fill = variable,colour="black"), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year) + scale_fil_grey()
+ggplot() + geom_bar(data=repig.all, aes(y = value, x = zone, fill = variable,colour="black"), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year) + scale_fill_grey()
+ggplot() + geom_bar(data=repig.all, aes(y = value, x = zone, fill = variable,colour="white"), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year) + scale_fill_grey()
+ggplot() + geom_bar(data=repig.all, aes(y = value, x = zone, fill = variable,colour="black"), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year) + scale_fill_brewer()
+ggplot() + geom_bar(data=repig.all, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year) + scale_fill_brewer()
+ggplot() + geom_bar(data=repig.all, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year) + scale_fill_hue()
+ggplot() + geom_bar(data=repig.all, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year) + scale_fill_brewer(l=40)
+ggplot() + geom_bar(data=repig.all, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year) + scale_fill_hue(l=40)
+ggplot() + geom_bar(data=repig.all, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year) + scale_fill_brewer(palette="spectral")
+ggplot() + geom_bar(data=repig.all, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year) + scale_fill_brewer(palette="Spectral")
+ggplot() + geom_bar(data=repig.all, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year) + scale_fill_brewer(palette="RdYIBu")
+ggplot() + geom_bar(data=repig.all, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year) + scale_fill_brewer(palette="RdYlBu")
+ggplot() + geom_bar(data=repig.all, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year) + scale_fill_brewer(palette="BrBG")
+ggplot() + geom_bar(data=repig.all, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year) + scale_fill_brewer(palette="Spectral")
+ggplot() + geom_bar(data=repig.all, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year) + scale_fill_brewer(palette="BuGn")
+ggplot() + geom_bar(data=repig.all, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year) + scale_fill_brewer(palette="Accent")
+ggplot() + geom_bar(data=repig.all, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year) + scale_fill_brewer(palette="Dark2")
+ggplot() + geom_bar(data=repig.all, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year) + scale_fill_brewer(palette="Set1")
+par(mfrow=c(2,1))
+ggplot() + geom_bar(data=repig.all, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year) + scale_fill_brewer(palette="Set1")
+pigperc = cbind(pig[,1:2],pig[4:10]/rowSums(pig[4:10]))repigperc.all = melt(pigperc,id=c('year','zone')) #Reshape to columns only taking chloropigments (e.g. pro, prym, diat, etc)
+ggplot() + geom_bar(data=repigperc.all, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year)
+ggplot() + geom_bar(data=repigperc.all, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year) + scale_fill_brewer(palette="Set1")
+dat = read.csv('latpositions98-14.csv')
+dat = read.csv('latpositions98-14.csv')
+par(mfrow=c(1,3))plot(dat$NPI,dat$S18,pch=21,bg='grey',xlab='NPI',ylab='Latitude (N)',main='18C Latitude (157.5-158.5W AVG)')S.fit = lm(S18~NPI,data=dat)abline(S.fit)text(1011.5, 29, sprintf('r2=%5.2f, p=%s', summary(S.fit)$adj.r.squared, sprintf('%6.4f',summary(S.fit)$coeff[8])))# Latitude of 0.2 mg m-3 at 157.5-158.5W averageplot(dat$NPI,dat$CP2,pch=21,bg='grey',xlab='NPI',ylab='Latitude (N)',main='0.2 mg m-3 Latitude (157.5-158.5W AVG)')C.fit = lm(CP2~NPI,data=dat)abline(C.fit)text(1011.5, 30.5, sprintf('r2=%5.2f, p=%s', summary(C.fit)$adj.r.squared, sprintf('%6.4f',summary(C.fit)$coeff[8])))# Latitude of 0.2 mg m-3 minus latitude of 18C at 157.5-158.5W averageplot(dat$NPI,dat$FrontDiff,pch=21,bg='grey',xlab='NPI',ylab=' D Latitude',main='0.2 Lat - 18 Lat (157.5-158.5W AVG)')D.fit = lm(FrontDiff~NPI,data=dat)abline(D.fit)text(1011.5, 0.75, sprintf('r2=%5.2f, p=%s', summary(D.fit)$adj.r.squared, sprintf('%6.4f',summary(D.fit)$coeff[8])))
+quit()

@@ -1,4 +1,4 @@
-#dat = read.csv('latpositions98-14.csv')
+dat = read.csv('latpositions98-14.csv')
 
 # Latitude of 18C at 157.5-158.5W average
 par(mfrow=c(1,3))
