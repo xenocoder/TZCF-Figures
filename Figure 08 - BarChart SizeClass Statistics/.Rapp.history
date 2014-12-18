@@ -1,0 +1,6 @@
+load("/Users/ehowell/git/TZCF-Figures/Figure 08 - BarChart SizeClass Statistics/Working.RData")
+ls()
+dat
+aggregate(dat[,4]by=list(dat$year,dat$zone),FUN=sum)
+aggregate(dat[,4],by=list(dat$year,dat$zone),FUN=sum)
+q()
