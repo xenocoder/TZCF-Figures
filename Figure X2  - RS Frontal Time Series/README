@@ -1,3 +1,0 @@
-The idea behind this figure was to plot the 17-18°C and 0.15-0.25 mg m-3 Chl a ranges over time (1998-2011). What I expect to see is a change in the placement of the fronts. Possibly tie this to NPGO and/or SSH changes due to Rossby Waves?
-
-The file MakeFigure-RS-TimeSeries.txt does this. I will try to do this in Ferret. I will take the average of the range for SST and possibly the 2-week period around Chla just for cloud issues...
