@@ -1,45 +1,0 @@
-Sys.getenv("PATH")
-system(paste0("PATH=", Sys.getenv("PATH"), " grdpaste"))
-system(paste0("PATH=", Sys.getenv("PATH"), " grdpaste depth1.nc depth2.nc -Gdepth.nc -V"))
-gmt.system("/usr/local/bin/grdpaste depth1.nc depth2.nc -Gdepth.nc -V")
-library(gmt)
-gmt.system("/usr/local/bin/grdpaste depth1.nc depth2.nc -Gdepth.nc -V")
-gmt.system("grdpaste depth1.nc depth2.nc -Gdepth.nc -V")
-gmt.system(paste0("PATH=", Sys.getenv("PATH"), " grdpaste depth1.nc depth2.nc -Gdepth.nc -V")
-gmt.system(paste0("PATH=", Sys.getenv("PATH"), " grdpaste depth1.nc depth2.nc -Gdepth.nc -V"))
-which ("grdpaste")
-Sys.getenv("PATH")
-system("echo $PATH")
-system("grdpaste -V")
-system(paste0("PATH=", Sys.getenv("PATH"), " grdpaste -V"))
-system(paste0("PATH=", Sys.getenv("PATH"), " grdpaste --version"))
-system("grdpaste --version")
-system("echo $PATH")
-q()
-library(limsolve)
-library(limSolve)
-Chemtax
-?lsei
-?chemtax
-?Chemtax
-q()
-library(reshape)library(ggplot2)# Read in the file that Matlab wrote out (CSV). chlpigdata.csv is actual valuespig = read.csv('chlpigdatahirata.csv',header=T)
-pig = read.csv('chlpigdatahirata.csv',header=T)
-pig$zone[pig$zone==1]='1-STFZ'pig$zone[pig$zone==2]='2-TZCF'
-pig
-repig.all = melt(pig[,c(1:2,4:9)],id=c('year','zone')) #Reshape to columns only taking chloropigments (e.g. pro, prym, diat, etc)repig.size = melt(pig[,c(1:2,10:12)],id=c('year','zone')) # Reshape but only pico, nano, micro groups
-repig.all
-repig.size
-ggplot() + geom_bar(data=repig.size, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year)
-repig.all = melt(pig[,c(1:2,4:9)],id=c('year','zone')) #Reshape to columns only taking chloropigments (e.g. pro, prym, diat, etc)repig.size = melt(pig[,c(1:2,11:13)],id=c('year','zone')) # Reshape but only pico, nano, micro groups
-ggplot() + geom_bar(data=repig.size, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year)
-ggplot() + geom_bar(data=repig.all, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year)
-repig.all = melt(pig[,c(1:2,4:10)],id=c('year','zone')) #Reshape to columns only taking chloropigments (e.g. pro, prym, diat, etc)
-repig.all
-ggplot() + geom_bar(data=repig.all, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year)
-pigperc = cbind(pig[,1:2],pig[4:10]/rowSums(pig[4:10]))repigperc.all = melt(pigperc,id=c('year','zone')) #Reshape to columns only taking chloropigments (e.g. pro, prym, diat, etc)
-ggplot() + geom_bar(data=repigperc.all, aes(y = value, x = zone, fill = variable), stat="identity", position='stack') + theme_bw() + facet_grid( ~ year)
-q()
-ls()
-save.image('Figure7.Rdata')
-q()

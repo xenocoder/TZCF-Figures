@@ -1,4 +1,4 @@
-fid = fopen('meanphyto-werror.csv','w+'); %open file for writing
+fid = fopen('Figure8-HPLC-PSC-WError.csv','w+'); %open file for writing
 fprintf(fid, 'year,zone,PSC,mn,se\n');
 XI = 1:200;
 

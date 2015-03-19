@@ -1,0 +1,9 @@
+!AVISO NRT merged data
+use "http://aviso-users:grid2010@opendap.aviso.altimetry.fr/thredds/dodsC/dataset-duacs-dt-global-allsat-msla-h"
+
+!MODIS AQUA from Oceanwatch
+http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/aqua/monthly
+
+!PFGAC SST from Oceanwatch
+http://oceanwatch.pifsc.noaa.gov/thredds/dodsC/pfgac/monthly
+
