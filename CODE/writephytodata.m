@@ -1,5 +1,6 @@
 function out = writephytodata(data)
 %Script to write out phytoplankton data
+%data - Cruise structure name (e.g. 2008)
 
 cruise = data.cruise;
 
@@ -13,7 +14,7 @@ for i = 2:length(headers)
 end
 phyto = data.HPLC;
 
-filename = sprintf('Howell-Figures4-8-%s-HPLC.csv',cruise);
+filename = sprintf('Howell-Figures4-8-%s-HPLC-RAW.csv',cruise);
 fid = fopen(filename,'w+');
 vars = {'depth','stations','latitude','longitude','chlda','chlc','per','but','fuco','hex','pras','viola','ddx','allox','dtx','lut','zeax','mvb','acar','bcar','dva','mva','totalchla'};
 fprintf(fid,'%s\r\n',header_string);
